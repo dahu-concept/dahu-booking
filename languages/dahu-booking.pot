@@ -1,0 +1,646 @@
+# Copyright (C) 2026 Hugo Vial-Jaime
+# This file is distributed under the MIT licence.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dahu Booking\n"
+"Report-Msgid-Bugs-To: https://dahu-concept.fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-10-31 22:47+0000\n"
+"X-Domain: dahu-booking\n"
+
+#. translators: %1$s: date, %2$s: time */
+#: public/views/manage-booking.php:63
+msgid "%1$s at %2$s"
+msgstr ""
+
+#. translators: %1$s: client name, %2$s: date, %3$s: time */
+#: includes/class-dahu-booking-mailer.php:161
+msgid "%1$s cancelled their appointment on %2$s at %3$s."
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:126
+msgid "%s rescheduled their appointment."
+msgstr ""
+
+#: public/views/booking-widget.php:148
+msgid "A confirmation email has been sent to you, with a link to modify or cancel this appointment if needed."
+msgstr ""
+
+#: admin/class-dahu-booking-admin.php:58 admin/class-dahu-booking-admin.php:87 admin/class-dahu-booking-admin.php:108 admin/class-dahu-booking-admin.php:146
+msgid "Access denied."
+msgstr ""
+
+#: admin/views/page-availability.php:94 admin/views/page-bookings.php:33
+msgid "Action"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:89
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:36 public/class-dahu-booking-public.php:69 public/views/booking-widget.php:10
+msgid "Appointment"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:158
+msgid "Appointment cancelled: %s"
+msgstr ""
+
+#: public/views/booking-widget.php:146
+msgid "Appointment confirmed!"
+msgstr ""
+
+#: admin/views/page-settings.php:64
+msgid "Appointment duration (minutes)"
+msgstr ""
+
+#: public/views/manage-booking.php:21
+msgid "Appointment not found"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:235
+msgid "Appointment rescheduled."
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:124
+msgid "Appointment rescheduled: %s"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:109
+msgid "April"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:113
+msgid "August"
+msgstr ""
+
+#: admin/class-dahu-booking-admin.php:37 admin/class-dahu-booking-admin.php:37 admin/views/page-availability.php:16
+msgid "Availability"
+msgstr ""
+
+#: admin/views/page-settings.php:56
+msgid "Available time slots"
+msgstr ""
+
+#: admin/views/page-availability.php:47
+msgid "Available time slots:"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:83 public/views/booking-widget.php:22
+msgid "Back"
+msgstr ""
+
+#: admin/views/page-availability.php:51
+msgid "Block a one-off slot"
+msgstr ""
+
+#: admin/views/page-availability.php:79
+msgid "Block this slot"
+msgstr ""
+
+#: admin/views/page-settings.php:92
+msgid "Bookable period (days in the future)"
+msgstr ""
+
+#: admin/views/page-bookings.php:18
+msgid "Booking cancelled. The client has been notified by email."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:204
+msgid "Booking confirmed."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:219
+msgid "Booking not found."
+msgstr ""
+
+#: admin/class-dahu-booking-admin.php:36 admin/class-dahu-booking-admin.php:36 admin/views/page-bookings.php:15
+msgid "Bookings"
+msgstr ""
+
+#: admin/views/page-bookings.php:63
+msgid "Cancel"
+msgstr ""
+
+#: public/views/manage-booking.php:77
+msgid "Cancel this appointment"
+msgstr ""
+
+#: admin/views/page-bookings.php:54
+msgid "Cancelled"
+msgstr ""
+
+#: public/views/manage-booking.php:83
+msgid "Choose a new time slot"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:81 public/views/booking-widget.php:127
+msgid "Confirm appointment"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:93 public/views/manage-booking.php:116
+msgid "Confirm new time slot"
+msgstr ""
+
+#: admin/views/page-bookings.php:52
+msgid "Confirmed"
+msgstr ""
+
+#: admin/views/page-availability.php:84
+msgid "Currently blocked slots"
+msgstr ""
+
+#: admin/views/page-availability.php:38
+msgid "Currently open days:"
+msgstr ""
+
+#: admin/views/page-settings.php:119
+msgid "Customize the widget appearance"
+msgstr ""
+
+#: admin/views/page-availability.php:58 admin/views/page-availability.php:91 admin/views/page-bookings.php:27
+msgid "Date"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:117
+msgid "December"
+msgstr ""
+
+#: public/views/booking-widget.php:108
+msgid "Do not fill in this field"
+msgstr ""
+
+#: admin/views/page-bookings.php:30 public/class-dahu-booking-public.php:79
+msgid "Email"
+msgstr ""
+
+#: admin/views/page-settings.php:69
+msgid "Event title"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:107
+msgid "February"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:148
+msgid "Feel free to book a new slot whenever you wish."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:100
+msgid "Fri"
+msgstr ""
+
+#: admin/views/page-availability.php:8 admin/views/page-bookings.php:9 admin/views/page-settings.php:8 public/class-dahu-booking-public.php:126
+msgid "Friday"
+msgstr ""
+
+#: admin/views/page-settings.php:30
+msgid "Gutenberg block:"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:40 includes/class-dahu-booking-mailer.php:106 includes/class-dahu-booking-mailer.php:145
+msgid "Hello %s,"
+msgstr ""
+
+#: admin/views/page-settings.php:22
+msgid "How to display the booking widget"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:151
+msgid "Invalid date."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:167
+msgid "Invalid request."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:188 public/class-dahu-booking-public.php:223
+msgid "Invalid time slot."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:106
+msgid "January"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:112
+msgid "July"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:111
+msgid "June"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:86
+msgid "Loading…"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:87
+msgid "Manage this booking from your WordPress admin (Dahu Booking)."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:108
+msgid "March"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:110
+msgid "May"
+msgstr ""
+
+#: admin/views/page-settings.php:74
+msgid "Meeting location"
+msgstr ""
+
+#: admin/views/page-bookings.php:31
+msgid "Message"
+msgstr ""
+
+#: admin/views/page-settings.php:84
+msgid "Minimum notice before appointment (hours)"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:96
+msgid "Mon"
+msgstr ""
+
+#: admin/views/page-availability.php:4 admin/views/page-bookings.php:5 admin/views/page-settings.php:4 public/class-dahu-booking-public.php:122
+msgid "Monday"
+msgstr ""
+
+#: admin/views/page-bookings.php:29 public/class-dahu-booking-public.php:78
+msgid "Name"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:112
+msgid "Need to change it again or cancel?"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:53
+msgid "Need to reschedule or cancel?"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:70
+msgid "New appointment: %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:75
+msgid "New booking received."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:82
+msgid "Next"
+msgstr ""
+
+#: public/views/booking-widget.php:75 public/views/manage-booking.php:95
+msgid "Next month"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:84
+msgid "No available slots on this day."
+msgstr ""
+
+#: admin/views/page-bookings.php:22
+msgid "No bookings yet."
+msgstr ""
+
+#: admin/views/page-availability.php:86
+msgid "No manually blocked slots at the moment."
+msgstr ""
+
+#: admin/views/page-settings.php:79
+msgid "Notification email (you)"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:116
+msgid "November"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:115
+msgid "October"
+msgstr ""
+
+#: admin/views/page-settings.php:59
+msgid "One time per line, format HH:MM (e.g. 09:00). Remove a line to stop offering that slot."
+msgstr ""
+
+#: admin/views/page-settings.php:123
+msgid "Open Additional CSS (Customize)"
+msgstr ""
+
+#: admin/views/page-settings.php:43
+msgid "Open days"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:85
+msgid "Please choose a date from the calendar."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:192
+msgid "Please provide a valid name and email address."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:80 public/views/booking-widget.php:121
+msgid "Please share anything that will help prepare for our meeting."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:175
+msgid "Please wait a few seconds before trying again."
+msgstr ""
+
+#: admin/views/page-settings.php:87
+msgid "Prevents last-minute bookings (e.g. 12 = at least 12 hours ahead)."
+msgstr ""
+
+#: public/views/booking-widget.php:71 public/views/manage-booking.php:91
+msgid "Previous month"
+msgstr ""
+
+#: admin/views/page-availability.php:93
+msgid "Reason"
+msgstr ""
+
+#: admin/views/page-availability.php:72
+msgid "Reason (optional)"
+msgstr ""
+
+#: public/views/manage-booking.php:74
+msgid "Reschedule this appointment"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:101
+msgid "Sat"
+msgstr ""
+
+#: admin/views/page-availability.php:9 admin/views/page-bookings.php:10 admin/views/page-settings.php:9 public/class-dahu-booking-public.php:127
+msgid "Saturday"
+msgstr ""
+
+#: admin/views/page-settings.php:115
+msgid "Save settings"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:55 includes/class-dahu-booking-mailer.php:114
+msgid "See you soon,"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:76 public/views/booking-widget.php:63
+msgid "Select a date and time"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:87
+msgid "Sending…"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:114
+msgid "September"
+msgstr ""
+
+#: admin/class-dahu-booking-admin.php:38 admin/class-dahu-booking-admin.php:38 admin/views/page-availability.php:34 dahu-booking.php:68
+msgid "Settings"
+msgstr ""
+
+#: admin/views/page-settings.php:18
+msgid "Settings saved."
+msgstr ""
+
+#: admin/views/page-settings.php:15
+msgid "Settings — Dahu Booking"
+msgstr ""
+
+#: admin/views/page-settings.php:26
+msgid "Shortcode:"
+msgstr ""
+
+#. translators: %s: event title */
+#: admin/views/page-settings.php:104
+msgid "Show \"%s\", duration and location above the contact form"
+msgstr ""
+
+#: admin/views/page-settings.php:97
+msgid "Show title/duration/location at step 2"
+msgstr ""
+
+#: admin/views/page-availability.php:19
+msgid "Slot blocked."
+msgstr ""
+
+#: admin/views/page-availability.php:22
+msgid "Slot unblocked — available again."
+msgstr ""
+
+#: admin/views/page-bookings.php:32
+msgid "Status"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:102
+msgid "Sun"
+msgstr ""
+
+#: admin/views/page-availability.php:10 admin/views/page-bookings.php:4 admin/views/page-settings.php:10 public/class-dahu-booking-public.php:121
+msgid "Sunday"
+msgstr ""
+
+#: public/views/manage-booking.php:36
+msgid "This appointment has already been cancelled"
+msgstr ""
+
+#. translators: %1$s: email href, %2$s: email address */
+#: public/views/manage-booking.php:26
+msgid "This link is no longer valid. If you think this is an error, please contact us at %1$s."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:90
+msgid "This slot was just booked by someone else. Please choose another one."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:99
+msgid "Thu"
+msgstr ""
+
+#: admin/views/page-availability.php:7 admin/views/page-bookings.php:8 admin/views/page-settings.php:7 public/class-dahu-booking-public.php:125
+msgid "Thursday"
+msgstr ""
+
+#: admin/views/page-availability.php:62 admin/views/page-availability.php:92 admin/views/page-bookings.php:28
+msgid "Time"
+msgstr ""
+
+#: admin/views/page-settings.php:120
+msgid "To adjust colors, fonts or spacing of the booking widget, use WordPress's built-in Additional CSS editor — it is the recommended, site-wide way to add custom styles safely."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:97
+msgid "Tue"
+msgstr ""
+
+#: admin/views/page-availability.php:5 admin/views/page-bookings.php:6 admin/views/page-settings.php:5 public/class-dahu-booking-public.php:123
+msgid "Tuesday"
+msgstr ""
+
+#: admin/views/page-settings.php:23
+msgid "Two equivalent ways to insert the booking calendar on a page:"
+msgstr ""
+
+#: admin/views/page-availability.php:111
+msgid "Unblock"
+msgstr ""
+
+#: admin/views/page-settings.php:109
+msgid "Unchecked by default. When enabled, this recap appears at step 2 (the form), below the chosen date/time."
+msgstr ""
+
+#: admin/views/page-availability.php:52
+msgid "Useful for a personal appointment, holiday, or exceptional unavailability — without touching your regular schedule."
+msgstr ""
+
+#: dahu-booking.php:79
+msgid "Version %s"
+msgstr ""
+
+#: dahu-booking.php:81
+msgid "Visit plugin site"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:98
+msgid "Wed"
+msgstr ""
+
+#: admin/views/page-availability.php:6 admin/views/page-bookings.php:7 admin/views/page-settings.php:6 public/class-dahu-booking-public.php:124
+msgid "Wednesday"
+msgstr ""
+
+#: admin/views/page-settings.php:126
+msgid "WordPress Additional CSS applies site-wide and is preserved across plugin updates."
+msgstr ""
+
+#. translators: %s: link to contact page */
+#: public/views/manage-booking.php:41
+msgid "You can book a new slot directly from our %s."
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:31
+msgid "Your appointment at %s is confirmed"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:139
+msgid "Your appointment has been cancelled"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:91
+msgid "Your appointment has been cancelled. A confirmation email will be sent to you."
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:99
+msgid "Your appointment has been rescheduled"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:92
+msgid "Your appointment has been rescheduled. A confirmation email will be sent to you."
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:107
+msgid "Your appointment has been successfully rescheduled ✅"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:41
+msgid "Your appointment is confirmed ✅"
+msgstr ""
+
+#: public/class-dahu-booking-public.php:88
+msgid "Your appointment is confirmed! A confirmation email has been sent to you."
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:147
+msgid "Your appointment on %1$s at %2$s has been cancelled."
+msgstr ""
+
+#: public/views/manage-booking.php:58
+msgid "Your current appointment"
+msgstr ""
+
+#. translators: %s: link to Settings page */
+#: admin/views/page-availability.php:33
+msgid "Your default open days and times are configured on the %s page."
+msgstr ""
+
+#: public/class-dahu-booking-public.php:77 public/views/booking-widget.php:103
+msgid "Your details"
+msgstr ""
+
+#: public/views/booking-widget.php:117
+msgid "Your email address*"
+msgstr ""
+
+#: public/views/booking-widget.php:113
+msgid "Your name*"
+msgstr ""
+
+#: admin/views/page-availability.php:28
+msgid "Your regular schedule"
+msgstr ""
+
+#: public/views/manage-booking.php:42
+msgid "contact page"
+msgstr ""
+
+#: admin/views/page-availability.php:75
+msgid "e.g. Personal appointment"
+msgstr ""
+
+#: admin/views/page-settings.php:27
+msgid "in any page or text widget."
+msgstr ""
+
+#: admin/views/page-settings.php:31
+msgid "in the page editor, add a block and search for"
+msgstr ""
+
+#: admin/views/page-settings.php:27
+msgid "paste"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:77
+msgid "👤 Name: %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:85
+msgid "💬 Message:"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:45
+msgid "📅 %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:81
+msgid "📅 Date: %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:109 includes/class-dahu-booking-mailer.php:128
+msgid "📅 New date: %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:43
+msgid "📌 %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:50
+msgid "📍 %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:79
+msgid "📧 Email: %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:47
+msgid "🕐 %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:111 includes/class-dahu-booking-mailer.php:130
+msgid "🕐 New time: %s"
+msgstr ""
+
+#: includes/class-dahu-booking-mailer.php:83
+msgid "🕐 Time: %s"
+msgstr ""
+
