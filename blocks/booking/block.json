@@ -1,0 +1,15 @@
+{
+    "apiVersion": 3,
+    "name": "dahu-booking/widget",
+    "title": "Dahu Booking",
+    "category": "widgets",
+    "icon": "calendar-alt",
+    "description": "Affiche le widget de réservation de créneaux (calendrier + heures + formulaire). Équivalent au shortcode [dahu_booking].",
+    "keywords": [ "réservation", "rendez-vous", "calendrier", "booking", "agenda" ],
+    "textdomain": "dahu-booking",
+    "supports": {
+        "html": false,
+        "align": [ "wide", "full" ]
+    },
+    "editorScript": "file:./index.js"
+}

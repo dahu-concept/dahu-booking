@@ -1,0 +1,39 @@
+.dahu-admin h1 {
+  margin-bottom: 20px;
+}
+
+.dahu-admin-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 900px;
+}
+
+.dahu-admin-card {
+  background: #fff;
+  border: 1px solid #c3c4c7;
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+
+.dahu-admin-card h2 {
+  margin-top: 0;
+}
+
+.dahu-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.dahu-badge--confirmed {
+  background: rgba(46, 204, 113, 0.15);
+  color: #1e8449;
+}
+
+.dahu-badge--cancelled {
+  background: rgba(231, 76, 60, 0.12);
+  color: #c0392b;
+}
