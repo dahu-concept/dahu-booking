@@ -156,8 +156,8 @@ class Dahu_Booking_Mailer {
         $admin_to = get_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
         /* translators: %s: client name */
         $admin_subject = sprintf( __( 'Appointment cancelled: %s', 'dahu-booking' ), $booking['client_name'] );
-        /* translators: %1$s: client name, %2$s: date, %3$s: time */
         $admin_body = sprintf(
+            /* translators: %1$s: client name, %2$s: date, %3$s: time */
             __( '%1$s cancelled their appointment on %2$s at %3$s.', 'dahu-booking' ),
             $booking['client_name'],
             $date_fmt,

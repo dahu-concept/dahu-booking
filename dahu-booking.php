@@ -7,10 +7,10 @@
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: Hugo Vial-Jaime
- * Author URI: mailto:contact@dahu-concept.fr
+ * Author URI: https://dahu-concept.fr
  * Text Domain: dahu-booking
  * Domain Path: /languages
- * License: GPL-2.0-or-later
+ * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
@@ -65,7 +65,7 @@ add_action( 'plugins_loaded', 'dahu_booking_init' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),
     function( $links ) {
         $settings = '<a href="' . admin_url( 'admin.php?page=dahu-booking-settings' ) . '">'
-            . __( 'Réglages' ) . '</a>';
+            . __( 'Settings', 'dahu-booking' ) . '</a>';
         array_unshift( $links, $settings );
         return $links;
     }
@@ -76,9 +76,9 @@ add_filter( 'plugin_row_meta', function( $links, $file ) {
         $header = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
         $links  = array(
             /* translators: %s: plugin version number */
-            sprintf( __( 'Version %s' ), $header['Version'] ),
-            '<a href="https://dahu-concept.fr" target="_blank">Par Hugo Vial-Jaime — Dahu-Concept</a>',
-            '<a href="https://dahu-concept.fr" target="_blank">' . __( "Aller sur le site de l'extension" ) . '</a>',
+            sprintf( __( 'Version %s', 'dahu-booking' ), $header['Version'] ),
+            '<a href="https://dahu-concept.fr" target="_blank">By Hugo Vial-Jaime — Dahu-Concept</a>',
+            '<a href="https://dahu-concept.fr" target="_blank">' . __( 'Visit plugin site', 'dahu-booking' ) . '</a>',
         );
     }
     return $links;
