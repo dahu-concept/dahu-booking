@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name: Dahu Booking
- * Plugin URI: https://dahu-concept.fr
  * Description: Lightweight self-hosted appointment booking plugin: two-step calendar widget, availability management, automatic confirmation emails, and secure reschedule/cancel links — no third-party service required.
  * Version: 1.0.1
  * Requires at least: 6.2
