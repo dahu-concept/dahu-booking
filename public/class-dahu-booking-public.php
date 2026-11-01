@@ -159,6 +159,19 @@ class Dahu_Booking_Public {
     // ============================================
     // AJAX: Create a new booking
     // ============================================
+    /**
+     * Creates a booking from the public form.
+     *
+     * dahu:public-endpoint -- the visitor is the one booking, so there is no
+     * capability to check and no account to check it against. What stands in
+     * its place, in order: the nonce below, a honeypot field a human never
+     * fills, a rate limit of one booking per IP every twenty seconds, and
+     * every value sanitised where it is read. Said here because a reader who
+     * finds no current_user_can() is right to look for the reason, and the
+     * reason belongs in the code rather than in somebody's memory.
+     *
+     * @return void
+     */
     public function ajax_create_booking() {
         check_ajax_referer( 'dahu_booking_nonce', 'nonce' );
 
