@@ -1,6 +1,6 @@
 === Dahu Booking ===
 Contributors: dahuconcept
-Tags: booking, appointment, calendar, scheduling, reservation
+Tags: time slots, self hosted, appointments, booking, calendar
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
