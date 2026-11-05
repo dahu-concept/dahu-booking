@@ -1,8 +1,9 @@
 <?php
 /**
- * Fonction de rendu du bloc Gutenberg [ubac-booking/widget].
- * Réutilise directement le shortcode existant pour ne pas dupliquer la logique
- * d'affichage du widget (une seule source de vérité : Ubac_Booking_Public::render_shortcode).
+ * Renders the [ubac-booking/widget] Gutenberg block.
+ * It reuses the existing shortcode directly rather than duplicating the
+ * widget's display logic, so there is a single source of truth:
+ * Ubac_Booking_Public::render_shortcode.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

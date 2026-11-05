@@ -1,10 +1,10 @@
 <?php
 /**
- * Gère toute l'interface d'administration (wp-admin) du plugin :
- * - Menu "Ubac Booking"
- * - Page "Réservations" (liste, annulation)
- * - Page "Disponibilités" (jours/heures ouverts, blocage de créneaux)
- * - Page "Réglages" (email admin, lieu, titre, délais)
+ * The plugin's whole wp-admin interface:
+ * - the "Ubac Booking" menu
+ * - the Bookings page (list, cancellation)
+ * - the Availability page (open days and times, blocking slots)
+ * - the Settings page (admin email, place, title, notice periods)
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -45,9 +45,7 @@ class Ubac_Booking_Admin {
         wp_enqueue_style( 'ubac-booking-admin-style', UBAC_BOOKING_URL . 'assets/css/ubac-booking-admin.css', array(), UBAC_BOOKING_VERSION );
     }
 
-    // ============================================
-    // PAGE : Réservations
-    // ============================================
+    // PAGE: bookings.
     public function render_bookings_page() {
         $bookings = Ubac_Booking_DB::get_all_bookings();
         include UBAC_BOOKING_PATH . 'admin/views/page-bookings.php';
@@ -72,9 +70,7 @@ class Ubac_Booking_Admin {
         exit;
     }
 
-    // ============================================
-    // PAGE : Disponibilités
-    // ============================================
+    // PAGE: availability.
     public function render_availability_page() {
         $open_days   = get_option( 'ubac_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) );
         $time_slots  = get_option( 'ubac_booking_time_slots', array() );
@@ -123,9 +119,7 @@ class Ubac_Booking_Admin {
         exit;
     }
 
-    // ============================================
-    // PAGE : Réglages
-    // ============================================
+    // PAGE: settings.
     public function render_settings_page() {
         $settings = array(
             'open_days'        => get_option( 'ubac_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) ),
@@ -147,11 +141,11 @@ class Ubac_Booking_Admin {
         }
         check_admin_referer( 'ubac_save_settings_action' );
 
-        // Jours ouverts (cases à cocher 0-6)
+        // Open days (checkboxes 0-6).
         $open_days = isset( $_POST['open_days'] ) ? array_map( 'intval', wp_unslash( $_POST['open_days'] ) ) : array();
         update_option( 'ubac_booking_open_days', $open_days );
 
-        // Créneaux horaires (un par ligne dans un textarea, format HH:MM)
+        // Times, one per line in a textarea, as HH:MM.
         $raw_slots = isset( $_POST['time_slots'] ) ? sanitize_textarea_field( wp_unslash( $_POST['time_slots'] ) ) : '';
         $slots = array_filter( array_map( 'trim', explode( "\n", $raw_slots ) ) );
         $valid_slots = array();

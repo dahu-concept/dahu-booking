@@ -1,7 +1,7 @@
 <?php
 /**
- * Vue du widget de réservation [ubac_booking]
- * Structure en 2 étapes, manipulée entièrement en JS (ubac-booking.js)
+ * The booking widget's view, for [ubac_booking].
+ * Two steps, driven entirely from JS (ubac-booking.js).
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit;

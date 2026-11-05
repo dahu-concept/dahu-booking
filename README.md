@@ -49,4 +49,4 @@ ubac-booking/
 
 ## License
 
-GPLv2 or later — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE).

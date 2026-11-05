@@ -127,3 +127,63 @@ Les tableaux JS (mois, jours, jours de semaine abrégés) sont injectés via
 - Pas de WooCommerce requis
 - JS vanilla (aucun framework)
 - CSS sans préprocesseur
+
+## L'extension rejoint la famille Ubac (novembre 2026)
+
+Ce document est en français ; le code livré est en anglais. C'est délibéré : les
+commentaires expliquent le *comment* à qui lit le code, ce document explique le
+*pourquoi*, et il ne part pas dans le zip. Dupliquer les deux dans les fichiers
+livrés les ferait dériver, et un commentaire faux est plus dangereux qu'un
+commentaire absent.
+
+### Elle était la seule des quinze sans écran d'accueil
+
+Un site qui venait d'activer `ubac-booking` n'avait aucune explication au
+premier lancement, alors que les quatorze autres en ont une. Elle porte
+maintenant le même composant partagé — identique au bit près dans toute la
+gamme, ce qui est pourquoi il ne peut porter aucun domaine de traduction de son
+côté : les textes lui sont passés par l'appelant.
+
+Ce que l'ajout a demandé :
+
+- la constante `UBAC_BOOKING_FILE`, qui n'existait pas et que le composant
+  attend pour résoudre l'URL de ses assets ;
+- les quatre fichiers d'assets partagés (`ubac-ui.css`, `ubac-welcome.css`,
+  `ubac-tour.css`, `ubac-tour.js`), sans quoi l'écran s'affiche nu — un contrôle
+  du harnais vérifie que tout fichier mis en file est bien livré, et il l'a
+  signalé ;
+- le nettoyage des trois drapeaux d'interface à la désinstallation. Ce sont de
+  l'état d'interface, pas des données du site : quoi qu'un site ait choisi de
+  garder, une réinstallation doit le saluer à nouveau. Sans la suppression,
+  l'écran d'accueil et la visite guidée resteraient muets pour de bon, sans rien
+  à l'écran pour expliquer pourquoi.
+
+L'enregistrement passe par un **drapeau posé à l'activation**, et non par une
+redirection : un crochet d'activation qui redirige casse l'activation groupée et
+WP-CLI, qui activent plusieurs extensions dans une seule requête. L'écran lit le
+drapeau au chargement suivant, où rediriger est sans danger.
+
+### La licence passe de GPLv2 à MIT
+
+Les quatorze autres sont en MIT, et `publier.ps1` refuse de pousser une
+extension dont l'en-tête ne l'est pas. Vérifié avant de changer quoi que ce
+soit : aucun code tiers embarqué, aucune attribution à un autre projet, donc
+aucune contrainte héritée — le changement est un choix libre de l'auteur. Quatre
+emplacements portaient la mention : l'en-tête du fichier principal, `readme.txt`,
+`README.md` et le fichier `LICENSE`.
+
+### L'héritage d'une autre lignée
+
+Cette extension n'a pas été écrite dans le même mouvement que les quatorze
+autres, et cela se voyait à trois endroits :
+
+- **les commentaires étaient en français** — 79 blocs, contre zéro dans douze
+  des quinze. Traduits, y compris dans les deux fichiers JavaScript et les deux
+  vues. Un commentaire nommait même l'auteur en clair dans du code public.
+- **l'indentation est en espaces** là où la famille et WPCS utilisent des
+  tabulations. Non corrigé : c'est un diff qui touche chaque ligne de chaque
+  fichier et noierait tout le reste. À faire dans une passe à soi seule.
+- **`readme.txt` est en minuscules** quand les quatorze portent `README.txt`.
+  Les deux sont acceptés au dépôt, et un renommage à la casse près dans un
+  dossier synchronisé sous Windows est un risque réel pour un gain nul : c'est
+  le contrôle du harnais qui a été élargi, pas le fichier qui a été renommé.

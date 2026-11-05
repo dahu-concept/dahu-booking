@@ -1,7 +1,8 @@
 /**
- * Ubac Booking — Bloc Gutenberg
- * Écrit en JS vanilla avec les API WordPress globales (wp.blocks, wp.element, wp.blockEditor),
- * pas de JSX ni d'étape de build : fonctionne directement tel que chargé par WordPress.
+ * Ubac Booking -- the Gutenberg block.
+ * Plain JS using WordPress's global APIs (wp.blocks, wp.element,
+ * wp.blockEditor): no JSX and no build step, so it runs exactly as
+ * WordPress loads it.
  */
 ( function ( blocks, element, blockEditor, i18n ) {
     var el = element.createElement;
@@ -57,8 +58,9 @@
         },
 
         save: function () {
-            // Le rendu réel est délégué au render_callback PHP (render.php),
-            // donc rien à sauvegarder côté contenu : bloc dynamique.
+            // The real rendering is left to the PHP render_callback
+            // (render.php), so there is nothing to save in the content: this
+            // is a dynamic block.
             return null;
         },
 

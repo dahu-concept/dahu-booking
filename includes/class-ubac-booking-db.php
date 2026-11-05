@@ -1,15 +1,15 @@
 <?php
 /**
- * Centralise tous les accès à la base de données pour le plugin.
- * Aucune requête SQL ne doit être écrite ailleurs que dans cette classe.
+ * Every database access for this plugin goes through here.
+ * No SQL query should be written anywhere but in this class.
  *
- * Toutes les requêtes utilisent $wpdb->prepare(), y compris pour les noms
- * de table (placeholder %i), conformément aux recommandations WordPress.
+ * Every query uses $wpdb->prepare(), table names included (the %i
+ * placeholder), as WordPress recommends.
  *
- * Les lectures fréquentes (créneaux réservés/bloqués pour une date) passent
- * par l'object cache WordPress avec une courte durée de vie. Le cache est
- * systématiquement invalidé à chaque écriture pour éviter d'afficher des
- * créneaux obsolètes (ex: déjà réservés par un autre visiteur).
+ * The frequent reads -- booked and blocked slots for one date -- go
+ * through the WordPress object cache with a short lifetime. The cache is
+ * invalidated on every write without exception, so that slots another
+ * visitor has already taken are never shown as free.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,10 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Ubac_Booking_DB {
 
     const CACHE_GROUP = 'ubac_booking';
-    const CACHE_TTL    = 30; // secondes : assez court pour rester fiable sur la dispo des créneaux
+    const CACHE_TTL    = 30; // Seconds: short enough to stay honest about slot availability.
 
     /**
-     * Retourne le nom complet de la table bookings (avec préfixe WP).
+     * The bookings table's full name, WordPress prefix included.
      */
     private static function table_bookings() {
         global $wpdb;
@@ -30,20 +30,18 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Retourne le nom complet de la table slots bloqués.
+     * The blocked-slots table's full name, WordPress prefix included.
      */
     private static function table_slots() {
         global $wpdb;
         return $wpdb->prefix . UBAC_BOOKING_TABLE_SLOTS;
     }
 
-    // ============================================
-    // LECTURE : Disponibilités
-    // ============================================
+    // READING: availability.
 
     /**
-     * Retourne la liste des créneaux horaires (HH:MM) déjà réservés
-     * pour une date donnée (statut 'confirmed' uniquement).
+     * The times (HH:MM) already booked for one date, counting only
+     * bookings with the 'confirmed' status.
      */
     public static function get_booked_times_for_date( $date ) {
         $cache_key = 'booked_' . $date;
@@ -70,8 +68,7 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Retourne la liste des créneaux horaires bloqués manuellement
-     * pour une date donnée.
+     * The times blocked by hand for one date.
      */
     public static function get_blocked_times_for_date( $date ) {
         $cache_key = 'blocked_' . $date;
@@ -98,16 +95,16 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Calcule les créneaux disponibles pour une date donnée,
-     * en croisant : jours ouverts, heures proposées, réservations existantes,
-     * blocages manuels, et délai minimum de prévenance.
+     * The slots available on one date, crossing open days, the times on
+     * offer, the bookings already made, the slots blocked by hand, and the
+     * shortest notice allowed.
      */
     public static function get_available_times_for_date( $date ) {
         $open_days  = get_option( 'ubac_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) );
         $all_slots  = get_option( 'ubac_booking_time_slots', array() );
         $min_notice = (int) get_option( 'ubac_booking_min_notice_hours', 12 );
 
-        // Vérifie que le jour de la semaine est ouvert
+        // Is that day of the week open at all?
         $day_of_week = (int) wp_date( 'w', strtotime( $date ) );
         if ( ! in_array( $day_of_week, $open_days, true ) ) {
             return array();
@@ -125,7 +122,7 @@ class Ubac_Booking_DB {
                 continue;
             }
 
-            // Vérifie le délai minimum de prévenance
+            // Check the shortest notice allowed.
             $slot_timestamp = strtotime( $date . ' ' . $slot );
             $hours_until_slot = ( $slot_timestamp - $now ) / 3600;
 
@@ -139,19 +136,18 @@ class Ubac_Booking_DB {
         return $available;
     }
 
-    // ============================================
-    // ÉCRITURE : Réservations
-    // ============================================
+    // WRITING: bookings.
 
     /**
-     * Crée une nouvelle réservation. Retourne l'ID créé ou false en cas d'échec.
-     * Effectue une double vérification anti-collision (race condition).
+     * Creates a booking and returns its id, or false on failure.
+     * Checks twice against a collision, since two visitors can reach the
+     * same slot at the same moment.
      */
     public static function create_booking( $date, $time, $name, $email, $message ) {
         global $wpdb;
         $table = self::table_bookings();
 
-        // Double vérification : le créneau est-il encore libre au moment T ?
+        // Second check: is the slot still free at this very moment?
         $still_available = self::get_available_times_for_date( $date );
         if ( ! in_array( $time, $still_available, true ) ) {
             return false;
@@ -188,18 +184,18 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Met à jour la date/heure d'une réservation existante (déplacement).
-     * Identifiée par son token sécurisé.
+     * Moves an existing booking to another date and time, found by its
+     * secure token.
      */
     public static function reschedule_booking( $token, $new_date, $new_time ) {
         global $wpdb;
         $table = self::table_bookings();
 
-        // Récupère l'ancienne date pour invalider son cache aussi
+        // Read the old date so its cache is invalidated too.
         $existing  = self::get_booking_by_token( $token );
         $old_date  = $existing ? $existing['booking_date'] : null;
 
-        // Vérifie que le nouveau créneau est disponible
+        // Is the new slot available?
         $available = self::get_available_times_for_date( $new_date );
         if ( ! in_array( $new_time, $available, true ) ) {
             return false;
@@ -228,8 +224,8 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Annule une réservation (passe son statut à 'cancelled').
-     * Le créneau redevient ainsi disponible.
+     * Cancels a booking by setting its status to 'cancelled', which frees
+     * the slot again.
      */
     public static function cancel_booking( $token ) {
         global $wpdb;
@@ -256,7 +252,7 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Récupère une réservation par son token sécurisé.
+     * One booking, found by its secure token.
      */
     public static function get_booking_by_token( $token ) {
         global $wpdb;
@@ -270,7 +266,7 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Récupère une réservation par son ID.
+     * One booking, found by its id.
      */
     public static function get_booking_by_id( $id ) {
         global $wpdb;
@@ -284,7 +280,7 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Liste toutes les réservations à venir (pour l'admin), triées par date.
+     * Every booking still to come, for the admin screen, oldest first.
      */
     public static function get_upcoming_bookings() {
         global $wpdb;
@@ -301,7 +297,7 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Liste toutes les réservations (tous statuts, historique inclus).
+     * Every booking, whatever its status, history included.
      */
     public static function get_all_bookings() {
         global $wpdb;
@@ -313,12 +309,10 @@ class Ubac_Booking_DB {
         ), ARRAY_A );
     }
 
-    // ============================================
-    // ÉCRITURE : Blocage manuel de créneaux
-    // ============================================
+    // WRITING: slots blocked by hand.
 
     /**
-     * Bloque un créneau précis (le rend indisponible côté client).
+     * Blocks one precise slot, so a visitor can no longer take it.
      */
     public static function block_slot( $date, $time, $reason = '' ) {
         global $wpdb;
@@ -344,7 +338,7 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Débloque un créneau précédemment bloqué manuellement.
+     * Frees a slot that had been blocked by hand.
      */
     public static function unblock_slot( $date, $time ) {
         global $wpdb;
@@ -367,7 +361,7 @@ class Ubac_Booking_DB {
     }
 
     /**
-     * Liste tous les créneaux bloqués manuellement à venir.
+     * Every slot still to come that has been blocked by hand.
      */
     public static function get_blocked_slots() {
         global $wpdb;
@@ -386,16 +380,17 @@ class Ubac_Booking_DB {
     // ============================================
 
     /**
-     * Génère un token unique et sécurisé pour identifier une réservation
-     * sans exposer son ID numérique dans les emails/liens.
+     * A unique, secure token that identifies a booking without putting its
+     * numeric id in emails or links.
      */
     private static function generate_unique_token() {
-        return bin2hex( random_bytes( 24 ) ); // 48 caractères hexadécimaux
+        return bin2hex( random_bytes( 24 ) ); // Forty-eight hexadecimal characters.
     }
 
     /**
-     * Invalide le cache des créneaux (réservés + bloqués) pour une date donnée.
-     * Appelé après chaque écriture qui modifie la disponibilité de cette date.
+     * Invalidates the slot cache -- booked and blocked alike -- for one
+     * date. Called after every write that changes what is available on
+     * that date.
      */
     private static function invalidate_date_cache( $date ) {
         wp_cache_delete( 'booked_' . $date, self::CACHE_GROUP );

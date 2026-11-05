@@ -1,9 +1,9 @@
 <?php
 /**
- * Gère toute la partie front-end du plugin :
- * - Le shortcode [ubac_booking]
- * - Les appels AJAX (récupération des créneaux, soumission de réservation)
- * - La page de gestion (modifier/annuler) via lien token
+ * The plugin's whole front end:
+ * - the [ubac_booking] shortcode
+ * - the AJAX calls (fetching slots, submitting a booking)
+ * - the manage page (reschedule, cancel) reached through a token link
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -17,7 +17,7 @@ class Ubac_Booking_Public {
 
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 
-        // Endpoints AJAX (accessibles connecté ou non)
+        // AJAX endpoints, reachable signed in or not.
         add_action( 'wp_ajax_ubac_get_available_times', array( $this, 'ajax_get_available_times' ) );
         add_action( 'wp_ajax_nopriv_ubac_get_available_times', array( $this, 'ajax_get_available_times' ) );
 
@@ -30,12 +30,12 @@ class Ubac_Booking_Public {
         add_action( 'wp_ajax_ubac_cancel_booking', array( $this, 'ajax_cancel_booking' ) );
         add_action( 'wp_ajax_nopriv_ubac_cancel_booking', array( $this, 'ajax_cancel_booking' ) );
 
-        // Intercepte l'URL ?ubac_booking_manage=1&token=... pour afficher la page de gestion
+        // Catches ?ubac_booking_manage=1&token=... to show the manage page.
         add_action( 'template_redirect', array( $this, 'maybe_render_management_page' ) );
     }
 
     /**
-     * Charge le CSS/JS uniquement sur les pages qui en ont besoin.
+     * Loads the CSS and JS only on the pages that need them.
      */
     public function enqueue_assets() {
         global $post;
@@ -139,9 +139,7 @@ class Ubac_Booking_Public {
         return ob_get_clean();
     }
 
-    // ============================================
-    // AJAX : Récupérer les créneaux disponibles pour une date
-    // ============================================
+    // AJAX: the slots available on one date.
     public function ajax_get_available_times() {
         check_ajax_referer( 'ubac_booking_nonce', 'nonce' );
 

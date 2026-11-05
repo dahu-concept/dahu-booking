@@ -9,17 +9,17 @@
  * Author URI: https://dahu-concept.fr
  * Text Domain: ubac-booking
  * Domain Path: /languages
- * License: GPLv2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * License: MIT
+ * License URI: https://opensource.org/licenses/MIT
  */
 
-// Sécurité : empêche l'accès direct au fichier
+// Security: blocks direct access to the file.
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
 // ============================================
-// CONSTANTES DU PLUGIN
+// PLUGIN CONSTANTS
 // ============================================
 define( 'UBAC_BOOKING_VERSION', '1.0.1' );
 define( 'UBAC_BOOKING_PATH', plugin_dir_path( __FILE__ ) );
@@ -29,7 +29,7 @@ define( 'UBAC_BOOKING_TABLE_SLOTS', 'ubac_booking_slots' );
 define( 'UBAC_BOOKING_FILE', __FILE__ );
 
 // ============================================
-// INCLUSIONS DES FICHIERS DU PLUGIN
+// PLUGIN FILE INCLUDES
 // ============================================
 require_once UBAC_BOOKING_PATH . 'includes/class-ubac-booking-activator.php';
 require_once UBAC_BOOKING_PATH . 'includes/class-ubac-booking-db.php';
@@ -39,7 +39,7 @@ require_once UBAC_BOOKING_PATH . 'public/class-ubac-booking-public.php';
 require_once UBAC_BOOKING_PATH . 'includes/ubac-welcome.php';
 
 // ============================================
-// ACTIVATION / DÉSACTIVATION DU PLUGIN
+// PLUGIN ACTIVATION / DEACTIVATION
 // ============================================
 register_activation_hook( __FILE__, array( 'Ubac_Booking_Activator', 'activate' ) );
 
@@ -109,7 +109,7 @@ add_action(
 );
 
 // ============================================
-// INITIALISATION DES MODULES
+// MODULE INITIALISATION
 // ============================================
 function ubac_booking_init() {
     // Module Admin (wp-admin)
@@ -125,7 +125,7 @@ function ubac_booking_init() {
 add_action( 'plugins_loaded', 'ubac_booking_init' );
 
 // ============================================
-// PAGE EXTENSIONS — ACTION LINKS ET LIGNE MÉTA
+// PLUGINS PAGE -- ACTION LINKS AND META ROW
 // ============================================
 
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),
@@ -151,7 +151,7 @@ add_filter( 'plugin_row_meta', function( $links, $file ) {
 }, 10, 2 );
 
 // ============================================
-// BLOC GUTENBERG
+// GUTENBERG BLOCK
 // ============================================
 function ubac_booking_register_block() {
     require_once UBAC_BOOKING_PATH . 'blocks/booking/render.php';

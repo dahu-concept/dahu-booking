@@ -1,7 +1,7 @@
 <?php
 /**
- * Gère la création des tables SQL et des options par défaut
- * lors de l'activation du plugin.
+ * Creates the SQL tables and the default options when the plugin is
+ * activated.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -11,16 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Ubac_Booking_Activator {
 
     /**
-     * Fonction appelée à l'activation du plugin.
+     * Called when the plugin is activated.
      */
     public static function activate() {
         global $wpdb;
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        // ============================================
-        // TABLE 1 : Les réservations (bookings)
-        // ============================================
+        // TABLE 1: the bookings.
         $table_bookings = $wpdb->prefix . UBAC_BOOKING_TABLE_BOOKINGS;
 
         $sql_bookings = "CREATE TABLE $table_bookings (
@@ -40,11 +38,9 @@ class Ubac_Booking_Activator {
             KEY status (status)
         ) $charset_collate;";
 
-        // ============================================
-        // TABLE 2 : Les créneaux bloqués manuellement
-        // (permet à Hugo de désactiver un créneau précis,
-        // même s'il tombe dans une plage normalement ouverte)
-        // ============================================
+        // TABLE 2: slots blocked by hand. This is what lets the site owner close
+        // one precise slot even when it falls inside a range that is otherwise
+        // open.
         $table_slots = $wpdb->prefix . UBAC_BOOKING_TABLE_SLOTS;
 
         $sql_slots = "CREATE TABLE $table_slots (
@@ -62,23 +58,21 @@ class Ubac_Booking_Activator {
         dbDelta( $sql_bookings );
         dbDelta( $sql_slots );
 
-        // ============================================
-        // OPTIONS PAR DÉFAUT (réglages généraux)
-        // ============================================
+        // DEFAULT OPTIONS (general settings).
 
-        // Jours ouverts (0 = dimanche ... 6 = samedi). Par défaut : lun-sam.
+        // Open days (0 = Sunday ... 6 = Saturday). Monday to Saturday by default.
         if ( false === get_option( 'ubac_booking_open_days' ) ) {
             update_option( 'ubac_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) );
         }
 
-        // Heures proposées par défaut
+        // Times offered by default.
         if ( false === get_option( 'ubac_booking_time_slots' ) ) {
             update_option( 'ubac_booking_time_slots', array(
                 '09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'
             ) );
         }
 
-        // Durée d'un rendez-vous en minutes (pour affichage uniquement)
+        // Length of an appointment in minutes (for display only).
         if ( false === get_option( 'ubac_booking_duration' ) ) {
             update_option( 'ubac_booking_duration', 60 );
         }
@@ -88,27 +82,28 @@ class Ubac_Booking_Activator {
             update_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) );
         }
 
-        // Délai minimum avant réservation (en heures) — évite les RDV dans 10 minutes
+        // Shortest notice before a booking, in hours -- keeps anyone from
+        // booking ten minutes from now.
         if ( false === get_option( 'ubac_booking_min_notice_hours' ) ) {
             update_option( 'ubac_booking_min_notice_hours', 12 );
         }
 
-        // Nombre de jours max dans le futur pour réserver
+        // How many days ahead a booking may be made.
         if ( false === get_option( 'ubac_booking_max_days_ahead' ) ) {
             update_option( 'ubac_booking_max_days_ahead', 60 );
         }
 
-        // Lieu du rendez-vous (affiché dans le récap)
+        // Where the appointment takes place (shown in the summary).
         if ( false === get_option( 'ubac_booking_location' ) ) {
             update_option( 'ubac_booking_location', '' );
         }
 
-        // Titre de l'événement
+        // The event's title.
         if ( false === get_option( 'ubac_booking_event_title' ) ) {
             update_option( 'ubac_booking_event_title', 'Rendez-vous' );
         }
 
-        // Affichage du titre/meta (durée, lieu) sur l'étape 1
+        // Whether the title and meta (length, place) show on step one.
         if ( false === get_option( 'ubac_booking_show_meta_step1' ) ) {
             update_option( 'ubac_booking_show_meta_step1', '0' );
         }

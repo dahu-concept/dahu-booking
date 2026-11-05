@@ -1,6 +1,7 @@
 /**
- * Ubac Booking — Logique du widget de réservation
- * Calendrier interactif + double-volet (dates/heures) + transition Calendly-like
+ * Ubac Booking -- the booking widget's logic.
+ * Interactive calendar, two panels (dates and times), and the transition
+ * between them.
  */
 (function () {
   'use strict';
@@ -12,8 +13,9 @@
   const WEEKDAYS = i18n.weekdays || ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 
   /**
-   * Classe qui encapsule un widget de réservation complet.
-   * Permet d'avoir plusieurs instances sur une même page (ex: page de gestion).
+   * One complete booking widget.
+   * Several instances can live on the same page -- the manage page, for
+   * instance.
    */
   class UbacBookingWidget {
     constructor(rootEl, options) {
@@ -24,7 +26,7 @@
       this.viewYear = this.currentDate.getFullYear();
       this.selectedDate = null; // format YYYY-MM-DD
       this.selectedTime = null; // format HH:MM
-      this.availableCache = {}; // cache des créneaux dispo par date
+      this.availableCache = {}; // Available slots cached per date.
 
       this.bindElements();
       this.bindEvents();
@@ -70,7 +72,7 @@
     }
 
     /**
-     * Génère le calendrier du mois actuellement affiché.
+     * Draws the calendar for the month currently on show.
      */
     renderCalendar() {
       const today = new Date();
@@ -81,12 +83,12 @@
 
       this.calMonthLabel.textContent = MONTHS[this.viewMonth] + ' ' + this.viewYear;
 
-      // Désactive "mois précédent" si on est sur le mois actuel ou avant
+      // Disable "previous month" on the current month and earlier.
       const isCurrentMonth = this.viewYear === today.getFullYear() && this.viewMonth === today.getMonth();
       this.calPrev.disabled = isCurrentMonth;
 
       const firstDay = new Date(this.viewYear, this.viewMonth, 1);
-      // Lundi = 0 ... Dimanche = 6 (on décale par rapport à getDay() qui donne Dimanche=0)
+      // Monday = 0 ... Sunday = 6, shifted from getDay(), which gives Sunday = 0.
       let startOffset = firstDay.getDay() - 1;
       if (startOffset < 0) startOffset = 6;
 
@@ -94,7 +96,7 @@
 
       this.calDays.innerHTML = '';
 
-      // Cases vides avant le 1er du mois
+      // Empty cells before the first of the month.
       for (let i = 0; i < startOffset; i++) {
         const empty = document.createElement('div');
         empty.className = 'ubac-booking__cal-day ubac-booking__cal-day--empty';
@@ -151,15 +153,15 @@
     }
 
     /**
-     * Sélectionne une date dans le calendrier : ouvre le second volet (heures)
-     * en réduisant le premier (dates), façon Calendly.
+     * Picks a date in the calendar: opens the second panel (times) while
+     * shrinking the first (dates).
      */
     selectDate(dateStr, dateObj) {
       this.selectedDate = dateStr;
       this.selectedTime = null;
       this.renderCalendar();
 
-      // Ouvre le volet des heures (si présent dans ce widget)
+      // Open the times panel, if this widget has one.
       if (this.timesPanel && this.gridEl) {
         this.timesPanel.style.display = 'block';
         this.gridEl.classList.add('has-date-selected');
@@ -174,7 +176,7 @@
     }
 
     /**
-     * Appelle l'AJAX WordPress pour récupérer les créneaux libres d'une date.
+     * Asks WordPress over AJAX for the free slots on one date.
      */
     fetchAvailableTimes(dateStr) {
       if (this.availableCache[dateStr]) {
@@ -205,7 +207,7 @@
     }
 
     /**
-     * Affiche la liste des créneaux horaires disponibles.
+     * Shows the list of available times.
      */
     renderTimes(times) {
       this.timesList.innerHTML = '';
@@ -227,14 +229,14 @@
     }
 
     /**
-     * Sélectionne un créneau horaire. Effet Calendly : le bouton choisi
-     * se transforme en paire [heure] [Suivant], les autres restent en dessous.
+     * Picks a time. The chosen button turns into a [time] [Next] pair and
+     * the others stay below it.
      */
     selectTime(time, btnEl, allTimes) {
       this.selectedTime = time;
 
-      // Reconstruit la liste : le créneau choisi devient une "row" avec bouton Suivant,
-      // les autres créneaux restent des boutons simples, dans leur ordre d'origine.
+      // Rebuilds the list: the chosen slot becomes a row with a Next button,
+      // and the other slots stay plain buttons, in their original order.
       this.timesList.innerHTML = '';
 
       allTimes.forEach(t => {
@@ -247,7 +249,7 @@
           selectedBtn.className = 'ubac-booking__time-slot ubac-booking__time-slot--selected';
           selectedBtn.textContent = t;
           selectedBtn.addEventListener('click', () => {
-            // Permet de désélectionner pour revenir à la liste simple
+            // Lets the visitor deselect and go back to the plain list.
             this.renderTimes(allTimes);
           });
 
@@ -323,7 +325,7 @@
       onDateSelected: function (dateStr, dateObj) {
         selectedDateObj = dateObj;
       },
-      // Déclenché par le bouton "Suivant" qui apparaît à côté de l'heure choisie
+      // Fired by the "Next" button that appears beside the chosen time.
       onTimeConfirmed: function (time) {
         goToStep2();
       },
@@ -334,7 +336,7 @@
     function goToStep2() {
       if (!widget.selectedDate || !widget.selectedTime) return;
 
-      // Met à jour le récap date/heure dans le header
+      // Refresh the date and time summary in the header.
       recapTime.textContent = widget.selectedTime;
       recapDate.textContent = widget.formatDateLong(selectedDateObj);
 
