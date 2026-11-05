@@ -33,9 +33,9 @@ class Dahu_Booking_Admin {
             26
         );
 
-        add_submenu_page( 'dahu-booking', __( 'Bookings', 'dahu-booking' ), __( 'Bookings', 'dahu-booking' ), 'manage_options', 'dahu-booking', array( $this, 'render_bookings_page' ) );
-        add_submenu_page( 'dahu-booking', __( 'Availability', 'dahu-booking' ), __( 'Availability', 'dahu-booking' ), 'manage_options', 'dahu-booking-availability', array( $this, 'render_availability_page' ) );
-        add_submenu_page( 'dahu-booking', __( 'Settings', 'dahu-booking' ), __( 'Settings', 'dahu-booking' ), 'manage_options', 'dahu-booking-settings', array( $this, 'render_settings_page' ) );
+        add_submenu_page( 'dahu-booking', __( 'Bookings', 'ubac-booking' ), __( 'Bookings', 'ubac-booking' ), 'manage_options', 'dahu-booking', array( $this, 'render_bookings_page' ) );
+        add_submenu_page( 'dahu-booking', __( 'Availability', 'ubac-booking' ), __( 'Availability', 'ubac-booking' ), 'manage_options', 'dahu-booking-availability', array( $this, 'render_availability_page' ) );
+        add_submenu_page( 'dahu-booking', __( 'Settings', 'ubac-booking' ), __( 'Settings', 'ubac-booking' ), 'manage_options', 'dahu-booking-settings', array( $this, 'render_settings_page' ) );
     }
 
     public function enqueue_admin_assets( $hook ) {
@@ -55,7 +55,7 @@ class Dahu_Booking_Admin {
 
     public function handle_cancel_booking() {
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'Access denied.', 'dahu-booking' ) );
+            wp_die( esc_html__( 'Access denied.', 'ubac-booking' ) );
         }
         check_admin_referer( 'dahu_cancel_booking_admin_action' );
 
@@ -84,7 +84,7 @@ class Dahu_Booking_Admin {
 
     public function handle_block_slot() {
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'Access denied.', 'dahu-booking' ) );
+            wp_die( esc_html__( 'Access denied.', 'ubac-booking' ) );
         }
         check_admin_referer( 'dahu_block_slot_action' );
 
@@ -105,7 +105,7 @@ class Dahu_Booking_Admin {
 
     public function handle_unblock_slot() {
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'Access denied.', 'dahu-booking' ) );
+            wp_die( esc_html__( 'Access denied.', 'ubac-booking' ) );
         }
         check_admin_referer( 'dahu_unblock_slot_action' );
 
@@ -143,7 +143,7 @@ class Dahu_Booking_Admin {
 
     public function handle_save_settings() {
         if ( ! current_user_can( 'manage_options' ) ) {
-            wp_die( esc_html__( 'Access denied.', 'dahu-booking' ) );
+            wp_die( esc_html__( 'Access denied.', 'ubac-booking' ) );
         }
         check_admin_referer( 'dahu_save_settings_action' );
 

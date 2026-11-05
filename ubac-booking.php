@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Dahu Booking
+ * Plugin Name: Ubac Booking
  * Description: Lightweight self-hosted appointment booking plugin: two-step calendar widget, availability management, automatic confirmation emails, and secure reschedule/cancel links — no third-party service required.
  * Version: 1.0.1
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: Hugo Vial-Jaime
  * Author URI: https://dahu-concept.fr
- * Text Domain: dahu-booking
+ * Text Domain: ubac-booking
  * Domain Path: /languages
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -64,7 +64,7 @@ add_action( 'plugins_loaded', 'dahu_booking_init' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),
     function( $links ) {
         $settings = '<a href="' . admin_url( 'admin.php?page=dahu-booking-settings' ) . '">'
-            . __( 'Settings', 'dahu-booking' ) . '</a>';
+            . __( 'Settings', 'ubac-booking' ) . '</a>';
         array_unshift( $links, $settings );
         return $links;
     }
@@ -75,9 +75,9 @@ add_filter( 'plugin_row_meta', function( $links, $file ) {
         $header = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
         $links  = array(
             /* translators: %s: plugin version number */
-            sprintf( __( 'Version %s', 'dahu-booking' ), $header['Version'] ),
+            sprintf( __( 'Version %s', 'ubac-booking' ), $header['Version'] ),
             '<a href="https://dahu-concept.fr" target="_blank">By Hugo Vial-Jaime — Dahu-Concept</a>',
-            '<a href="https://dahu-concept.fr" target="_blank">' . __( 'Visit plugin site', 'dahu-booking' ) . '</a>',
+            '<a href="https://dahu-concept.fr" target="_blank">' . __( 'Visit plugin site', 'ubac-booking' ) . '</a>',
         );
     }
     return $links;

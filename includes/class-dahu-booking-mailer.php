@@ -28,31 +28,31 @@ class Dahu_Booking_Mailer {
         $site_name = get_bloginfo( 'name' );
 
         /* translators: %s: site name */
-        $subject = sprintf( __( 'Your appointment at %s is confirmed', 'dahu-booking' ), $site_name );
+        $subject = sprintf( __( 'Your appointment at %s is confirmed', 'ubac-booking' ), $site_name );
 
         $date_fmt  = self::format_date( $booking['booking_date'] );
         $heure     = substr( $booking['booking_time'], 0, 5 );
         $location  = get_option( 'dahu_booking_location', '' );
-        $event     = get_option( 'dahu_booking_event_title', __( 'Appointment', 'dahu-booking' ) );
+        $event     = get_option( 'dahu_booking_event_title', __( 'Appointment', 'ubac-booking' ) );
         $manage_url = self::get_management_url( $booking['token'] );
 
         /* translators: %s: client name */
-        $body  = sprintf( __( 'Hello %s,', 'dahu-booking' ), $booking['client_name'] ) . "\n\n";
-        $body .= __( 'Your appointment is confirmed ✅', 'dahu-booking' ) . "\n\n";
+        $body  = sprintf( __( 'Hello %s,', 'ubac-booking' ), $booking['client_name'] ) . "\n\n";
+        $body .= __( 'Your appointment is confirmed ✅', 'ubac-booking' ) . "\n\n";
         /* translators: %s: event title */
-        $body .= sprintf( __( '📌 %s', 'dahu-booking' ), $event ) . "\n";
+        $body .= sprintf( __( '📌 %s', 'ubac-booking' ), $event ) . "\n";
         /* translators: %s: date */
-        $body .= sprintf( __( '📅 %s', 'dahu-booking' ), $date_fmt ) . "\n";
+        $body .= sprintf( __( '📅 %s', 'ubac-booking' ), $date_fmt ) . "\n";
         /* translators: %s: time */
-        $body .= sprintf( __( '🕐 %s', 'dahu-booking' ), $heure ) . "\n";
+        $body .= sprintf( __( '🕐 %s', 'ubac-booking' ), $heure ) . "\n";
         if ( $location ) {
             /* translators: %s: location */
-            $body .= sprintf( __( '📍 %s', 'dahu-booking' ), $location ) . "\n";
+            $body .= sprintf( __( '📍 %s', 'ubac-booking' ), $location ) . "\n";
         }
         $body .= "\n";
-        $body .= __( 'Need to reschedule or cancel?', 'dahu-booking' ) . "\n";
+        $body .= __( 'Need to reschedule or cancel?', 'ubac-booking' ) . "\n";
         $body .= $manage_url . "\n\n";
-        $body .= __( 'See you soon,', 'dahu-booking' ) . "\n";
+        $body .= __( 'See you soon,', 'ubac-booking' ) . "\n";
         $body .= self::get_signature();
 
         $headers = array( 'Content-Type: text/plain; charset=UTF-8' );
@@ -67,24 +67,24 @@ class Dahu_Booking_Mailer {
         $to      = get_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
 
         /* translators: %s: client name */
-        $subject = sprintf( __( 'New appointment: %s', 'dahu-booking' ), $booking['client_name'] );
+        $subject = sprintf( __( 'New appointment: %s', 'ubac-booking' ), $booking['client_name'] );
 
         $date_fmt = self::format_date( $booking['booking_date'] );
         $heure    = substr( $booking['booking_time'], 0, 5 );
 
-        $body  = __( 'New booking received.', 'dahu-booking' ) . "\n\n";
+        $body  = __( 'New booking received.', 'ubac-booking' ) . "\n\n";
         /* translators: %s: client name */
-        $body .= sprintf( __( '👤 Name: %s', 'dahu-booking' ), $booking['client_name'] ) . "\n";
+        $body .= sprintf( __( '👤 Name: %s', 'ubac-booking' ), $booking['client_name'] ) . "\n";
         /* translators: %s: client email */
-        $body .= sprintf( __( '📧 Email: %s', 'dahu-booking' ), $booking['client_email'] ) . "\n";
+        $body .= sprintf( __( '📧 Email: %s', 'ubac-booking' ), $booking['client_email'] ) . "\n";
         /* translators: %s: date */
-        $body .= sprintf( __( '📅 Date: %s', 'dahu-booking' ), $date_fmt ) . "\n";
+        $body .= sprintf( __( '📅 Date: %s', 'ubac-booking' ), $date_fmt ) . "\n";
         /* translators: %s: time */
-        $body .= sprintf( __( '🕐 Time: %s', 'dahu-booking' ), $heure ) . "\n";
+        $body .= sprintf( __( '🕐 Time: %s', 'ubac-booking' ), $heure ) . "\n";
         if ( ! empty( $booking['client_message'] ) ) {
-            $body .= "\n" . __( '💬 Message:', 'dahu-booking' ) . "\n" . $booking['client_message'] . "\n";
+            $body .= "\n" . __( '💬 Message:', 'ubac-booking' ) . "\n" . $booking['client_message'] . "\n";
         }
-        $body .= "\n" . __( 'Manage this booking from your WordPress admin (Dahu Booking).', 'dahu-booking' );
+        $body .= "\n" . __( 'Manage this booking from your WordPress admin (Dahu Booking).', 'ubac-booking' );
 
         $headers = array( 'Content-Type: text/plain; charset=UTF-8' );
 
@@ -96,22 +96,22 @@ class Dahu_Booking_Mailer {
      */
     public static function send_reschedule_confirmation( $booking ) {
         $to      = $booking['client_email'];
-        $subject = __( 'Your appointment has been rescheduled', 'dahu-booking' );
+        $subject = __( 'Your appointment has been rescheduled', 'ubac-booking' );
 
         $date_fmt   = self::format_date( $booking['booking_date'] );
         $heure      = substr( $booking['booking_time'], 0, 5 );
         $manage_url = self::get_management_url( $booking['token'] );
 
         /* translators: %s: client name */
-        $body  = sprintf( __( 'Hello %s,', 'dahu-booking' ), $booking['client_name'] ) . "\n\n";
-        $body .= __( 'Your appointment has been successfully rescheduled ✅', 'dahu-booking' ) . "\n\n";
+        $body  = sprintf( __( 'Hello %s,', 'ubac-booking' ), $booking['client_name'] ) . "\n\n";
+        $body .= __( 'Your appointment has been successfully rescheduled ✅', 'ubac-booking' ) . "\n\n";
         /* translators: %s: new date */
-        $body .= sprintf( __( '📅 New date: %s', 'dahu-booking' ), $date_fmt ) . "\n";
+        $body .= sprintf( __( '📅 New date: %s', 'ubac-booking' ), $date_fmt ) . "\n";
         /* translators: %s: new time */
-        $body .= sprintf( __( '🕐 New time: %s', 'dahu-booking' ), $heure ) . "\n\n";
-        $body .= __( 'Need to change it again or cancel?', 'dahu-booking' ) . "\n";
+        $body .= sprintf( __( '🕐 New time: %s', 'ubac-booking' ), $heure ) . "\n\n";
+        $body .= __( 'Need to change it again or cancel?', 'ubac-booking' ) . "\n";
         $body .= $manage_url . "\n\n";
-        $body .= __( 'See you soon,', 'dahu-booking' ) . "\n";
+        $body .= __( 'See you soon,', 'ubac-booking' ) . "\n";
         $body .= self::get_signature();
 
         $headers = array( 'Content-Type: text/plain; charset=UTF-8' );
@@ -121,13 +121,13 @@ class Dahu_Booking_Mailer {
         // Also notify the admin.
         $admin_to = get_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
         /* translators: %s: client name */
-        $admin_subject = sprintf( __( 'Appointment rescheduled: %s', 'dahu-booking' ), $booking['client_name'] );
+        $admin_subject = sprintf( __( 'Appointment rescheduled: %s', 'ubac-booking' ), $booking['client_name'] );
         /* translators: %s: client name */
-        $admin_body  = sprintf( __( '%s rescheduled their appointment.', 'dahu-booking' ), $booking['client_name'] ) . "\n\n";
+        $admin_body  = sprintf( __( '%s rescheduled their appointment.', 'ubac-booking' ), $booking['client_name'] ) . "\n\n";
         /* translators: %s: new date */
-        $admin_body .= sprintf( __( '📅 New date: %s', 'dahu-booking' ), $date_fmt ) . "\n";
+        $admin_body .= sprintf( __( '📅 New date: %s', 'ubac-booking' ), $date_fmt ) . "\n";
         /* translators: %s: new time */
-        $admin_body .= sprintf( __( '🕐 New time: %s', 'dahu-booking' ), $heure ) . "\n";
+        $admin_body .= sprintf( __( '🕐 New time: %s', 'ubac-booking' ), $heure ) . "\n";
         wp_mail( $admin_to, $admin_subject, $admin_body, $headers );
     }
 
@@ -136,16 +136,16 @@ class Dahu_Booking_Mailer {
      */
     public static function send_cancellation_confirmation( $booking ) {
         $to      = $booking['client_email'];
-        $subject = __( 'Your appointment has been cancelled', 'dahu-booking' );
+        $subject = __( 'Your appointment has been cancelled', 'ubac-booking' );
 
         $date_fmt = self::format_date( $booking['booking_date'] );
         $heure    = substr( $booking['booking_time'], 0, 5 );
 
         /* translators: %s: client name */
-        $body  = sprintf( __( 'Hello %s,', 'dahu-booking' ), $booking['client_name'] ) . "\n\n";
+        $body  = sprintf( __( 'Hello %s,', 'ubac-booking' ), $booking['client_name'] ) . "\n\n";
         /* translators: %1$s: date, %2$s: time */
-        $body .= sprintf( __( 'Your appointment on %1$s at %2$s has been cancelled.', 'dahu-booking' ), $date_fmt, $heure ) . "\n\n";
-        $body .= __( 'Feel free to book a new slot whenever you wish.', 'dahu-booking' ) . "\n\n";
+        $body .= sprintf( __( 'Your appointment on %1$s at %2$s has been cancelled.', 'ubac-booking' ), $date_fmt, $heure ) . "\n\n";
+        $body .= __( 'Feel free to book a new slot whenever you wish.', 'ubac-booking' ) . "\n\n";
         $body .= self::get_signature();
 
         $headers = array( 'Content-Type: text/plain; charset=UTF-8' );
@@ -155,10 +155,10 @@ class Dahu_Booking_Mailer {
         // Notify the admin.
         $admin_to = get_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
         /* translators: %s: client name */
-        $admin_subject = sprintf( __( 'Appointment cancelled: %s', 'dahu-booking' ), $booking['client_name'] );
+        $admin_subject = sprintf( __( 'Appointment cancelled: %s', 'ubac-booking' ), $booking['client_name'] );
         $admin_body = sprintf(
             /* translators: %1$s: client name, %2$s: date, %3$s: time */
-            __( '%1$s cancelled their appointment on %2$s at %3$s.', 'dahu-booking' ),
+            __( '%1$s cancelled their appointment on %2$s at %3$s.', 'ubac-booking' ),
             $booking['client_name'],
             $date_fmt,
             $heure
