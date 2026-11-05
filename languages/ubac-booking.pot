@@ -2,7 +2,7 @@
 # This file is distributed under the MIT licence.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dahu Booking\n"
+"Project-Id-Version: Ubac Booking\n"
 "Report-Msgid-Bugs-To: https://dahu-concept.fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -237,7 +237,7 @@ msgid "Loading…"
 msgstr ""
 
 #: includes/class-ubac-booking-mailer.php:87
-msgid "Manage this booking from your WordPress admin (Dahu Booking)."
+msgid "Manage this booking from your WordPress admin (Ubac Booking)."
 msgstr ""
 
 #: public/class-ubac-booking-public.php:108
@@ -405,7 +405,7 @@ msgid "Settings saved."
 msgstr ""
 
 #: admin/views/page-settings.php:15
-msgid "Settings — Dahu Booking"
+msgid "Settings — Ubac Booking"
 msgstr ""
 
 #: admin/views/page-settings.php:26

@@ -1,5 +1,5 @@
 /**
- * Dahu Booking — Bloc Gutenberg
+ * Ubac Booking — Bloc Gutenberg
  * Écrit en JS vanilla avec les API WordPress globales (wp.blocks, wp.element, wp.blockEditor),
  * pas de JSX ni d'étape de build : fonctionne directement tel que chargé par WordPress.
  */
@@ -8,11 +8,11 @@
     var __ = i18n.__;
     var useBlockProps = blockEditor.useBlockProps;
 
-    blocks.registerBlockType( 'dahu-booking/widget', {
+    blocks.registerBlockType( 'ubac-booking/widget', {
 
         edit: function () {
             var blockProps = useBlockProps( {
-                className: 'dahu-booking-block-placeholder',
+                className: 'ubac-booking-block-placeholder',
             } );
 
             return el(
@@ -45,12 +45,12 @@
                     el(
                         'strong',
                         { style: { display: 'block', marginBottom: '4px' } },
-                        __( 'Widget de réservation Dahu Booking', 'dahu-booking' )
+                        __( 'Widget de réservation Ubac Booking', 'ubac-booking' )
                     ),
                     el(
                         'span',
                         { style: { fontSize: '0.9rem' } },
-                        __( 'Le calendrier de réservation s\'affichera ici sur le site publié.', 'dahu-booking' )
+                        __( 'Le calendrier de réservation s\'affichera ici sur le site publié.', 'ubac-booking' )
                     )
                 )
             );

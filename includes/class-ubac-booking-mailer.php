@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class Dahu_Booking_Mailer {
+class Ubac_Booking_Mailer {
 
     /**
      * Sends both emails for a new booking:
@@ -32,8 +32,8 @@ class Dahu_Booking_Mailer {
 
         $date_fmt  = self::format_date( $booking['booking_date'] );
         $heure     = substr( $booking['booking_time'], 0, 5 );
-        $location  = get_option( 'dahu_booking_location', '' );
-        $event     = get_option( 'dahu_booking_event_title', __( 'Appointment', 'ubac-booking' ) );
+        $location  = get_option( 'ubac_booking_location', '' );
+        $event     = get_option( 'ubac_booking_event_title', __( 'Appointment', 'ubac-booking' ) );
         $manage_url = self::get_management_url( $booking['token'] );
 
         /* translators: %s: client name */
@@ -64,7 +64,7 @@ class Dahu_Booking_Mailer {
      * Notification email sent to the site admin on each new booking.
      */
     public static function send_admin_notification( $booking ) {
-        $to      = get_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
+        $to      = get_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) );
 
         /* translators: %s: client name */
         $subject = sprintf( __( 'New appointment: %s', 'ubac-booking' ), $booking['client_name'] );
@@ -84,7 +84,7 @@ class Dahu_Booking_Mailer {
         if ( ! empty( $booking['client_message'] ) ) {
             $body .= "\n" . __( '💬 Message:', 'ubac-booking' ) . "\n" . $booking['client_message'] . "\n";
         }
-        $body .= "\n" . __( 'Manage this booking from your WordPress admin (Dahu Booking).', 'ubac-booking' );
+        $body .= "\n" . __( 'Manage this booking from your WordPress admin (Ubac Booking).', 'ubac-booking' );
 
         $headers = array( 'Content-Type: text/plain; charset=UTF-8' );
 
@@ -119,7 +119,7 @@ class Dahu_Booking_Mailer {
         wp_mail( $to, $subject, $body, $headers );
 
         // Also notify the admin.
-        $admin_to = get_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
+        $admin_to = get_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) );
         /* translators: %s: client name */
         $admin_subject = sprintf( __( 'Appointment rescheduled: %s', 'ubac-booking' ), $booking['client_name'] );
         /* translators: %s: client name */
@@ -153,7 +153,7 @@ class Dahu_Booking_Mailer {
         wp_mail( $to, $subject, $body, $headers );
 
         // Notify the admin.
-        $admin_to = get_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
+        $admin_to = get_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) );
         /* translators: %s: client name */
         $admin_subject = sprintf( __( 'Appointment cancelled: %s', 'ubac-booking' ), $booking['client_name'] );
         $admin_body = sprintf(
@@ -177,7 +177,7 @@ class Dahu_Booking_Mailer {
      */
     private static function get_signature() {
         $site_name   = get_bloginfo( 'name' );
-        $admin_email = get_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
+        $admin_email = get_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) );
 
         return $site_name . "\n" . $admin_email;
     }
@@ -196,7 +196,7 @@ class Dahu_Booking_Mailer {
     private static function get_management_url( $token ) {
         return add_query_arg(
             array(
-                'dahu_booking_manage' => '1',
+                'ubac_booking_manage' => '1',
                 'token'               => $token,
             ),
             home_url( '/' )

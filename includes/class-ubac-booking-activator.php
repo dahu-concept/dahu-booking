@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class Dahu_Booking_Activator {
+class Ubac_Booking_Activator {
 
     /**
      * Fonction appelée à l'activation du plugin.
@@ -21,7 +21,7 @@ class Dahu_Booking_Activator {
         // ============================================
         // TABLE 1 : Les réservations (bookings)
         // ============================================
-        $table_bookings = $wpdb->prefix . DAHU_BOOKING_TABLE_BOOKINGS;
+        $table_bookings = $wpdb->prefix . UBAC_BOOKING_TABLE_BOOKINGS;
 
         $sql_bookings = "CREATE TABLE $table_bookings (
             id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -45,7 +45,7 @@ class Dahu_Booking_Activator {
         // (permet à Hugo de désactiver un créneau précis,
         // même s'il tombe dans une plage normalement ouverte)
         // ============================================
-        $table_slots = $wpdb->prefix . DAHU_BOOKING_TABLE_SLOTS;
+        $table_slots = $wpdb->prefix . UBAC_BOOKING_TABLE_SLOTS;
 
         $sql_slots = "CREATE TABLE $table_slots (
             id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -67,50 +67,50 @@ class Dahu_Booking_Activator {
         // ============================================
 
         // Jours ouverts (0 = dimanche ... 6 = samedi). Par défaut : lun-sam.
-        if ( false === get_option( 'dahu_booking_open_days' ) ) {
-            update_option( 'dahu_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) );
+        if ( false === get_option( 'ubac_booking_open_days' ) ) {
+            update_option( 'ubac_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) );
         }
 
         // Heures proposées par défaut
-        if ( false === get_option( 'dahu_booking_time_slots' ) ) {
-            update_option( 'dahu_booking_time_slots', array(
+        if ( false === get_option( 'ubac_booking_time_slots' ) ) {
+            update_option( 'ubac_booking_time_slots', array(
                 '09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'
             ) );
         }
 
         // Durée d'un rendez-vous en minutes (pour affichage uniquement)
-        if ( false === get_option( 'dahu_booking_duration' ) ) {
-            update_option( 'dahu_booking_duration', 60 );
+        if ( false === get_option( 'ubac_booking_duration' ) ) {
+            update_option( 'ubac_booking_duration', 60 );
         }
 
         // Email de notification (toi)
-        if ( false === get_option( 'dahu_booking_admin_email' ) ) {
-            update_option( 'dahu_booking_admin_email', get_option( 'admin_email' ) );
+        if ( false === get_option( 'ubac_booking_admin_email' ) ) {
+            update_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) );
         }
 
         // Délai minimum avant réservation (en heures) — évite les RDV dans 10 minutes
-        if ( false === get_option( 'dahu_booking_min_notice_hours' ) ) {
-            update_option( 'dahu_booking_min_notice_hours', 12 );
+        if ( false === get_option( 'ubac_booking_min_notice_hours' ) ) {
+            update_option( 'ubac_booking_min_notice_hours', 12 );
         }
 
         // Nombre de jours max dans le futur pour réserver
-        if ( false === get_option( 'dahu_booking_max_days_ahead' ) ) {
-            update_option( 'dahu_booking_max_days_ahead', 60 );
+        if ( false === get_option( 'ubac_booking_max_days_ahead' ) ) {
+            update_option( 'ubac_booking_max_days_ahead', 60 );
         }
 
         // Lieu du rendez-vous (affiché dans le récap)
-        if ( false === get_option( 'dahu_booking_location' ) ) {
-            update_option( 'dahu_booking_location', '' );
+        if ( false === get_option( 'ubac_booking_location' ) ) {
+            update_option( 'ubac_booking_location', '' );
         }
 
         // Titre de l'événement
-        if ( false === get_option( 'dahu_booking_event_title' ) ) {
-            update_option( 'dahu_booking_event_title', 'Rendez-vous' );
+        if ( false === get_option( 'ubac_booking_event_title' ) ) {
+            update_option( 'ubac_booking_event_title', 'Rendez-vous' );
         }
 
         // Affichage du titre/meta (durée, lieu) sur l'étape 1
-        if ( false === get_option( 'dahu_booking_show_meta_step1' ) ) {
-            update_option( 'dahu_booking_show_meta_step1', '0' );
+        if ( false === get_option( 'ubac_booking_show_meta_step1' ) ) {
+            update_option( 'ubac_booking_show_meta_step1', '0' );
         }
     }
 }

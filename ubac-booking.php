@@ -21,41 +21,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ============================================
 // CONSTANTES DU PLUGIN
 // ============================================
-define( 'DAHU_BOOKING_VERSION', '1.0.1' );
-define( 'DAHU_BOOKING_PATH', plugin_dir_path( __FILE__ ) );
-define( 'DAHU_BOOKING_URL', plugin_dir_url( __FILE__ ) );
-define( 'DAHU_BOOKING_TABLE_BOOKINGS', 'dahu_bookings' );
-define( 'DAHU_BOOKING_TABLE_SLOTS', 'dahu_booking_slots' );
+define( 'UBAC_BOOKING_VERSION', '1.0.1' );
+define( 'UBAC_BOOKING_PATH', plugin_dir_path( __FILE__ ) );
+define( 'UBAC_BOOKING_URL', plugin_dir_url( __FILE__ ) );
+define( 'UBAC_BOOKING_TABLE_BOOKINGS', 'ubac_bookings' );
+define( 'UBAC_BOOKING_TABLE_SLOTS', 'ubac_booking_slots' );
 
 // ============================================
 // INCLUSIONS DES FICHIERS DU PLUGIN
 // ============================================
-require_once DAHU_BOOKING_PATH . 'includes/class-dahu-booking-activator.php';
-require_once DAHU_BOOKING_PATH . 'includes/class-dahu-booking-db.php';
-require_once DAHU_BOOKING_PATH . 'includes/class-dahu-booking-mailer.php';
-require_once DAHU_BOOKING_PATH . 'admin/class-dahu-booking-admin.php';
-require_once DAHU_BOOKING_PATH . 'public/class-dahu-booking-public.php';
+require_once UBAC_BOOKING_PATH . 'includes/class-ubac-booking-activator.php';
+require_once UBAC_BOOKING_PATH . 'includes/class-ubac-booking-db.php';
+require_once UBAC_BOOKING_PATH . 'includes/class-ubac-booking-mailer.php';
+require_once UBAC_BOOKING_PATH . 'admin/class-ubac-booking-admin.php';
+require_once UBAC_BOOKING_PATH . 'public/class-ubac-booking-public.php';
 
 // ============================================
 // ACTIVATION / DÉSACTIVATION DU PLUGIN
 // ============================================
-register_activation_hook( __FILE__, array( 'Dahu_Booking_Activator', 'activate' ) );
+register_activation_hook( __FILE__, array( 'Ubac_Booking_Activator', 'activate' ) );
 
 // ============================================
 // INITIALISATION DES MODULES
 // ============================================
-function dahu_booking_init() {
+function ubac_booking_init() {
     // Module Admin (wp-admin)
     if ( is_admin() ) {
-        $admin = new Dahu_Booking_Admin();
+        $admin = new Ubac_Booking_Admin();
         $admin->init();
     }
 
     // Module Public (front-end : shortcode, AJAX, page de modification)
-    $public = new Dahu_Booking_Public();
+    $public = new Ubac_Booking_Public();
     $public->init();
 }
-add_action( 'plugins_loaded', 'dahu_booking_init' );
+add_action( 'plugins_loaded', 'ubac_booking_init' );
 
 // ============================================
 // PAGE EXTENSIONS — ACTION LINKS ET LIGNE MÉTA
@@ -63,7 +63,7 @@ add_action( 'plugins_loaded', 'dahu_booking_init' );
 
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),
     function( $links ) {
-        $settings = '<a href="' . admin_url( 'admin.php?page=dahu-booking-settings' ) . '">'
+        $settings = '<a href="' . admin_url( 'admin.php?page=ubac-booking-settings' ) . '">'
             . __( 'Settings', 'ubac-booking' ) . '</a>';
         array_unshift( $links, $settings );
         return $links;
@@ -86,11 +86,11 @@ add_filter( 'plugin_row_meta', function( $links, $file ) {
 // ============================================
 // BLOC GUTENBERG
 // ============================================
-function dahu_booking_register_block() {
-    require_once DAHU_BOOKING_PATH . 'blocks/booking/render.php';
+function ubac_booking_register_block() {
+    require_once UBAC_BOOKING_PATH . 'blocks/booking/render.php';
 
-    register_block_type( DAHU_BOOKING_PATH . 'blocks/booking', array(
-        'render_callback' => 'dahu_booking_render_block',
+    register_block_type( UBAC_BOOKING_PATH . 'blocks/booking', array(
+        'render_callback' => 'ubac_booking_render_block',
     ) );
 }
-add_action( 'init', 'dahu_booking_register_block' );
+add_action( 'init', 'ubac_booking_register_block' );

@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-class Dahu_Booking_DB {
+class Ubac_Booking_DB {
 
-    const CACHE_GROUP = 'dahu_booking';
+    const CACHE_GROUP = 'ubac_booking';
     const CACHE_TTL    = 30; // secondes : assez court pour rester fiable sur la dispo des créneaux
 
     /**
@@ -26,7 +26,7 @@ class Dahu_Booking_DB {
      */
     private static function table_bookings() {
         global $wpdb;
-        return $wpdb->prefix . DAHU_BOOKING_TABLE_BOOKINGS;
+        return $wpdb->prefix . UBAC_BOOKING_TABLE_BOOKINGS;
     }
 
     /**
@@ -34,7 +34,7 @@ class Dahu_Booking_DB {
      */
     private static function table_slots() {
         global $wpdb;
-        return $wpdb->prefix . DAHU_BOOKING_TABLE_SLOTS;
+        return $wpdb->prefix . UBAC_BOOKING_TABLE_SLOTS;
     }
 
     // ============================================
@@ -103,9 +103,9 @@ class Dahu_Booking_DB {
      * blocages manuels, et délai minimum de prévenance.
      */
     public static function get_available_times_for_date( $date ) {
-        $open_days  = get_option( 'dahu_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) );
-        $all_slots  = get_option( 'dahu_booking_time_slots', array() );
-        $min_notice = (int) get_option( 'dahu_booking_min_notice_hours', 12 );
+        $open_days  = get_option( 'ubac_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) );
+        $all_slots  = get_option( 'ubac_booking_time_slots', array() );
+        $min_notice = (int) get_option( 'ubac_booking_min_notice_hours', 12 );
 
         // Vérifie que le jour de la semaine est ouvert
         $day_of_week = (int) wp_date( 'w', strtotime( $date ) );

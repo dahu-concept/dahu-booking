@@ -1,35 +1,35 @@
 /* ============================================
-   DAHU BOOKING — Style & animations
+   UBAC BOOKING — Style & animations
    ============================================ */
 
 /*Cache le titre dans l'étape 2*/
-.dahu-booking__recap-title{
+.ubac-booking__recap-title{
 display:none;
 }
 
 /*Centre au milieu*/
-.dahu-booking__step{
+.ubac-booking__step{
 padding-top:50px;
 }
 
-.dahu-booking {
-  --dahu-blue: rgba(98, 162, 217, 1);
-  --dahu-blue-light: rgba(98, 162, 217, 0.15);
-  --dahu-purple: #6d4cf9;
-  --dahu-purple-hover: #b9a8ff;
-  --dahu-purple-light: rgba(109, 76, 249, 0.08);
-  --dahu-border: var(--colorStrokeStandard, var(--coreColorNeutral400, #cfd5db));
-  --dahu-text: #696c71;
-  --dahu-text-light: #696c71;
-  --dahu-radius: 12px;
+.ubac-booking {
+  --ubac-blue: rgba(98, 162, 217, 1);
+  --ubac-blue-light: rgba(98, 162, 217, 0.15);
+  --ubac-purple: #6d4cf9;
+  --ubac-purple-hover: #b9a8ff;
+  --ubac-purple-light: rgba(109, 76, 249, 0.08);
+  --ubac-border: var(--colorStrokeStandard, var(--coreColorNeutral400, #cfd5db));
+  --ubac-text: #696c71;
+  --ubac-text-light: #696c71;
+  --ubac-radius: 12px;
   min-height:550px;
   max-width: 710px !important;
   margin: 0 auto;
   background: #fff;
-  border-radius: var(--dahu-radius);
-  border: 1px solid var(--dahu-border);
+  border-radius: var(--ubac-radius);
+  border: 1px solid var(--ubac-border);
   font-family: 'DM Sans', sans-serif;
-  color: var(--dahu-text);
+  color: var(--ubac-text);
   overflow: hidden;
 
 }
@@ -37,7 +37,7 @@ padding-top:50px;
 /* ============================================
    EN-TÊTE
    ============================================ */
-.dahu-booking__header {
+.ubac-booking__header {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -45,9 +45,9 @@ padding-top:50px;
   min-height: 0;
 }
 
-.dahu-booking__back {
+.ubac-booking__back {
   background: none;
-  color: var(--dahu-purple);;
+  color: var(--ubac-purple);;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,99 +55,99 @@ padding-top:50px;
   flex-shrink: 0;
   border:none;
 }
-.dahu-booking__back:hover, .dahu-booking__back:active{
+.ubac-booking__back:hover, .ubac-booking__back:active{
   background: none;
-color:var(--dahu-purple);;
+color:var(--ubac-purple);;
 }
 
 /* Date/heure affichées dans le header à côté du bouton retour (étape 2) */
-.dahu-booking__header-recap {
+.ubac-booking__header-recap {
   display: flex;
   align-items: center;
   gap: 8px;
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--dahu-purple);
+  color: var(--ubac-purple);
   padding-right: 62px;
 }
-.dahu-booking__header-recap .dahu-booking__recap-divider {
-  color: var(--dahu-text-light);
+.ubac-booking__header-recap .ubac-booking__recap-divider {
+  color: var(--ubac-text-light);
   font-weight: 400;
 }
 
-.dahu-booking__header-text {
+.ubac-booking__header-text {
   text-align: center;
   flex: 1;
   padding: 4px 28px 0;
 }
 
-.dahu-booking__title {
+.ubac-booking__title {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--dahu-text);
+  color: var(--ubac-text);
   line-height: 10px;
 }
 
-.dahu-booking__meta {
+.ubac-booking__meta {
   display: flex;
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
   padding: 8px 28px 16px;
   font-size: 0.88rem;
-  color: var(--dahu-text-light);
+  color: var(--ubac-text-light);
 }
-.dahu-booking__meta-item {
+.ubac-booking__meta-item {
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.dahu-booking__meta-item svg {
-  color: var(--dahu-purple);
+.ubac-booking__meta-item svg {
+  color: var(--ubac-purple);
   flex-shrink: 0;
 }
 
 /* selection-recap : à l'étape 2, affiche titre événement + durée + lieu avec icônes */
-.dahu-booking__selection-recap {
+.ubac-booking__selection-recap {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   padding: 16px 28px;
-  border-top: 1px solid var(--dahu-border);
-  animation: dahu-fade-in 0.3s ease;
+  border-top: 1px solid var(--ubac-border);
+  animation: ubac-fade-in 0.3s ease;
 }
-.dahu-booking__recap-divider {
-  color: var(--dahu-text-light);
+.ubac-booking__recap-divider {
+  color: var(--ubac-text-light);
 }
 
-.dahu-booking__recap-title {
+.ubac-booking__recap-title {
   font-weight: 700;
   font-size: 1.15rem;
-  color: var(--dahu-text);
+  color: var(--ubac-text);
   text-align: center;
 }
 
-.dahu-booking__recap-meta {
+.ubac-booking__recap-meta {
   display: flex;
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
   font-size: 0.88rem;
-  color: var(--dahu-text-light);
+  color: var(--ubac-text-light);
 }
-.dahu-booking__recap-meta-item {
+.ubac-booking__recap-meta-item {
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.dahu-booking__recap-meta-item svg {
-  color: var(--dahu-purple);
+.ubac-booking__recap-meta-item svg {
+  color: var(--ubac-purple);
   flex-shrink: 0;
 }
 
-.dahu-booking__body {
+.ubac-booking__body {
   /*padding: 35px 30px 30px 35px;*/
   padding:35px;
   position: relative;
@@ -157,83 +157,83 @@ color:var(--dahu-purple);;
 /* ============================================
    TRANSITIONS ENTRE ÉTAPES (effet Calendly)
    ============================================ */
-.dahu-booking__step {
-  animation: dahu-slide-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+.ubac-booking__step {
+  animation: ubac-slide-in 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@keyframes dahu-slide-in {
+@keyframes ubac-slide-in {
   from { opacity: 0; transform: translateX(24px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes dahu-slide-in-reverse {
+@keyframes ubac-slide-in-reverse {
   from { opacity: 0; transform: translateX(-24px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
-.dahu-booking__step.is-reverse {
-  animation-name: dahu-slide-in-reverse;
+.ubac-booking__step.is-reverse {
+  animation-name: ubac-slide-in-reverse;
 }
 
-@keyframes dahu-fade-in {
+@keyframes ubac-fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-.dahu-booking__step-title {
+.ubac-booking__step-title {
   font-size: 1.15rem;
   font-weight: 700;
   margin: 0 0 30px;
-  color: var(--dahu-text);
+  color: var(--ubac-text);
   text-align: center;
 }
 
 /* ============================================
    ÉTAPE 1 : Grille calendrier + horaires (double volet)
    ============================================ */
-.dahu-booking__step1-grid {
+.ubac-booking__step1-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
   transition: grid-template-columns 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dahu-booking__step1-grid.has-date-selected {
+.ubac-booking__step1-grid.has-date-selected {
   grid-template-columns: 1.1fr 1fr;
 }
 
 @media (max-width: 640px) {
-  .dahu-booking__step1-grid.has-date-selected {
+  .ubac-booking__step1-grid.has-date-selected {
     grid-template-columns: 1fr;
   }
 }
 
-.dahu-booking__dates-panel {
+.ubac-booking__dates-panel {
   transition: max-width 0.35s ease;
 }
 
-.dahu-booking__times-panel {
-  animation: dahu-fade-in 0.3s ease;
+.ubac-booking__times-panel {
+  animation: ubac-fade-in 0.3s ease;
   overflow: hidden;
   width: 100%;
 }
 
 /* --- Calendrier --- */
-.dahu-booking__calendar-nav {
+.ubac-booking__calendar-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px!important;
 }
-.dahu-booking__cal-month-label {
+.ubac-booking__cal-month-label {
   font-weight: 700;
   font-size: 1rem;
   text-transform: capitalize;
 }
-.dahu-booking__cal-prev,
-.dahu-booking__cal-next {
+.ubac-booking__cal-prev,
+.ubac-booking__cal-next {
   background: none;
-  color: var(--dahu-text);
+  color: var(--ubac-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -241,38 +241,38 @@ color:var(--dahu-purple);;
   transition: transform 0.15s ease, border-color 0.15s ease;
   border:none;
 }
-.dahu-booking__cal-next {
+.ubac-booking__cal-next {
   border-radius: 8px;
   background: none;
-  color: var(--dahu-purple);;
+  color: var(--ubac-purple);;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: transform .15s ease, border-color .15s ease;
 }
-.dahu-booking__cal-next:hover{
+.ubac-booking__cal-next:hover{
 background:none;
-color:var(--dahu-purple);;
+color:var(--ubac-purple);;
 }
 
-.dahu-booking__cal-weekdays {
+.ubac-booking__cal-weekdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   text-align: center;
   font-size: 0.78rem;
-  color: var(--dahu-text-light);
+  color: var(--ubac-text-light);
   font-weight: 600;
   margin-bottom: 6px;
 }
 
-.dahu-booking__cal-days {
+.ubac-booking__cal-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 2px;
 }
 
-.dahu-booking__cal-day {
+.ubac-booking__cal-day {
     position: relative;
     aspect-ratio: 1;
     display: flex;
@@ -284,59 +284,59 @@ color:var(--dahu-purple);;
     font-size: 1rem;
     font-family: 'DM Sans', sans-serif;
      cursor: pointer;
-    color: var(--dahu-text);
+    color: var(--ubac-text);
     padding: 0;
     transition: transform .12s ease, background .15s ease, color .15s ease;
     width: 44px;
     height: 44px;
 }
 
-.dahu-booking__cal-day--empty {
+.ubac-booking__cal-day--empty {
   cursor: default;
   pointer-events: none;
 }
 
-.dahu-booking__cal-day--available {
-  color: var(--dahu-purple);
+.ubac-booking__cal-day--available {
+  color: var(--ubac-purple);
 }
-.dahu-booking__cal-day--available:hover {
-  background: var(--dahu-purple-hover);
+.ubac-booking__cal-day--available:hover {
+  background: var(--ubac-purple-hover);
   color: #fff;
 }
 
-.dahu-booking__cal-day--disabled {
+.ubac-booking__cal-day--disabled {
   color: #ccc;
   cursor: not-allowed;
 }
 
-.dahu-booking__cal-day--today::after {
+.ubac-booking__cal-day--today::after {
   content: '';
   position: absolute;
   bottom: 4px;
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--dahu-purple);
+  background: var(--ubac-purple);
 }
 
-.dahu-booking__cal-day--selected {
-  background: var(--dahu-purple) !important;
+.ubac-booking__cal-day--selected {
+  background: var(--ubac-purple) !important;
   color: white !important;
 }
 
 /* --- Créneaux horaires --- */
-.dahu-booking__times-date-label {
+.ubac-booking__times-date-label {
   font-weight: 700;
   font-size: 0.95rem;
   margin-bottom: 20px!important;
  margin-top: 10px!important;
   min-height: 1.2em;
   text-transform: capitalize;
-  color: var(--dahu-text);
+  color: var(--ubac-text);
 text-align: center;
 }
 
-.dahu-booking__times-list {
+.ubac-booking__times-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -345,83 +345,83 @@ text-align: center;
   padding-right: 4px;
 }
 
-.dahu-booking__time-slot {
+.ubac-booking__time-slot {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 12px 16px;
   border-radius: 10px;
-  border: 1px solid var(--dahu-purple);
+  border: 1px solid var(--ubac-purple);
   background: white;
-  color: var(--dahu-purple);
+  color: var(--ubac-purple);
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
 }
 
-@keyframes dahu-slot-in {
+@keyframes ubac-slot-in {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Hover : garde la couleur de texte d'origine (ne devient pas blanc),
    fond légèrement teinté seulement */
-.dahu-booking__time-slot:hover {
-  background: var(--dahu-purple-light);
-  color: var(--dahu-purple);
+.ubac-booking__time-slot:hover {
+  background: var(--ubac-purple-light);
+  color: var(--ubac-purple);
   transform: scale(0.98);
 }
 
 /* Focus clavier : fond gris texte, pas de halo bleu navigateur */
-.dahu-booking__time-slot:focus,
-.dahu-booking__time-slot:focus-visible {
+.ubac-booking__time-slot:focus,
+.ubac-booking__time-slot:focus-visible {
   outline: none;
-  background: var(--dahu-text);
+  background: var(--ubac-text);
   color: #fff;
-  border-color: var(--dahu-text);
+  border-color: var(--ubac-text);
 }
 
-.dahu-booking__time-slot--selected {
-  background: var(--dahu-text);
+.ubac-booking__time-slot--selected {
+  background: var(--ubac-text);
   color: white;
-  border-color: var(--dahu-text);
+  border-color: var(--ubac-text);
 }
 
-.dahu-booking__time-slot--confirm {
-  background: var(--dahu-purple);
+.ubac-booking__time-slot--confirm {
+  background: var(--ubac-purple);
   color: white;
-  border-color: var(--dahu-purple);
+  border-color: var(--ubac-purple);
 }
-.dahu-booking__time-slot--confirm:hover {
-  background: var(--dahu-purple);
+.ubac-booking__time-slot--confirm:hover {
+  background: var(--ubac-purple);
   color: white;
   opacity: 0.9;
 }
 
 /* Paire heure-sélectionnée + bouton suivant, côte à côte (effet Calendly) */
-.dahu-booking__time-slot-row {
+.ubac-booking__time-slot-row {
   display: flex;
   gap: 10px;
-  animation: dahu-slot-in 0.25s ease;
+  animation: ubac-slot-in 0.25s ease;
   width: 100%;
 }
-.dahu-booking__time-slot-row .dahu-booking__time-slot {
+.ubac-booking__time-slot-row .ubac-booking__time-slot {
   flex: 1;
   margin: 0;
   width: 100%;
 }
 
-.dahu-booking__times-empty,
-.dahu-booking__times-placeholder {
-  color: var(--dahu-text-light);
+.ubac-booking__times-empty,
+.ubac-booking__times-placeholder {
+  color: var(--ubac-text-light);
   font-size: 0.9rem;
   padding: 20px 0;
   text-align: center;
 }
 
-.dahu-booking__times-loading {
+.ubac-booking__times-loading {
   display: flex;
   justify-content: center;
   padding: 30px 0;
@@ -429,7 +429,7 @@ text-align: center;
 
 /*Aide l'affichage pour les petits smartphones*/
 @media(max-width:767px){
- .dahu-booking__body
+ .ubac-booking__body
 {
 padding:5px;
 }
@@ -439,12 +439,12 @@ padding:5px;
 /* ============================================
    ÉTAPE 2 : Formulaire
    ============================================ */
-.dahu-booking__step.dahu-booking__step--2 {
+.ubac-booking__step.ubac-booking__step--2 {
   padding: 0rem 5rem 0rem 5rem;
 }
 
 @media (max-width: 640px) {
-  .dahu-booking__step.dahu-booking__step--2 {
+  .ubac-booking__step.ubac-booking__step--2 {
     padding: 0;
   
   }
@@ -452,14 +452,14 @@ padding:5px;
 
 
 
-.dahu-booking__field {
+.ubac-booking__field {
   margin-bottom: 18px;
   padding-bottom: 15px;
 }
 
 
-.dahu-booking__field input,
-.dahu-booking__field textarea {
+.ubac-booking__field input,
+.ubac-booking__field textarea {
   width: 100%;
   padding: 11px 14px;
   border-radius: 8px;
@@ -468,24 +468,24 @@ padding:5px;
   font-size: 0.95rem;
   box-sizing: border-box;
   transition: border-color 0.15s ease;
-  color: var(--dahu-text);
+  color: var(--ubac-text);
 }
-.dahu-booking__field input::placeholder,
-.dahu-booking__field textarea::placeholder {
+.ubac-booking__field input::placeholder,
+.ubac-booking__field textarea::placeholder {
   color: #8a93a0;
 }
-.dahu-booking__field input:focus,
-.dahu-booking__field textarea:focus {
+.ubac-booking__field input:focus,
+.ubac-booking__field textarea:focus {
   outline: none;
-  border-color: var(--dahu-purple);
-  box-shadow: 0 0 0 3px var(--dahu-purple-light);
+  border-color: var(--ubac-purple);
+  box-shadow: 0 0 0 3px var(--ubac-purple-light);
 }
-.dahu-booking__field textarea {
+.ubac-booking__field textarea {
   resize: vertical;
   min-height: 90px;
 }
 
-.dahu-booking__form-error {
+.ubac-booking__form-error {
   background: #fdecea;
   color: #c0392b;
   border: 1px solid #f5c6cb;
@@ -495,11 +495,11 @@ padding:5px;
   margin-bottom: 16px;
 }
 
-.dahu-booking__submit {
+.ubac-booking__submit {
   width: 100%;
   padding: 13px;
   border-radius: 10px;
-  background: var(--dahu-purple);
+  background: var(--ubac-purple);
   color: white;
   font-family: 'DM Sans', sans-serif;
   font-weight: 700;
@@ -511,56 +511,56 @@ padding:5px;
   justify-content: center;
   gap: 10px;
 }
-.dahu-booking__submit:hover {
-  background: var(--dahu-purple);
+.ubac-booking__submit:hover {
+  background: var(--ubac-purple);
 opacity:0.9;
   transform: scale(0.98);
 
 }
-.dahu-booking__submit:disabled {
+.ubac-booking__submit:disabled {
   cursor: not-allowed;
 }
 
-.dahu-booking__spinner {
+.ubac-booking__spinner {
   width: 16px;
   height: 16px;
   border: 2px solid rgba(255,255,255,0.4);
   border-top-color: white;
   border-radius: 50%;
-  animation: dahu-spin 0.7s linear infinite;
+  animation: ubac-spin 0.7s linear infinite;
 }
-@keyframes dahu-spin {
+@keyframes ubac-spin {
   to { transform: rotate(360deg); }
 }
 
 /* ============================================
    ÉTAPE 3 : Confirmation
    ============================================ */
-.dahu-booking__success {
+.ubac-booking__success {
   text-align: center;
   padding: 30px 10px;
-  animation: dahu-pop-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: ubac-pop-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
-@keyframes dahu-pop-in {
+@keyframes ubac-pop-in {
   from { opacity: 0; transform: scale(0.9); }
   to   { opacity: 1; transform: scale(1); }
 }
-.dahu-booking__success-icon {
+.ubac-booking__success-icon {
   color: #2ecc71;
   margin-bottom: 16px;
 }
-.dahu-booking__success h3 {
+.ubac-booking__success h3 {
   font-size: 1.3rem;
   margin: 0 0 10px;
-  color: var(--dahu-text);
+  color: var(--ubac-text);
 }
-.dahu-booking__success-recap {
+.ubac-booking__success-recap {
   font-weight: 700;
-  color: var(--dahu-purple);
+  color: var(--ubac-purple);
   margin: 0 0 14px;
 }
-.dahu-booking__success-note {
-  color: var(--dahu-text-light);
+.ubac-booking__success-note {
+  color: var(--ubac-text-light);
   font-size: 0.9rem;
   max-width: 400px;
   margin: 0 auto;
@@ -569,29 +569,29 @@ opacity:0.9;
 /* ============================================
    PAGE DE GESTION (modifier / annuler)
    ============================================ */
-.dahu-manage-page {
+.ubac-manage-page {
   max-width: 760px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
-.dahu-manage-page__current {
+.ubac-manage-page__current {
   text-align: center;
   margin-bottom: 28px;
 }
-.dahu-manage-page__label {
+.ubac-manage-page__label {
   display: block;
-  color: var(--dahu-text-light, #696c71);
+  color: var(--ubac-text-light, #696c71);
   font-size: 0.85rem;
   font-weight: 600;
   margin-bottom: 6px;
 }
-.dahu-manage-page__current h2 {
+.ubac-manage-page__current h2 {
   margin: 0 0 6px;
   color: #6d4cf9;
 }
 
-.dahu-manage-page__actions {
+.ubac-manage-page__actions {
   display: flex;
   gap: 14px;
   justify-content: center;
@@ -599,7 +599,7 @@ opacity:0.9;
   margin-bottom: 24px;
 }
 
-.dahu-booking-btn {
+.ubac-booking-btn {
   padding: 11px 22px;
   border-radius: 10px;
   font-family: 'DM Sans', sans-serif;
@@ -608,64 +608,64 @@ opacity:0.9;
   cursor: pointer;
   transition: transform 0.12s ease, background 0.15s ease;
 }
-.dahu-booking-btn:hover {
+.ubac-booking-btn:hover {
   transform: scale(0.98);
 }
-.dahu-booking-btn--primary {
-  border: 1px solid var(--dahu-blue, rgba(98, 162, 217, 1));
+.ubac-booking-btn--primary {
+  border: 1px solid var(--ubac-blue, rgba(98, 162, 217, 1));
   background: white;
   color: #6d4cf9;
 }
-.dahu-booking-btn--primary:hover {
+.ubac-booking-btn--primary:hover {
   background: rgba(109, 76, 249, 0.08);
 }
-.dahu-booking-btn--danger {
+.ubac-booking-btn--danger {
   border: 1px solid #e74c3c;
   background: white;
   color: #e74c3c;
 }
-.dahu-booking-btn--danger:hover {
+.ubac-booking-btn--danger:hover {
   background: rgba(231, 76, 60, 0.08);
 }
-.dahu-booking-btn:disabled {
+.ubac-booking-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.dahu-manage-page__reschedule {
-  animation: dahu-fade-in 0.3s ease;
+.ubac-manage-page__reschedule {
+  animation: ubac-fade-in 0.3s ease;
   margin-top: 20px;
 }
-.dahu-manage-page__reschedule h3 {
+.ubac-manage-page__reschedule h3 {
   text-align: center;
   margin-bottom: 16px;
 }
-#dahu-manage-confirm-reschedule {
+#ubac-manage-confirm-reschedule {
   display: block;
   margin: 20px auto 0;
 }
 
-.dahu-manage-page__result {
+.ubac-manage-page__result {
   text-align: center;
   margin-top: 24px;
   padding: 16px;
   border-radius: 10px;
   font-weight: 600;
-  animation: dahu-fade-in 0.3s ease;
+  animation: ubac-fade-in 0.3s ease;
 }
-.dahu-manage-page__result--success {
+.ubac-manage-page__result--success {
   background: rgba(46, 204, 113, 0.1);
   color: #1e8449;
   border: 1px solid rgba(46, 204, 113, 0.4);
 }
-.dahu-manage-page__result--error {
+.ubac-manage-page__result--error {
   background: #fdecea;
   color: #c0392b;
   border: 1px solid #f5c6cb;
 }
 
-.dahu-manage-page__not-found,
-.dahu-manage-page__cancelled {
+.ubac-manage-page__not-found,
+.ubac-manage-page__cancelled {
   text-align: center;
   padding: 60px 20px;
 }

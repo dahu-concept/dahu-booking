@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-$dahu_jours_label = array(
+$ubac_jours_label = array(
     1 => __( 'Monday', 'ubac-booking' ),
     2 => __( 'Tuesday', 'ubac-booking' ),
     3 => __( 'Wednesday', 'ubac-booking' ),
@@ -9,44 +9,44 @@ $dahu_jours_label = array(
     6 => __( 'Saturday', 'ubac-booking' ),
     0 => __( 'Sunday', 'ubac-booking' ),
 );
-$dahu_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( $_GET['saved'] ) ) : '';
+$ubac_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( $_GET['saved'] ) ) : '';
 ?>
-<div class="wrap dahu-admin">
-    <h1><?php esc_html_e( 'Settings — Dahu Booking', 'ubac-booking' ); ?></h1>
+<div class="wrap ubac-admin">
+    <h1><?php esc_html_e( 'Settings — Ubac Booking', 'ubac-booking' ); ?></h1>
 
-    <?php if ( $dahu_saved_notice ) : ?>
+    <?php if ( $ubac_saved_notice ) : ?>
         <div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Settings saved.', 'ubac-booking' ); ?></p></div>
     <?php endif; ?>
 
-    <div class="dahu-admin-card dahu-admin-card--shortcode">
+    <div class="ubac-admin-card ubac-admin-card--shortcode">
         <h2><?php esc_html_e( 'How to display the booking widget', 'ubac-booking' ); ?></h2>
         <p><?php esc_html_e( 'Two equivalent ways to insert the booking calendar on a page:', 'ubac-booking' ); ?></p>
-        <ul class="dahu-list">
+        <ul class="ubac-list">
             <li>
                 <strong><?php esc_html_e( 'Shortcode:', 'ubac-booking' ); ?></strong>
-                <?php esc_html_e( 'paste', 'ubac-booking' ); ?> <code>[dahu_booking]</code> <?php esc_html_e( 'in any page or text widget.', 'ubac-booking' ); ?>
+                <?php esc_html_e( 'paste', 'ubac-booking' ); ?> <code>[ubac_booking]</code> <?php esc_html_e( 'in any page or text widget.', 'ubac-booking' ); ?>
             </li>
             <li>
                 <strong><?php esc_html_e( 'Gutenberg block:', 'ubac-booking' ); ?></strong>
-                <?php esc_html_e( 'in the page editor, add a block and search for', 'ubac-booking' ); ?> <strong>"Dahu Booking"</strong>.
+                <?php esc_html_e( 'in the page editor, add a block and search for', 'ubac-booking' ); ?> <strong>"Ubac Booking"</strong>.
             </li>
         </ul>
     </div>
 
     <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-        <input type="hidden" name="action" value="dahu_save_settings">
-        <?php wp_nonce_field( 'dahu_save_settings_action' ); ?>
+        <input type="hidden" name="action" value="ubac_save_settings">
+        <?php wp_nonce_field( 'ubac_save_settings_action' ); ?>
 
         <table class="form-table">
 
             <tr>
                 <th scope="row"><?php esc_html_e( 'Open days', 'ubac-booking' ); ?></th>
                 <td>
-                    <?php foreach ( $dahu_jours_label as $dahu_day_value => $dahu_day_label ) : ?>
-                        <label class="dahu-day-label">
-                            <input type="checkbox" name="open_days[]" value="<?php echo esc_attr( $dahu_day_value ); ?>"
-                                <?php checked( in_array( $dahu_day_value, $settings['open_days'], true ) ); ?>>
-                            <?php echo esc_html( $dahu_day_label ); ?>
+                    <?php foreach ( $ubac_jours_label as $ubac_day_value => $ubac_day_label ) : ?>
+                        <label class="ubac-day-label">
+                            <input type="checkbox" name="open_days[]" value="<?php echo esc_attr( $ubac_day_value ); ?>"
+                                <?php checked( in_array( $ubac_day_value, $settings['open_days'], true ) ); ?>>
+                            <?php echo esc_html( $ubac_day_label ); ?>
                         </label>
                     <?php endforeach; ?>
                 </td>
@@ -115,7 +115,7 @@ $dahu_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( 
         <?php submit_button( __( 'Save settings', 'ubac-booking' ) ); ?>
     </form>
 
-    <div class="dahu-admin-card dahu-admin-card--customizer">
+    <div class="ubac-admin-card ubac-admin-card--customizer">
         <h2><?php esc_html_e( 'Customize the widget appearance', 'ubac-booking' ); ?></h2>
         <p><?php esc_html_e( 'To adjust colors, fonts or spacing of the booking widget, use WordPress\'s built-in Additional CSS editor — it is the recommended, site-wide way to add custom styles safely.', 'ubac-booking' ); ?></p>
         <p>

@@ -1,12 +1,12 @@
 /**
- * Dahu Booking — Logique du widget de réservation
+ * Ubac Booking — Logique du widget de réservation
  * Calendrier interactif + double-volet (dates/heures) + transition Calendly-like
  */
 (function () {
   'use strict';
 
   // Month and day names are injected via wp_localize_script for i18n support.
-  const i18n = (typeof dahuBookingData !== 'undefined' && dahuBookingData.i18n) ? dahuBookingData.i18n : {};
+  const i18n = (typeof ubacBookingData !== 'undefined' && ubacBookingData.i18n) ? ubacBookingData.i18n : {};
   const MONTHS = i18n.months || ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DAYS   = i18n.days   || ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   const WEEKDAYS = i18n.weekdays || ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
@@ -15,7 +15,7 @@
    * Classe qui encapsule un widget de réservation complet.
    * Permet d'avoir plusieurs instances sur une même page (ex: page de gestion).
    */
-  class DahuBookingWidget {
+  class UbacBookingWidget {
     constructor(rootEl, options) {
       this.root = rootEl;
       this.options = options || {};
@@ -32,18 +32,18 @@
     }
 
     bindElements() {
-      this.gridEl = this.root.querySelector('.dahu-booking__step1-grid');
-      this.datesPanel = this.root.querySelector('.dahu-booking__dates-panel');
-      this.timesPanel = this.root.querySelector('.dahu-booking__times-panel');
-      this.calMonthLabel = this.root.querySelector('.dahu-booking__cal-month-label');
-      this.calDays = this.root.querySelector('.dahu-booking__cal-days');
-      this.calPrev = this.root.querySelector('.dahu-booking__cal-prev');
-      this.calNext = this.root.querySelector('.dahu-booking__cal-next');
-      this.timesDateLabel = this.root.querySelector('.dahu-booking__times-date-label');
-      this.timesList = this.root.querySelector('.dahu-booking__times-list');
+      this.gridEl = this.root.querySelector('.ubac-booking__step1-grid');
+      this.datesPanel = this.root.querySelector('.ubac-booking__dates-panel');
+      this.timesPanel = this.root.querySelector('.ubac-booking__times-panel');
+      this.calMonthLabel = this.root.querySelector('.ubac-booking__cal-month-label');
+      this.calDays = this.root.querySelector('.ubac-booking__cal-days');
+      this.calPrev = this.root.querySelector('.ubac-booking__cal-prev');
+      this.calNext = this.root.querySelector('.ubac-booking__cal-next');
+      this.timesDateLabel = this.root.querySelector('.ubac-booking__times-date-label');
+      this.timesList = this.root.querySelector('.ubac-booking__times-list');
 
       // Populate weekday header labels (Mon–Sun) from i18n data.
-      const weekdaysEl = this.root.querySelector('.dahu-booking__cal-weekdays');
+      const weekdaysEl = this.root.querySelector('.ubac-booking__cal-weekdays');
       if (weekdaysEl && weekdaysEl.children.length === 0) {
         WEEKDAYS.forEach(function (label) {
           const span = document.createElement('span');
@@ -97,7 +97,7 @@
       // Cases vides avant le 1er du mois
       for (let i = 0; i < startOffset; i++) {
         const empty = document.createElement('div');
-        empty.className = 'dahu-booking__cal-day dahu-booking__cal-day--empty';
+        empty.className = 'ubac-booking__cal-day ubac-booking__cal-day--empty';
         this.calDays.appendChild(empty);
       }
 
@@ -111,7 +111,7 @@
 
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'dahu-booking__cal-day';
+        btn.className = 'ubac-booking__cal-day';
         btn.textContent = day;
 
         const isPast = dateObj < today;
@@ -120,19 +120,19 @@
         const isToday = dateObj.getTime() === today.getTime();
 
         if (isPast || isTooFar || isClosedDay) {
-          btn.classList.add('dahu-booking__cal-day--disabled');
+          btn.classList.add('ubac-booking__cal-day--disabled');
           btn.disabled = true;
         } else {
-          btn.classList.add('dahu-booking__cal-day--available');
+          btn.classList.add('ubac-booking__cal-day--available');
           btn.addEventListener('click', () => this.selectDate(dateStr, dateObj));
         }
 
         if (isToday) {
-          btn.classList.add('dahu-booking__cal-day--today');
+          btn.classList.add('ubac-booking__cal-day--today');
         }
 
         if (this.selectedDate === dateStr) {
-          btn.classList.add('dahu-booking__cal-day--selected');
+          btn.classList.add('ubac-booking__cal-day--selected');
         }
 
         this.calDays.appendChild(btn);
@@ -182,25 +182,25 @@
         return;
       }
 
-      this.timesList.innerHTML = '<div class="dahu-booking__times-loading"><div class="dahu-booking__spinner" style="border-top-color:#6d4cf9;border-color:rgba(109,76,249,0.2);"></div></div>';
+      this.timesList.innerHTML = '<div class="ubac-booking__times-loading"><div class="ubac-booking__spinner" style="border-top-color:#6d4cf9;border-color:rgba(109,76,249,0.2);"></div></div>';
 
       const formData = new FormData();
-      formData.append('action', 'dahu_get_available_times');
-      formData.append('nonce', dahuBookingData.nonce);
+      formData.append('action', 'ubac_get_available_times');
+      formData.append('nonce', ubacBookingData.nonce);
       formData.append('date', dateStr);
 
-      fetch(dahuBookingData.ajaxUrl, { method: 'POST', body: formData })
+      fetch(ubacBookingData.ajaxUrl, { method: 'POST', body: formData })
         .then(res => res.json())
         .then(data => {
           if (data.success) {
             this.availableCache[dateStr] = data.data.times;
             this.renderTimes(data.data.times);
           } else {
-            this.timesList.innerHTML = '<div class="dahu-booking__times-empty">' + dahuBookingData.i18n.error + '</div>';
+            this.timesList.innerHTML = '<div class="ubac-booking__times-empty">' + ubacBookingData.i18n.error + '</div>';
           }
         })
         .catch(() => {
-          this.timesList.innerHTML = '<div class="dahu-booking__times-empty">' + dahuBookingData.i18n.error + '</div>';
+          this.timesList.innerHTML = '<div class="ubac-booking__times-empty">' + ubacBookingData.i18n.error + '</div>';
         });
     }
 
@@ -211,14 +211,14 @@
       this.timesList.innerHTML = '';
 
       if (!times || times.length === 0) {
-        this.timesList.innerHTML = '<div class="dahu-booking__times-empty">' + dahuBookingData.i18n.noSlots + '</div>';
+        this.timesList.innerHTML = '<div class="ubac-booking__times-empty">' + ubacBookingData.i18n.noSlots + '</div>';
         return;
       }
 
       times.forEach(time => {
         const btn = document.createElement('button');
         btn.type = 'button';
-        btn.className = 'dahu-booking__time-slot';
+        btn.className = 'ubac-booking__time-slot';
         btn.textContent = time;
         btn.dataset.time = time;
         btn.addEventListener('click', () => this.selectTime(time, btn, times));
@@ -240,11 +240,11 @@
       allTimes.forEach(t => {
         if (t === time) {
           const row = document.createElement('div');
-          row.className = 'dahu-booking__time-slot-row';
+          row.className = 'ubac-booking__time-slot-row';
 
           const selectedBtn = document.createElement('button');
           selectedBtn.type = 'button';
-          selectedBtn.className = 'dahu-booking__time-slot dahu-booking__time-slot--selected';
+          selectedBtn.className = 'ubac-booking__time-slot ubac-booking__time-slot--selected';
           selectedBtn.textContent = t;
           selectedBtn.addEventListener('click', () => {
             // Permet de désélectionner pour revenir à la liste simple
@@ -253,8 +253,8 @@
 
           const nextBtn = document.createElement('button');
           nextBtn.type = 'button';
-          nextBtn.className = 'dahu-booking__time-slot dahu-booking__time-slot--confirm';
-          nextBtn.textContent = dahuBookingData.i18n.next;
+          nextBtn.className = 'ubac-booking__time-slot ubac-booking__time-slot--confirm';
+          nextBtn.textContent = ubacBookingData.i18n.next;
           nextBtn.addEventListener('click', () => {
             if (this.options.onTimeConfirmed) {
               this.options.onTimeConfirmed(time);
@@ -267,7 +267,7 @@
         } else {
           const btn = document.createElement('button');
           btn.type = 'button';
-          btn.className = 'dahu-booking__time-slot';
+          btn.className = 'ubac-booking__time-slot';
           btn.textContent = t;
           btn.addEventListener('click', () => this.selectTime(t, btn, allTimes));
           this.timesList.appendChild(btn);
@@ -284,7 +284,7 @@
       this.selectedTime = null;
       this.viewMonth = new Date().getMonth();
       this.viewYear = new Date().getFullYear();
-      this.timesList.innerHTML = '<div class="dahu-booking__times-placeholder">' + dahuBookingData.i18n.pickDate + '</div>';
+      this.timesList.innerHTML = '<div class="ubac-booking__times-placeholder">' + ubacBookingData.i18n.pickDate + '</div>';
       this.timesDateLabel.textContent = '';
       if (this.timesPanel && this.gridEl) {
         this.timesPanel.style.display = 'none';
@@ -295,31 +295,31 @@
   }
 
   // ============================================
-  // WIDGET PRINCIPAL : [dahu_booking] (page contact)
+  // WIDGET PRINCIPAL : [ubac_booking] (page contact)
   // ============================================
   function initMainBookingWidget() {
-    const widgetRoot = document.getElementById('dahu-booking-widget');
+    const widgetRoot = document.getElementById('ubac-booking-widget');
     if (!widgetRoot) return;
 
-    const backBtn = widgetRoot.querySelector('.dahu-booking__back');
-    const headerBox = widgetRoot.querySelector('.dahu-booking__header');
-    const recapTime = widgetRoot.querySelector('.dahu-booking__recap-time');
-    const recapDate = widgetRoot.querySelector('.dahu-booking__recap-date');
-    const step2Only = widgetRoot.querySelectorAll('.dahu-booking__step2-only');
+    const backBtn = widgetRoot.querySelector('.ubac-booking__back');
+    const headerBox = widgetRoot.querySelector('.ubac-booking__header');
+    const recapTime = widgetRoot.querySelector('.ubac-booking__recap-time');
+    const recapDate = widgetRoot.querySelector('.ubac-booking__recap-date');
+    const step2Only = widgetRoot.querySelectorAll('.ubac-booking__step2-only');
 
     const step1 = widgetRoot.querySelector('[data-step="1"]');
     const step2 = widgetRoot.querySelector('[data-step="2"]');
     const step3 = widgetRoot.querySelector('[data-step="3"]');
 
-    const form = widgetRoot.querySelector('.dahu-booking__form');
-    const formError = widgetRoot.querySelector('.dahu-booking__form-error');
-    const submitBtn = widgetRoot.querySelector('.dahu-booking__submit');
+    const form = widgetRoot.querySelector('.ubac-booking__form');
+    const formError = widgetRoot.querySelector('.ubac-booking__form-error');
+    const submitBtn = widgetRoot.querySelector('.ubac-booking__submit');
 
     let selectedDateObj = null;
 
-    const widget = new DahuBookingWidget(widgetRoot, {
-      maxDaysAhead: dahuBookingData.maxDaysAhead,
-      openDays: dahuBookingData.openDays,
+    const widget = new UbacBookingWidget(widgetRoot, {
+      maxDaysAhead: ubacBookingData.maxDaysAhead,
+      openDays: ubacBookingData.openDays,
       onDateSelected: function (dateStr, dateObj) {
         selectedDateObj = dateObj;
       },
@@ -329,7 +329,7 @@
       },
     });
 
-    widget.timesList.innerHTML = '<div class="dahu-booking__times-placeholder">' + dahuBookingData.i18n.pickDate + '</div>';
+    widget.timesList.innerHTML = '<div class="ubac-booking__times-placeholder">' + ubacBookingData.i18n.pickDate + '</div>';
 
     function goToStep2() {
       if (!widget.selectedDate || !widget.selectedTime) return;
@@ -340,7 +340,7 @@
 
       step1.style.display = 'none';
       step2.style.display = 'block';
-      step2.classList.add('dahu-booking__step');
+      step2.classList.add('ubac-booking__step');
       headerBox.style.display = 'flex';
       backBtn.style.display = 'flex';
       step2Only.forEach(el => el.style.display = '');
@@ -366,9 +366,9 @@
       e.preventDefault();
       formError.style.display = 'none';
 
-      const name = form.querySelector('#dahu-name').value.trim();
-      const email = form.querySelector('#dahu-email').value.trim();
-      const message = form.querySelector('#dahu-message').value.trim();
+      const name = form.querySelector('#ubac-name').value.trim();
+      const email = form.querySelector('#ubac-email').value.trim();
+      const message = form.querySelector('#ubac-message').value.trim();
 
       if (!name || !email) {
         formError.textContent = i18n.error || 'Please provide your name and email.';
@@ -377,36 +377,36 @@
       }
 
       submitBtn.disabled = true;
-      submitBtn.querySelector('.dahu-booking__submit-text').textContent = dahuBookingData.i18n.sending;
-      submitBtn.querySelector('.dahu-booking__spinner').style.display = 'inline-block';
+      submitBtn.querySelector('.ubac-booking__submit-text').textContent = ubacBookingData.i18n.sending;
+      submitBtn.querySelector('.ubac-booking__spinner').style.display = 'inline-block';
 
       const formData = new FormData();
-      formData.append('action', 'dahu_create_booking');
-      formData.append('nonce', dahuBookingData.nonce);
+      formData.append('action', 'ubac_create_booking');
+      formData.append('nonce', ubacBookingData.nonce);
       formData.append('date', widget.selectedDate);
       formData.append('time', widget.selectedTime);
       formData.append('name', name);
       formData.append('email', email);
       formData.append('message', message);
-      const hpField = form.querySelector('#dahu-hp');
-      formData.append('dahu_hp', hpField ? hpField.value : '');
+      const hpField = form.querySelector('#ubac-hp');
+      formData.append('ubac_hp', hpField ? hpField.value : '');
 
-      fetch(dahuBookingData.ajaxUrl, { method: 'POST', body: formData })
+      fetch(ubacBookingData.ajaxUrl, { method: 'POST', body: formData })
         .then(res => res.json())
         .then(data => {
           if (data.success) {
             showStep3();
           } else {
             const msg = data.data && data.data.message === 'slot_taken'
-              ? dahuBookingData.i18n.slotTaken
-              : (data.data && data.data.message ? data.data.message : dahuBookingData.i18n.error);
+              ? ubacBookingData.i18n.slotTaken
+              : (data.data && data.data.message ? data.data.message : ubacBookingData.i18n.error);
             formError.textContent = msg;
             formError.style.display = 'block';
             resetSubmitBtn();
           }
         })
         .catch(() => {
-          formError.textContent = dahuBookingData.i18n.error;
+          formError.textContent = ubacBookingData.i18n.error;
           formError.style.display = 'block';
           resetSubmitBtn();
         });
@@ -414,8 +414,8 @@
 
     function resetSubmitBtn() {
       submitBtn.disabled = false;
-      submitBtn.querySelector('.dahu-booking__submit-text').textContent = dahuBookingData.i18n.confirm;
-      submitBtn.querySelector('.dahu-booking__spinner').style.display = 'none';
+      submitBtn.querySelector('.ubac-booking__submit-text').textContent = ubacBookingData.i18n.confirm;
+      submitBtn.querySelector('.ubac-booking__spinner').style.display = 'none';
     }
 
     function showStep3() {
@@ -424,7 +424,7 @@
       headerBox.style.display = 'none';
       backBtn.style.display = 'none';
 
-      const recap = widgetRoot.querySelector('.dahu-booking__success-recap');
+      const recap = widgetRoot.querySelector('.ubac-booking__success-recap');
       recap.textContent = widget.selectedTime + ' · ' + widget.formatDateLong(selectedDateObj);
     }
   }
@@ -433,16 +433,16 @@
   // WIDGET DE GESTION (page modifier/annuler)
   // ============================================
   function initManageWidget() {
-    const manageRoot = document.getElementById('dahu-manage-widget');
+    const manageRoot = document.getElementById('ubac-manage-widget');
     if (!manageRoot) return;
 
     const token = manageRoot.dataset.token;
-    const rescheduleBtn = document.getElementById('dahu-manage-reschedule-btn');
-    const cancelBtn = document.getElementById('dahu-manage-cancel-btn');
-    const rescheduleZone = document.getElementById('dahu-manage-reschedule-zone');
-    const confirmRescheduleBtn = document.getElementById('dahu-manage-confirm-reschedule');
-    const resultBox = document.getElementById('dahu-manage-result');
-    const actionsBox = manageRoot.querySelector('.dahu-manage-page__actions');
+    const rescheduleBtn = document.getElementById('ubac-manage-reschedule-btn');
+    const cancelBtn = document.getElementById('ubac-manage-cancel-btn');
+    const rescheduleZone = document.getElementById('ubac-manage-reschedule-zone');
+    const confirmRescheduleBtn = document.getElementById('ubac-manage-confirm-reschedule');
+    const resultBox = document.getElementById('ubac-manage-result');
+    const actionsBox = manageRoot.querySelector('.ubac-manage-page__actions');
 
     let rescheduleWidget = null;
 
@@ -452,15 +452,15 @@
       cancelBtn.style.display = 'none';
 
       if (!rescheduleWidget) {
-        const rescheduleRoot = document.getElementById('dahu-booking-widget-reschedule');
-        rescheduleWidget = new DahuBookingWidget(rescheduleRoot, {
+        const rescheduleRoot = document.getElementById('ubac-booking-widget-reschedule');
+        rescheduleWidget = new UbacBookingWidget(rescheduleRoot, {
           maxDaysAhead: 60,
           openDays: [1, 2, 3, 4, 5, 6],
           onTimeConfirmed: function () {
             confirmRescheduleBtn.disabled = false;
           },
         });
-        rescheduleWidget.timesList.innerHTML = '<div class="dahu-booking__times-placeholder">' + (i18n.pickDate || 'Please choose a date.') + '</div>';
+        rescheduleWidget.timesList.innerHTML = '<div class="ubac-booking__times-placeholder">' + (i18n.pickDate || 'Please choose a date.') + '</div>';
       }
     });
 
@@ -468,11 +468,11 @@
       cancelBtn.disabled = true;
 
       const formData = new FormData();
-      formData.append('action', 'dahu_cancel_booking');
-      formData.append('nonce', dahuBookingData.nonce);
+      formData.append('action', 'ubac_cancel_booking');
+      formData.append('nonce', ubacBookingData.nonce);
       formData.append('token', token);
 
-      fetch(dahuBookingData.ajaxUrl, { method: 'POST', body: formData })
+      fetch(ubacBookingData.ajaxUrl, { method: 'POST', body: formData })
         .then(res => res.json())
         .then(data => {
           if (data.success) {
@@ -492,13 +492,13 @@
       confirmRescheduleBtn.textContent = i18n.sending || 'Sending…';
 
       const formData = new FormData();
-      formData.append('action', 'dahu_reschedule_booking');
-      formData.append('nonce', dahuBookingData.nonce);
+      formData.append('action', 'ubac_reschedule_booking');
+      formData.append('nonce', ubacBookingData.nonce);
       formData.append('token', token);
       formData.append('date', rescheduleWidget.selectedDate);
       formData.append('time', rescheduleWidget.selectedTime);
 
-      fetch(dahuBookingData.ajaxUrl, { method: 'POST', body: formData })
+      fetch(ubacBookingData.ajaxUrl, { method: 'POST', body: formData })
         .then(res => res.json())
         .then(data => {
           if (data.success) {
@@ -515,7 +515,7 @@
 
     function showResult(message, isSuccess) {
       resultBox.textContent = message;
-      resultBox.className = 'dahu-manage-page__result ' + (isSuccess ? 'dahu-manage-page__result--success' : 'dahu-manage-page__result--error');
+      resultBox.className = 'ubac-manage-page__result ' + (isSuccess ? 'ubac-manage-page__result--success' : 'ubac-manage-page__result--error');
       resultBox.style.display = 'block';
     }
   }

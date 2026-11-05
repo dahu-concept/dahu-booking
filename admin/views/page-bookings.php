@@ -1,6 +1,6 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
-$dahu_jours = array(
+$ubac_jours = array(
     0 => __( 'Sunday', 'ubac-booking' ),
     1 => __( 'Monday', 'ubac-booking' ),
     2 => __( 'Tuesday', 'ubac-booking' ),
@@ -9,12 +9,12 @@ $dahu_jours = array(
     5 => __( 'Friday', 'ubac-booking' ),
     6 => __( 'Saturday', 'ubac-booking' ),
 );
-$dahu_cancelled_notice = isset( $_GET['cancelled'] ) ? sanitize_text_field( wp_unslash( $_GET['cancelled'] ) ) : '';
+$ubac_cancelled_notice = isset( $_GET['cancelled'] ) ? sanitize_text_field( wp_unslash( $_GET['cancelled'] ) ) : '';
 ?>
-<div class="wrap dahu-admin">
+<div class="wrap ubac-admin">
     <h1><?php esc_html_e( 'Bookings', 'ubac-booking' ); ?></h1>
 
-    <?php if ( $dahu_cancelled_notice ) : ?>
+    <?php if ( $ubac_cancelled_notice ) : ?>
         <div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Booking cancelled. The client has been notified by email.', 'ubac-booking' ); ?></p></div>
     <?php endif; ?>
 
@@ -34,32 +34,32 @@ $dahu_cancelled_notice = isset( $_GET['cancelled'] ) ? sanitize_text_field( wp_u
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ( $bookings as $dahu_booking ) :
-                    $dahu_date_obj = new DateTime( $dahu_booking['booking_date'] );
-                    $dahu_day_name = $dahu_jours[ (int) $dahu_date_obj->format( 'w' ) ];
-                    $dahu_date_fr  = $dahu_day_name . ' ' . $dahu_date_obj->format( 'd/m/Y' );
-                    $dahu_heure    = substr( $dahu_booking['booking_time'], 0, 5 );
-                    $dahu_is_past  = strtotime( $dahu_booking['booking_date'] ) < strtotime( 'today' );
+                <?php foreach ( $bookings as $ubac_booking ) :
+                    $ubac_date_obj = new DateTime( $ubac_booking['booking_date'] );
+                    $ubac_day_name = $ubac_jours[ (int) $ubac_date_obj->format( 'w' ) ];
+                    $ubac_date_fr  = $ubac_day_name . ' ' . $ubac_date_obj->format( 'd/m/Y' );
+                    $ubac_heure    = substr( $ubac_booking['booking_time'], 0, 5 );
+                    $ubac_is_past  = strtotime( $ubac_booking['booking_date'] ) < strtotime( 'today' );
                 ?>
-                <tr class="<?php echo $dahu_is_past ? 'dahu-row--past' : ''; ?>">
-                    <td><?php echo esc_html( ucfirst( $dahu_date_fr ) ); ?></td>
-                    <td><?php echo esc_html( $dahu_heure ); ?></td>
-                    <td><?php echo esc_html( $dahu_booking['client_name'] ); ?></td>
-                    <td><a href="mailto:<?php echo esc_attr( $dahu_booking['client_email'] ); ?>"><?php echo esc_html( $dahu_booking['client_email'] ); ?></a></td>
-                    <td><?php echo esc_html( wp_trim_words( $dahu_booking['client_message'], 12 ) ); ?></td>
+                <tr class="<?php echo $ubac_is_past ? 'ubac-row--past' : ''; ?>">
+                    <td><?php echo esc_html( ucfirst( $ubac_date_fr ) ); ?></td>
+                    <td><?php echo esc_html( $ubac_heure ); ?></td>
+                    <td><?php echo esc_html( $ubac_booking['client_name'] ); ?></td>
+                    <td><a href="mailto:<?php echo esc_attr( $ubac_booking['client_email'] ); ?>"><?php echo esc_html( $ubac_booking['client_email'] ); ?></a></td>
+                    <td><?php echo esc_html( wp_trim_words( $ubac_booking['client_message'], 12 ) ); ?></td>
                     <td>
-                        <?php if ( 'confirmed' === $dahu_booking['status'] ) : ?>
-                            <span class="dahu-badge dahu-badge--confirmed"><?php esc_html_e( 'Confirmed', 'ubac-booking' ); ?></span>
+                        <?php if ( 'confirmed' === $ubac_booking['status'] ) : ?>
+                            <span class="ubac-badge ubac-badge--confirmed"><?php esc_html_e( 'Confirmed', 'ubac-booking' ); ?></span>
                         <?php else : ?>
-                            <span class="dahu-badge dahu-badge--cancelled"><?php esc_html_e( 'Cancelled', 'ubac-booking' ); ?></span>
+                            <span class="ubac-badge ubac-badge--cancelled"><?php esc_html_e( 'Cancelled', 'ubac-booking' ); ?></span>
                         <?php endif; ?>
                     </td>
                     <td>
-                        <?php if ( 'confirmed' === $dahu_booking['status'] ) : ?>
+                        <?php if ( 'confirmed' === $ubac_booking['status'] ) : ?>
                         <form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
-                            <input type="hidden" name="action" value="dahu_cancel_booking_admin">
-                            <input type="hidden" name="token" value="<?php echo esc_attr( $dahu_booking['token'] ); ?>">
-                            <?php wp_nonce_field( 'dahu_cancel_booking_admin_action' ); ?>
+                            <input type="hidden" name="action" value="ubac_cancel_booking_admin">
+                            <input type="hidden" name="token" value="<?php echo esc_attr( $ubac_booking['token'] ); ?>">
+                            <?php wp_nonce_field( 'ubac_cancel_booking_admin_action' ); ?>
                             <button type="submit" class="button button-small"><?php esc_html_e( 'Cancel', 'ubac-booking' ); ?></button>
                         </form>
                         <?php endif; ?>

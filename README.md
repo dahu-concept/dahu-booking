@@ -1,11 +1,11 @@
-# Dahu Booking
+# Ubac Booking
 
 A lightweight, self-hosted appointment booking plugin for WordPress. Built by [Dahu-Concept](https://dahu-concept.fr).
 
 ## Features
 
 - Two-step booking widget (calendar + time slots, then a contact form), with smooth Calendly-style transitions
-- Insert anywhere via the `[dahu_booking]` shortcode or the native **Dahu Booking** Gutenberg block
+- Insert anywhere via the `[ubac_booking]` shortcode or the native **Ubac Booking** Gutenberg block
 - Manage your availability from the WordPress admin: weekly open days, time slots, and one-off blocked slots
 - Automatic confirmation emails to both the visitor and the site admin via `wp_mail()` — compatible with any SMTP plugin
 - Visitors can reschedule or cancel their booking via a secure link sent by email — no account required
@@ -15,18 +15,18 @@ A lightweight, self-hosted appointment booking plugin for WordPress. Built by [D
 ## Structure
 
 ```
-dahu-booking/
-├── dahu-booking.php              # Plugin entry point
+ubac-booking/
+├── ubac-booking.php              # Plugin entry point
 ├── uninstall.php                 # Cleanup on deletion
 ├── includes/
-│   ├── class-dahu-booking-activator.php   # Activation: SQL tables, default options
-│   ├── class-dahu-booking-db.php          # All data access logic
-│   └── class-dahu-booking-mailer.php      # Email sending
+│   ├── class-ubac-booking-activator.php   # Activation: SQL tables, default options
+│   ├── class-ubac-booking-db.php          # All data access logic
+│   └── class-ubac-booking-mailer.php      # Email sending
 ├── admin/
-│   ├── class-dahu-booking-admin.php       # wp-admin pages
+│   ├── class-ubac-booking-admin.php       # wp-admin pages
 │   └── views/                             # Admin page templates
 ├── public/
-│   ├── class-dahu-booking-public.php      # Shortcode, AJAX, management page
+│   ├── class-ubac-booking-public.php      # Shortcode, AJAX, management page
 │   └── views/                             # Widget and management page templates
 └── assets/
     ├── css/                               # Front-end and admin styles
@@ -38,8 +38,8 @@ dahu-booking/
 1. Download the plugin zip
 2. WordPress > Plugins > Add New > Upload Plugin
 3. Activate the plugin
-4. Configure your availability and settings under **Dahu Booking** in wp-admin
-5. Insert the `[dahu_booking]` shortcode on any page, or use the Gutenberg block
+4. Configure your availability and settings under **Ubac Booking** in wp-admin
+5. Insert the `[ubac_booking]` shortcode on any page, or use the Gutenberg block
 
 ## Technical stack
 
