@@ -26,6 +26,7 @@ define( 'UBAC_BOOKING_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UBAC_BOOKING_URL', plugin_dir_url( __FILE__ ) );
 define( 'UBAC_BOOKING_TABLE_BOOKINGS', 'ubac_bookings' );
 define( 'UBAC_BOOKING_TABLE_SLOTS', 'ubac_booking_slots' );
+define( 'UBAC_BOOKING_FILE', __FILE__ );
 
 // ============================================
 // INCLUSIONS DES FICHIERS DU PLUGIN
@@ -35,11 +36,77 @@ require_once UBAC_BOOKING_PATH . 'includes/class-ubac-booking-db.php';
 require_once UBAC_BOOKING_PATH . 'includes/class-ubac-booking-mailer.php';
 require_once UBAC_BOOKING_PATH . 'admin/class-ubac-booking-admin.php';
 require_once UBAC_BOOKING_PATH . 'public/class-ubac-booking-public.php';
+require_once UBAC_BOOKING_PATH . 'includes/ubac-welcome.php';
 
 // ============================================
 // ACTIVATION / DÉSACTIVATION DU PLUGIN
 // ============================================
 register_activation_hook( __FILE__, array( 'Ubac_Booking_Activator', 'activate' ) );
+
+/*
+ * The flag, not a redirect: an activation hook that redirects breaks bulk
+ * activation and WP-CLI, which activate several plugins in one request. The
+ * welcome screen reads the flag on the next page load, where a redirect is
+ * safe, and clears it when several plugins were activated together.
+ */
+register_activation_hook(
+	__FILE__,
+	static function () {
+		Ubac_Welcome::mark_activated( 'ubac-booking' );
+	}
+);
+
+add_action(
+	'init',
+	static function () {
+		Ubac_Welcome::register(
+			array(
+				'slug'       => 'ubac-booking',
+				'name'       => __( 'Appointment booking', 'ubac-booking' ),
+				'tagline'    => __( 'Appointments booked on your own site, with no third-party service.', 'ubac-booking' ),
+				'file'       => UBAC_BOOKING_FILE,
+				'version'    => UBAC_BOOKING_VERSION,
+				'textdomain' => 'ubac-booking',
+				'mark'       => array(
+					'view'  => '0 0 112 112',
+					'paths' => array(
+						'M15.0 24.0 H97.0 A9.0 9.0 0 0 1 106.0 33.0 V93.0 A9.0 9.0 0 0 1 97.0 102.0 H15.0 A9.0 9.0 0 0 1 6.0 93.0 V33.0 A9.0 9.0 0 0 1 15.0 24.0 Z',
+						'M6 48 L106 48',
+						'M32 24 L32 10',
+						'M80 24 L80 10',
+						'M34 72 L48 86 L80 60',
+					),
+				),
+				/*
+				 * The welcome screen's words come from here: the shared file is
+				 * copied byte for byte across the whole family, so it can carry
+				 * no text domain of its own.
+				 */
+				'strings'    => array(
+					'next'   => __( 'Next', 'ubac-booking' ),
+					'done'   => __( 'Done', 'ubac-booking' ),
+					'skip'   => __( 'Skip', 'ubac-booking' ),
+					'of'     => __( 'of', 'ubac-booking' ),
+					'denied' => __( 'You are not allowed to view this page.', 'ubac-booking' ),
+				),
+				'points'     => array(
+					array(
+						'title' => __( 'Open the hours you keep', 'ubac-booking' ),
+						'text'  => __( 'Availability is set once and reused.', 'ubac-booking' ),
+					),
+					array(
+						'title' => __( 'A two-step calendar', 'ubac-booking' ),
+						'text'  => __( 'The visitor picks a day, then a time.', 'ubac-booking' ),
+					),
+					array(
+						'title' => __( 'Confirmed by email', 'ubac-booking' ),
+						'text'  => __( 'With links to reschedule or cancel.', 'ubac-booking' ),
+					),
+				),
+			)
+		);
+	}
+);
 
 // ============================================
 // INITIALISATION DES MODULES

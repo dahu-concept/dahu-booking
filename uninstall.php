@@ -24,6 +24,17 @@ $ubac_options = array(
     'ubac_booking_location',
     'ubac_booking_event_title',
     'ubac_booking_show_meta_step1',
+
+    // The welcome screen's own three flags.
+    //
+    // They are interface state, not the site's data: whatever a site chose to
+    // keep, a reinstall has to greet it again. `includes/ubac-welcome.php`
+    // writes them with update_option(), so they outlive the plugin unless
+    // they are deleted here — and the welcome screen and the guided tour
+    // would then stay silent for good, with nothing on screen to explain why.
+    'ubac_welcome_seen_ubac-booking',
+    'ubac_welcome_pending_ubac-booking',
+    'ubac_welcome_tour_ubac-booking',
 );
 
 foreach ( $ubac_options as $ubac_booking_option ) {
