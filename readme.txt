@@ -1,5 +1,5 @@
 === Ubac Booking ===
-Contributors: ubacconcept
+Contributors: dahuconcept
 Tags: time slots, self hosted, appointments, booking, calendar
 Requires at least: 6.2
 Tested up to: 7.1
