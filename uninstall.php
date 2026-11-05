@@ -26,8 +26,8 @@ $ubac_options = array(
     'ubac_booking_show_meta_step1',
 );
 
-foreach ( $ubac_options as $option ) {
-    delete_option( $option );
+foreach ( $ubac_options as $ubac_booking_option ) {
+    delete_option( $ubac_booking_option );
 }
 
 // ============================================
