@@ -7,11 +7,11 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 if ( ! function_exists( 'ubac_booking_render_block' ) ) {
-    function ubac_booking_render_block( $attributes, $content, $block ) {
-        return do_shortcode( '[ubac_booking]' );
-    }
+	function ubac_booking_render_block( $attributes, $content, $block ) {
+		return do_shortcode( '[ubac_booking]' );
+	}
 }

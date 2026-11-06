@@ -1,13 +1,13 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 $ubac_jours_label = array(
-    1 => __( 'Monday', 'ubac-booking' ),
-    2 => __( 'Tuesday', 'ubac-booking' ),
-    3 => __( 'Wednesday', 'ubac-booking' ),
-    4 => __( 'Thursday', 'ubac-booking' ),
-    5 => __( 'Friday', 'ubac-booking' ),
-    6 => __( 'Saturday', 'ubac-booking' ),
-    0 => __( 'Sunday', 'ubac-booking' ),
+	1 => __( 'Monday', 'ubac-booking' ),
+	2 => __( 'Tuesday', 'ubac-booking' ),
+	3 => __( 'Wednesday', 'ubac-booking' ),
+	4 => __( 'Thursday', 'ubac-booking' ),
+	5 => __( 'Friday', 'ubac-booking' ),
+	6 => __( 'Saturday', 'ubac-booking' ),
+	0 => __( 'Sunday', 'ubac-booking' ),
 );
 $ubac_blocked_notice   = isset( $_GET['blocked'] ) ? sanitize_text_field( wp_unslash( $_GET['blocked'] ) ) : '';
 $ubac_unblocked_notice = isset( $_GET['unblocked'] ) ? sanitize_text_field( wp_unslash( $_GET['unblocked'] ) ) : '';
@@ -28,21 +28,21 @@ $ubac_unblocked_notice = isset( $_GET['unblocked'] ) ? sanitize_text_field( wp_u
             <h2><?php esc_html_e( 'Your regular schedule', 'ubac-booking' ); ?></h2>
             <p>
                 <?php
-                printf(
-                    /* translators: %s: link to Settings page */
-                    esc_html__( 'Your default open days and times are configured on the %s page.', 'ubac-booking' ),
-                    '<a href="' . esc_url( admin_url( 'admin.php?page=ubac-booking-settings' ) ) . '">' . esc_html__( 'Settings', 'ubac-booking' ) . '</a>'
-                );
-                ?>
+				printf(
+					/* translators: %s: link to Settings page */
+					esc_html__( 'Your default open days and times are configured on the %s page.', 'ubac-booking' ),
+					'<a href="' . esc_url( admin_url( 'admin.php?page=ubac-booking-settings' ) ) . '">' . esc_html__( 'Settings', 'ubac-booking' ) . '</a>'
+				);
+				?>
             </p>
             <p><strong><?php esc_html_e( 'Currently open days:', 'ubac-booking' ); ?></strong>
                 <?php
-                $ubac_day_labels = array();
-                foreach ( $open_days as $ubac_day ) {
-                    $ubac_day_labels[] = $ubac_jours_label[ $ubac_day ];
-                }
-                echo esc_html( implode( ', ', $ubac_day_labels ) );
-                ?>
+				$ubac_day_labels = array();
+				foreach ( $open_days as $ubac_day ) {
+					$ubac_day_labels[] = $ubac_jours_label[ $ubac_day ];
+				}
+				echo esc_html( implode( ', ', $ubac_day_labels ) );
+				?>
             </p>
             <p><strong><?php esc_html_e( 'Available time slots:', 'ubac-booking' ); ?></strong> <?php echo esc_html( implode( ', ', $time_slots ) ); ?></p>
         </div>
@@ -96,8 +96,8 @@ $ubac_unblocked_notice = isset( $_GET['unblocked'] ) ? sanitize_text_field( wp_u
                     </thead>
                     <tbody>
                         <?php foreach ( $blocked as $ubac_blocked_slot ) :
-                            $ubac_slot_date_obj = new DateTime( $ubac_blocked_slot['slot_date'] );
-                        ?>
+							$ubac_slot_date_obj = new DateTime( $ubac_blocked_slot['slot_date'] );
+						?>
                         <tr>
                             <td><?php echo esc_html( $ubac_slot_date_obj->format( 'd/m/Y' ) ); ?></td>
                             <td><?php echo esc_html( substr( $ubac_blocked_slot['slot_time'], 0, 5 ) ); ?></td>

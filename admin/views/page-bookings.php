@@ -1,13 +1,13 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 $ubac_jours = array(
-    0 => __( 'Sunday', 'ubac-booking' ),
-    1 => __( 'Monday', 'ubac-booking' ),
-    2 => __( 'Tuesday', 'ubac-booking' ),
-    3 => __( 'Wednesday', 'ubac-booking' ),
-    4 => __( 'Thursday', 'ubac-booking' ),
-    5 => __( 'Friday', 'ubac-booking' ),
-    6 => __( 'Saturday', 'ubac-booking' ),
+	0 => __( 'Sunday', 'ubac-booking' ),
+	1 => __( 'Monday', 'ubac-booking' ),
+	2 => __( 'Tuesday', 'ubac-booking' ),
+	3 => __( 'Wednesday', 'ubac-booking' ),
+	4 => __( 'Thursday', 'ubac-booking' ),
+	5 => __( 'Friday', 'ubac-booking' ),
+	6 => __( 'Saturday', 'ubac-booking' ),
 );
 $ubac_cancelled_notice = isset( $_GET['cancelled'] ) ? sanitize_text_field( wp_unslash( $_GET['cancelled'] ) ) : '';
 ?>
@@ -35,12 +35,12 @@ $ubac_cancelled_notice = isset( $_GET['cancelled'] ) ? sanitize_text_field( wp_u
             </thead>
             <tbody>
                 <?php foreach ( $bookings as $ubac_booking ) :
-                    $ubac_date_obj = new DateTime( $ubac_booking['booking_date'] );
-                    $ubac_day_name = $ubac_jours[ (int) $ubac_date_obj->format( 'w' ) ];
-                    $ubac_date_fr  = $ubac_day_name . ' ' . $ubac_date_obj->format( 'd/m/Y' );
-                    $ubac_heure    = substr( $ubac_booking['booking_time'], 0, 5 );
-                    $ubac_is_past  = strtotime( $ubac_booking['booking_date'] ) < strtotime( 'today' );
-                ?>
+					$ubac_date_obj = new DateTime( $ubac_booking['booking_date'] );
+					$ubac_day_name = $ubac_jours[ (int) $ubac_date_obj->format( 'w' ) ];
+					$ubac_date_fr  = $ubac_day_name . ' ' . $ubac_date_obj->format( 'd/m/Y' );
+					$ubac_heure    = substr( $ubac_booking['booking_time'], 0, 5 );
+					$ubac_is_past  = strtotime( $ubac_booking['booking_date'] ) < strtotime( 'today' );
+				?>
                 <tr class="<?php echo $ubac_is_past ? 'ubac-row--past' : ''; ?>">
                     <td><?php echo esc_html( ucfirst( $ubac_date_fr ) ); ?></td>
                     <td><?php echo esc_html( $ubac_heure ); ?></td>

@@ -1,13 +1,13 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 $ubac_jours_label = array(
-    1 => __( 'Monday', 'ubac-booking' ),
-    2 => __( 'Tuesday', 'ubac-booking' ),
-    3 => __( 'Wednesday', 'ubac-booking' ),
-    4 => __( 'Thursday', 'ubac-booking' ),
-    5 => __( 'Friday', 'ubac-booking' ),
-    6 => __( 'Saturday', 'ubac-booking' ),
-    0 => __( 'Sunday', 'ubac-booking' ),
+	1 => __( 'Monday', 'ubac-booking' ),
+	2 => __( 'Tuesday', 'ubac-booking' ),
+	3 => __( 'Wednesday', 'ubac-booking' ),
+	4 => __( 'Thursday', 'ubac-booking' ),
+	5 => __( 'Friday', 'ubac-booking' ),
+	6 => __( 'Saturday', 'ubac-booking' ),
+	0 => __( 'Sunday', 'ubac-booking' ),
 );
 $ubac_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( $_GET['saved'] ) ) : '';
 ?>
@@ -99,12 +99,12 @@ $ubac_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( 
                     <label>
                         <input type="checkbox" name="show_meta_step1" value="1" <?php checked( '1', $settings['show_meta_step1'] ); ?>>
                         <?php
-                        printf(
-                            /* translators: %s: event title */
-                            esc_html__( 'Show "%s", duration and location above the contact form', 'ubac-booking' ),
-                            esc_html( $settings['event_title'] )
-                        );
-                        ?>
+						printf(
+							/* translators: %s: event title */
+							esc_html__( 'Show "%s", duration and location above the contact form', 'ubac-booking' ),
+							esc_html( $settings['event_title'] )
+						);
+						?>
                     </label>
                     <p class="description"><?php esc_html_e( 'Unchecked by default. When enabled, this recap appears at step 2 (the form), below the chosen date/time.', 'ubac-booking' ); ?></p>
                 </td>

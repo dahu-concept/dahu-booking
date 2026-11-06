@@ -6,7 +6,7 @@
  * $booking and $token are provided by class-ubac-booking-public.php
  */
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 wp_enqueue_style( 'ubac-booking-style' );
@@ -21,12 +21,12 @@ wp_enqueue_script( 'ubac-booking-script' );
             <h2><?php esc_html_e( 'Appointment not found', 'ubac-booking' ); ?></h2>
             <p>
                 <?php
-                printf(
-                    /* translators: %1$s: email href, %2$s: email address */
-                    esc_html__( 'This link is no longer valid. If you think this is an error, please contact us at %1$s.', 'ubac-booking' ),
-                    '<a href="mailto:' . esc_attr( get_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) ) ) . '">' . esc_html( get_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) ) ) . '</a>'
-                );
-                ?>
+				printf(
+					/* translators: %1$s: email href, %2$s: email address */
+					esc_html__( 'This link is no longer valid. If you think this is an error, please contact us at %1$s.', 'ubac-booking' ),
+					'<a href="mailto:' . esc_attr( get_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) ) ) . '">' . esc_html( get_option( 'ubac_booking_admin_email', get_option( 'admin_email' ) ) ) . '</a>'
+				);
+				?>
             </p>
         </div>
 
@@ -36,21 +36,21 @@ wp_enqueue_script( 'ubac-booking-script' );
             <h2><?php esc_html_e( 'This appointment has already been cancelled', 'ubac-booking' ); ?></h2>
             <p>
                 <?php
-                printf(
-                    /* translators: %s: link to contact page */
-                    esc_html__( 'You can book a new slot directly from our %s.', 'ubac-booking' ),
-                    '<a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'contact page', 'ubac-booking' ) . '</a>'
-                );
-                ?>
+				printf(
+					/* translators: %s: link to contact page */
+					esc_html__( 'You can book a new slot directly from our %s.', 'ubac-booking' ),
+					'<a href="' . esc_url( home_url( '/contact/' ) ) . '">' . esc_html__( 'contact page', 'ubac-booking' ) . '</a>'
+				);
+				?>
             </p>
         </div>
 
     <?php else :
-        $ubac_date_obj = new DateTime( $booking['booking_date'] );
-        $ubac_heure    = substr( $booking['booking_time'], 0, 5 );
-        // Date formatted by WordPress locale (e.g. "Tuesday, June 23, 2026").
-        $ubac_date_formatted = wp_date( get_option( 'date_format' ), $ubac_date_obj->getTimestamp() );
-    ?>
+		$ubac_date_obj = new DateTime( $booking['booking_date'] );
+		$ubac_heure    = substr( $booking['booking_time'], 0, 5 );
+		// Date formatted by WordPress locale (e.g. "Tuesday, June 23, 2026").
+		$ubac_date_formatted = wp_date( get_option( 'date_format' ), $ubac_date_obj->getTimestamp() );
+	?>
 
         <div class="ubac-manage-page__content" id="ubac-manage-widget" data-token="<?php echo esc_attr( $token ); ?>">
 
@@ -58,13 +58,13 @@ wp_enqueue_script( 'ubac-booking-script' );
                 <span class="ubac-manage-page__label"><?php esc_html_e( 'Your current appointment', 'ubac-booking' ); ?></span>
                 <h2>
                     <?php
-                    printf(
-                        /* translators: %1$s: date, %2$s: time */
-                        esc_html__( '%1$s at %2$s', 'ubac-booking' ),
-                        esc_html( $ubac_date_formatted ),
-                        esc_html( $ubac_heure )
-                    );
-                    ?>
+					printf(
+						/* translators: %1$s: date, %2$s: time */
+						esc_html__( '%1$s at %2$s', 'ubac-booking' ),
+						esc_html( $ubac_date_formatted ),
+						esc_html( $ubac_heure )
+					);
+					?>
                 </h2>
                 <p><?php echo esc_html( $booking['client_name'] ); ?> · <?php echo esc_html( $booking['client_email'] ); ?></p>
             </div>

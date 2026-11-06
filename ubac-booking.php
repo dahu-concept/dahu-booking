@@ -15,7 +15,7 @@
 
 // Security: blocks direct access to the file.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 // ============================================
@@ -70,11 +70,11 @@ add_action(
 				'mark'       => array(
 					'view'  => '0 0 112 112',
 					'paths' => array(
-						'M15.0 24.0 H97.0 A9.0 9.0 0 0 1 106.0 33.0 V93.0 A9.0 9.0 0 0 1 97.0 102.0 H15.0 A9.0 9.0 0 0 1 6.0 93.0 V33.0 A9.0 9.0 0 0 1 15.0 24.0 Z',
-						'M6 48 L106 48',
-						'M32 24 L32 10',
-						'M80 24 L80 10',
-						'M34 72 L48 86 L80 60',
+						'M20.0 24.0 H92.0 A10.0 10.0 0 0 1 102.0 34.0 V90.0 A10.0 10.0 0 0 1 92.0 100.0 H20.0 A10.0 10.0 0 0 1 10.0 90.0 V34.0 A10.0 10.0 0 0 1 20.0 24.0 Z',
+						'M10 50 L102 50',
+						'M34 10 L34 32 M78 10 L78 32',
+						'M72 72 L88 72 M72 86 L88 86',
+						'M30.0 62.0 H52.0 A6.0 6.0 0 0 1 58.0 68.0 V82.0 A6.0 6.0 0 0 1 52.0 88.0 H30.0 A6.0 6.0 0 0 1 24.0 82.0 V68.0 A6.0 6.0 0 0 1 30.0 62.0 Z',
 					),
 				),
 				/*
@@ -112,15 +112,15 @@ add_action(
 // MODULE INITIALISATION
 // ============================================
 function ubac_booking_init() {
-    // Module Admin (wp-admin)
-    if ( is_admin() ) {
-        $admin = new Ubac_Booking_Admin();
-        $admin->init();
-    }
+	// Module Admin (wp-admin)
+	if ( is_admin() ) {
+		$admin = new Ubac_Booking_Admin();
+		$admin->init();
+	}
 
-    // Module Public (front-end : shortcode, AJAX, page de modification)
-    $public = new Ubac_Booking_Public();
-    $public->init();
+	// Module Public (front-end : shortcode, AJAX, page de modification)
+	$public = new Ubac_Booking_Public();
+	$public->init();
 }
 add_action( 'plugins_loaded', 'ubac_booking_init' );
 
@@ -129,35 +129,35 @@ add_action( 'plugins_loaded', 'ubac_booking_init' );
 // ============================================
 
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),
-    function( $links ) {
-        $settings = '<a href="' . admin_url( 'admin.php?page=ubac-booking-settings' ) . '">'
-            . __( 'Settings', 'ubac-booking' ) . '</a>';
-        array_unshift( $links, $settings );
-        return $links;
-    }
+	function( $links ) {
+		$settings = '<a href="' . admin_url( 'admin.php?page=ubac-booking-settings' ) . '">'
+			. __( 'Settings', 'ubac-booking' ) . '</a>';
+		array_unshift( $links, $settings );
+		return $links;
+	}
 );
 
 add_filter( 'plugin_row_meta', function( $links, $file ) {
-    if ( plugin_basename( __FILE__ ) === $file ) {
-        $header = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
-        $links  = array(
-            /* translators: %s: plugin version number */
-            sprintf( __( 'Version %s', 'ubac-booking' ), $header['Version'] ),
-            '<a href="https://dahu-concept.fr" target="_blank">By Hugo Vial-Jaime — Dahu-Concept</a>',
-            '<a href="https://dahu-concept.fr" target="_blank">' . __( 'Visit plugin site', 'ubac-booking' ) . '</a>',
-        );
-    }
-    return $links;
+	if ( plugin_basename( __FILE__ ) === $file ) {
+		$header = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
+		$links  = array(
+			/* translators: %s: plugin version number */
+			sprintf( __( 'Version %s', 'ubac-booking' ), $header['Version'] ),
+			'<a href="https://dahu-concept.fr" target="_blank">By Hugo Vial-Jaime — Dahu-Concept</a>',
+			'<a href="https://dahu-concept.fr" target="_blank">' . __( 'Visit plugin site', 'ubac-booking' ) . '</a>',
+		);
+	}
+	return $links;
 }, 10, 2 );
 
 // ============================================
 // GUTENBERG BLOCK
 // ============================================
 function ubac_booking_register_block() {
-    require_once UBAC_BOOKING_PATH . 'blocks/booking/render.php';
+	require_once UBAC_BOOKING_PATH . 'blocks/booking/render.php';
 
-    register_block_type( UBAC_BOOKING_PATH . 'blocks/booking', array(
-        'render_callback' => 'ubac_booking_render_block',
-    ) );
+	register_block_type( UBAC_BOOKING_PATH . 'blocks/booking', array(
+		'render_callback' => 'ubac_booking_render_block',
+	) );
 }
 add_action( 'init', 'ubac_booking_register_block' );

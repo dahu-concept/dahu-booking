@@ -4,7 +4,7 @@
  * Two steps, driven entirely from JS (ubac-booking.js).
  */
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 $ubac_event_title     = get_option( 'ubac_booking_event_title', __( 'Appointment', 'ubac-booking' ) );
