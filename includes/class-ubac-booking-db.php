@@ -53,6 +53,7 @@ class Ubac_Booking_DB {
 		global $wpdb;
 		$table = self::table_bookings();
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and this read is cached: wp_cache_get above, wp_cache_set below, invalidated by flush_date_cache().
 		$results = $wpdb->get_col( $wpdb->prepare(
 			"SELECT TIME_FORMAT(booking_time, '%%H:%%i') FROM %i
              WHERE booking_date = %s AND status = 'confirmed'",
@@ -80,6 +81,7 @@ class Ubac_Booking_DB {
 		global $wpdb;
 		$table = self::table_slots();
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and this read is cached: wp_cache_get above, wp_cache_set below, invalidated by flush_date_cache().
 		$results = $wpdb->get_col( $wpdb->prepare(
 			"SELECT TIME_FORMAT(slot_time, '%%H:%%i') FROM %i
              WHERE slot_date = %s AND is_blocked = 1",
@@ -155,6 +157,7 @@ class Ubac_Booking_DB {
 
 		$token = self::generate_unique_token();
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and a write is not something to cache; the two date keys are dropped by flush_date_cache() right after.
 		$inserted = $wpdb->insert(
 			$table,
 			array(
@@ -201,6 +204,7 @@ class Ubac_Booking_DB {
 			return false;
 		}
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and a write is not something to cache; the two date keys are dropped by flush_date_cache() right after.
 		$updated = $wpdb->update(
 			$table,
 			array(
@@ -233,6 +237,7 @@ class Ubac_Booking_DB {
 
 		$existing = self::get_booking_by_token( $token );
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and a write is not something to cache; the two date keys are dropped by flush_date_cache() right after.
 		$updated = $wpdb->update(
 			$table,
 			array(
@@ -258,6 +263,7 @@ class Ubac_Booking_DB {
 		global $wpdb;
 		$table = self::table_bookings();
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and this one is deliberately not cached: it is the lookup behind the link in the visitor's email, and a cached row would answer with the appointment as it was before a reschedule or a cancellation.
 		return $wpdb->get_row( $wpdb->prepare(
 			"SELECT * FROM %i WHERE token = %s",
 			$table,
@@ -272,6 +278,7 @@ class Ubac_Booking_DB {
 		global $wpdb;
 		$table = self::table_bookings();
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and this one is deliberately not cached: it is the lookup behind the link in the visitor's email, and a cached row would answer with the appointment as it was before a reschedule or a cancellation.
 		return $wpdb->get_row( $wpdb->prepare(
 			"SELECT * FROM %i WHERE id = %d",
 			$table,
@@ -287,6 +294,7 @@ class Ubac_Booking_DB {
 		$table = self::table_bookings();
 		$today = current_time( 'Y-m-d' );
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and one query per view of an admin screen: nothing here is a hot path, and a cache would mostly serve the shop its own bookings one refresh late.
 		return $wpdb->get_results( $wpdb->prepare(
 			"SELECT * FROM %i
              WHERE booking_date >= %s AND status = 'confirmed'
@@ -303,6 +311,7 @@ class Ubac_Booking_DB {
 		global $wpdb;
 		$table = self::table_bookings();
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and one query per view of an admin screen: nothing here is a hot path, and a cache would mostly serve the shop its own bookings one refresh late.
 		return $wpdb->get_results( $wpdb->prepare(
 			"SELECT * FROM %i ORDER BY booking_date DESC, booking_time DESC",
 			$table
@@ -318,6 +327,7 @@ class Ubac_Booking_DB {
 		global $wpdb;
 		$table = self::table_slots();
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and a write is not something to cache; the two date keys are dropped by flush_date_cache() right after.
 		$result = $wpdb->replace(
 			$table,
 			array(
@@ -344,6 +354,7 @@ class Ubac_Booking_DB {
 		global $wpdb;
 		$table = self::table_slots();
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and a write is not something to cache; the two date keys are dropped by flush_date_cache() right after.
 		$result = $wpdb->delete(
 			$table,
 			array(
@@ -368,6 +379,7 @@ class Ubac_Booking_DB {
 		$table = self::table_slots();
 		$today = current_time( 'Y-m-d' );
 
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching -- own table, and one query per view of an admin screen: nothing here is a hot path, and a cache would mostly serve the shop its own bookings one refresh late.
 		return $wpdb->get_results( $wpdb->prepare(
 			"SELECT * FROM %i WHERE slot_date >= %s ORDER BY slot_date ASC, slot_time ASC",
 			$table,

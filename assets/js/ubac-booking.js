@@ -432,7 +432,7 @@
   }
 
   // ============================================
-  // WIDGET DE GESTION (page modifier/annuler)
+  // MANAGEMENT WIDGET (reschedule / cancel page)
   // ============================================
   function initManageWidget() {
     const manageRoot = document.getElementById('ubac-manage-widget');

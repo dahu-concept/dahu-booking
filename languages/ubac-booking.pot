@@ -7,7 +7,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-10-31 22:47+0000\n"
+"PO-Revision-Date: 2026-11-06 11:09+0000\n"
 "X-Domain: ubac-booking\n"
 
 #. translators: %1$s: date, %2$s: time */
@@ -28,7 +28,11 @@ msgstr ""
 msgid "A confirmation email has been sent to you, with a link to modify or cancel this appointment if needed."
 msgstr ""
 
-#: admin/class-ubac-booking-admin.php:58 admin/class-ubac-booking-admin.php:87 admin/class-ubac-booking-admin.php:108 admin/class-ubac-booking-admin.php:146
+#: ubac-booking.php:98
+msgid "A two-step calendar"
+msgstr ""
+
+#: admin/class-ubac-booking-admin.php:56 admin/class-ubac-booking-admin.php:83 admin/class-ubac-booking-admin.php:104 admin/class-ubac-booking-admin.php:140
 msgid "Access denied."
 msgstr ""
 
@@ -42,6 +46,10 @@ msgstr ""
 
 #: includes/class-ubac-booking-mailer.php:36 public/class-ubac-booking-public.php:69 public/views/booking-widget.php:10
 msgid "Appointment"
+msgstr ""
+
+#: ubac-booking.php:65
+msgid "Appointment booking"
 msgstr ""
 
 #: includes/class-ubac-booking-mailer.php:158
@@ -60,12 +68,16 @@ msgstr ""
 msgid "Appointment not found"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:235
+#: public/class-ubac-booking-public.php:246
 msgid "Appointment rescheduled."
 msgstr ""
 
 #: includes/class-ubac-booking-mailer.php:124
 msgid "Appointment rescheduled: %s"
+msgstr ""
+
+#: ubac-booking.php:66
+msgid "Appointments booked on your own site, with no third-party service."
 msgstr ""
 
 #: public/class-ubac-booking-public.php:109
@@ -78,6 +90,10 @@ msgstr ""
 
 #: admin/class-ubac-booking-admin.php:37 admin/class-ubac-booking-admin.php:37 admin/views/page-availability.php:16
 msgid "Availability"
+msgstr ""
+
+#: ubac-booking.php:95
+msgid "Availability is set once and reused."
 msgstr ""
 
 #: admin/views/page-settings.php:56
@@ -108,11 +124,11 @@ msgstr ""
 msgid "Booking cancelled. The client has been notified by email."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:204
+#: public/class-ubac-booking-public.php:215
 msgid "Booking confirmed."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:219
+#: public/class-ubac-booking-public.php:230
 msgid "Booking not found."
 msgstr ""
 
@@ -148,6 +164,10 @@ msgstr ""
 msgid "Confirmed"
 msgstr ""
 
+#: ubac-booking.php:102
+msgid "Confirmed by email"
+msgstr ""
+
 #: admin/views/page-availability.php:84
 msgid "Currently blocked slots"
 msgstr ""
@@ -170,6 +190,10 @@ msgstr ""
 
 #: public/views/booking-widget.php:108
 msgid "Do not fill in this field"
+msgstr ""
+
+#: ubac-booking.php:87
+msgid "Done"
 msgstr ""
 
 #: admin/views/page-bookings.php:30 public/class-ubac-booking-public.php:79
@@ -208,15 +232,15 @@ msgstr ""
 msgid "How to display the booking widget"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:151
+#: public/class-ubac-booking-public.php:149
 msgid "Invalid date."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:167
+#: public/class-ubac-booking-public.php:178
 msgid "Invalid request."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:188 public/class-ubac-booking-public.php:223
+#: public/class-ubac-booking-public.php:199 public/class-ubac-booking-public.php:234
 msgid "Invalid time slot."
 msgstr ""
 
@@ -288,7 +312,7 @@ msgstr ""
 msgid "New booking received."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:82
+#: public/class-ubac-booking-public.php:82 ubac-booking.php:86
 msgid "Next"
 msgstr ""
 
@@ -332,11 +356,15 @@ msgstr ""
 msgid "Open days"
 msgstr ""
 
+#: ubac-booking.php:94
+msgid "Open the hours you keep"
+msgstr ""
+
 #: public/class-ubac-booking-public.php:85
 msgid "Please choose a date from the calendar."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:192
+#: public/class-ubac-booking-public.php:203
 msgid "Please provide a valid name and email address."
 msgstr ""
 
@@ -344,7 +372,7 @@ msgstr ""
 msgid "Please share anything that will help prepare for our meeting."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:175
+#: public/class-ubac-booking-public.php:186
 msgid "Please wait a few seconds before trying again."
 msgstr ""
 
@@ -396,7 +424,7 @@ msgstr ""
 msgid "September"
 msgstr ""
 
-#: admin/class-ubac-booking-admin.php:38 admin/class-ubac-booking-admin.php:38 admin/views/page-availability.php:34 ubac-booking.php:68
+#: admin/class-ubac-booking-admin.php:38 admin/class-ubac-booking-admin.php:38 admin/views/page-availability.php:34 ubac-booking.php:134
 msgid "Settings"
 msgstr ""
 
@@ -421,6 +449,10 @@ msgstr ""
 msgid "Show title/duration/location at step 2"
 msgstr ""
 
+#: ubac-booking.php:88
+msgid "Skip"
+msgstr ""
+
 #: admin/views/page-availability.php:19
 msgid "Slot blocked."
 msgstr ""
@@ -439,6 +471,10 @@ msgstr ""
 
 #: admin/views/page-availability.php:10 admin/views/page-bookings.php:4 admin/views/page-settings.php:10 public/class-ubac-booking-public.php:121
 msgid "Sunday"
+msgstr ""
+
+#: ubac-booking.php:99
+msgid "The visitor picks a day, then a time."
 msgstr ""
 
 #: public/views/manage-booking.php:36
@@ -494,11 +530,11 @@ msgstr ""
 msgid "Useful for a personal appointment, holiday, or exceptional unavailability — without touching your regular schedule."
 msgstr ""
 
-#: ubac-booking.php:79
+#: ubac-booking.php:145
 msgid "Version %s"
 msgstr ""
 
-#: ubac-booking.php:81
+#: ubac-booking.php:147
 msgid "Visit plugin site"
 msgstr ""
 
@@ -510,8 +546,16 @@ msgstr ""
 msgid "Wednesday"
 msgstr ""
 
+#: ubac-booking.php:103
+msgid "With links to reschedule or cancel."
+msgstr ""
+
 #: admin/views/page-settings.php:126
 msgid "WordPress Additional CSS applies site-wide and is preserved across plugin updates."
+msgstr ""
+
+#: ubac-booking.php:90
+msgid "You are not allowed to view this page."
 msgstr ""
 
 #. translators: %s: link to contact page */
@@ -594,6 +638,10 @@ msgstr ""
 
 #: admin/views/page-settings.php:31
 msgid "in the page editor, add a block and search for"
+msgstr ""
+
+#: ubac-booking.php:89
+msgid "of"
 msgstr ""
 
 #: admin/views/page-settings.php:27

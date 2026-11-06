@@ -42,6 +42,7 @@ class Ubac_Booking_Public {
 
 		$has_shortcode = is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'ubac_booking' );
 		$has_block     = is_a( $post, 'WP_Post' ) && has_block( 'ubac-booking/widget', $post );
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a presence test, used only to decide whether this page needs the widget's stylesheet and script.
 		$is_manage_page = isset( $_GET['ubac_booking_manage'] );
 
 		if ( ! $has_shortcode && ! $has_block && ! $is_manage_page ) {
@@ -271,13 +272,22 @@ class Ubac_Booking_Public {
 	}
 
 	// ============================================
-	// Page de gestion (modifier / annuler) via lien token
+	// Management page (reschedule / cancel), reached by the token link
 	// ============================================
 	public function maybe_render_management_page() {
+		// THIS PAGE CANNOT CARRY A NONCE, and that is the design rather than an
+		// oversight. It is reached from the link in the visitor's confirmation
+		// email, by someone who has no account on the site and may open it days
+		// later: a nonce is tied to a logged-in session and expires, so there is
+		// nothing to verify against. The token in the link IS the credential —
+		// it is generated per booking, unguessable, and the only thing it grants
+		// is the right to move or cancel that one appointment.
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- see just above.
 		if ( ! isset( $_GET['ubac_booking_manage'] ) || ! isset( $_GET['token'] ) ) {
 			return;
 		}
 
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- see just above.
 		$token   = sanitize_text_field( wp_unslash( $_GET['token'] ) );
 		$booking = Ubac_Booking_DB::get_booking_by_token( $token );
 

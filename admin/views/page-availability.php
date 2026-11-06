@@ -9,7 +9,9 @@ $ubac_jours_label = array(
 	6 => __( 'Saturday', 'ubac-booking' ),
 	0 => __( 'Sunday', 'ubac-booking' ),
 );
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a redirect flag read back to decide whether to print a notice; it writes nothing, and the worst a forged one can do is show the admin a message.
 $ubac_blocked_notice   = isset( $_GET['blocked'] ) ? sanitize_text_field( wp_unslash( $_GET['blocked'] ) ) : '';
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a redirect flag read back to decide whether to print a notice; it writes nothing, and the worst a forged one can do is show the admin a message.
 $ubac_unblocked_notice = isset( $_GET['unblocked'] ) ? sanitize_text_field( wp_unslash( $_GET['unblocked'] ) ) : '';
 ?>
 <div class="wrap ubac-admin">

@@ -9,6 +9,7 @@ $ubac_jours_label = array(
 	6 => __( 'Saturday', 'ubac-booking' ),
 	0 => __( 'Sunday', 'ubac-booking' ),
 );
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a redirect flag read back to decide whether to print a notice; it writes nothing, and the worst a forged one can do is show the admin a message.
 $ubac_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( $_GET['saved'] ) ) : '';
 ?>
 <div class="wrap ubac-admin">
