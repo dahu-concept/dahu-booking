@@ -4,7 +4,7 @@ Tags: time slots, self hosted, appointments, booking, calendar
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -67,6 +67,10 @@ Yes, from **Ubac Booking > Availability** you can block any specific date and ti
 
 == Changelog ==
 
+= 1.0.2 =
+* Changed: this extension is brought into line with the other fourteen -- tabs rather than spaces, a French readme, the upper-case README.txt the others use, and the welcome mark taken from the artwork generator so the drawing on the screen and the drawing the generator produces cannot drift apart.
+* Changed: WordPress 6.2 is now the floor, as it is for the rest of the family.
+
 = 1.0.1 =
 * Removed the custom CSS textarea from Settings and the built-in CSS file editor — both features allowed arbitrary CSS injection, which conflicts with WordPress.org guidelines. Widget styling is now done through WordPress's native Additional CSS editor (Appearance > Customize > Additional CSS).
 * Added `uninstall.php` to clean up plugin options and database tables on deletion.
@@ -75,3 +79,8 @@ Yes, from **Ubac Booking > Availability** you can block any specific date and ti
 
 = 1.0.0 =
 * Initial release.
+
+== Upgrade Notice ==
+
+= 1.0.2 =
+House-keeping only, no change of behaviour: indentation, a French readme, and the welcome mark regenerated. WordPress 6.2 is now the floor.
