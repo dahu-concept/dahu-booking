@@ -4,7 +4,7 @@ Tags: time slots, self hosted, appointments, booking, calendar
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -67,6 +67,12 @@ Yes, from **Ubac Booking > Availability** you can block any specific date and ti
 
 == Changelog ==
 
+= 1.0.3 =
+* Added: a French translation of the whole plugin -- 169 strings, where this extension had none at all. Appointment is rendered "rendez-vous", a booking record "reservation", a slot "creneau".
+* Changed: the plugin's own queries and form reads now carry the reason each one is exempt from a sniff, as the rest of the family already did. No change of behaviour.
+* Changed: the French readme moves under docs/, so the directory's checker no longer reports an unexpected markdown file at the plugin root.
+* Changed: the compiled French catalogue now travels in the package, so a copy installed by hand shows French instead of English.
+
 = 1.0.2 =
 * Changed: this extension is brought into line with the other fourteen -- tabs rather than spaces, a French readme, the upper-case README.txt the others use, and the welcome mark taken from the artwork generator so the drawing on the screen and the drawing the generator produces cannot drift apart.
 * Changed: WordPress 6.2 is now the floor, as it is for the rest of the family.
@@ -81,6 +87,9 @@ Yes, from **Ubac Booking > Availability** you can block any specific date and ti
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Adds a full French translation, which this plugin did not have, and ships it in the package so a hand-installed copy is actually in French.
 
 = 1.0.2 =
 House-keeping only, no change of behaviour: indentation, a French readme, and the welcome mark regenerated. WordPress 6.2 is now the floor.

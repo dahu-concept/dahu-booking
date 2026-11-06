@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ubac Booking
  * Description: Lightweight self-hosted appointment booking plugin: two-step calendar widget, availability management, automatic confirmation emails, and secure reschedule/cancel links — no third-party service required.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: Hugo Vial-Jaime
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // ============================================
 // PLUGIN CONSTANTS
 // ============================================
-define( 'UBAC_BOOKING_VERSION', '1.0.2' );
+define( 'UBAC_BOOKING_VERSION', '1.0.3' );
 define( 'UBAC_BOOKING_PATH', plugin_dir_path( __FILE__ ) );
 define( 'UBAC_BOOKING_URL', plugin_dir_url( __FILE__ ) );
 define( 'UBAC_BOOKING_TABLE_BOOKINGS', 'ubac_bookings' );
