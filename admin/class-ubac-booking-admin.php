@@ -131,6 +131,7 @@ class Ubac_Booking_Admin {
 			'location'         => get_option( 'ubac_booking_location', '' ),
 			'event_title'      => get_option( 'ubac_booking_event_title', '' ),
 			'show_meta_step1'  => get_option( 'ubac_booking_show_meta_step1', '0' ),
+			'delete_data_on_uninstall' => get_option( 'ubac_booking_delete_data_on_uninstall', '0' ),
 		);
 		include UBAC_BOOKING_PATH . 'admin/views/page-settings.php';
 	}
@@ -164,6 +165,7 @@ class Ubac_Booking_Admin {
 		update_option( 'ubac_booking_location', isset( $_POST['location'] ) ? sanitize_text_field( wp_unslash( $_POST['location'] ) ) : '' );
 		update_option( 'ubac_booking_event_title', isset( $_POST['event_title'] ) ? sanitize_text_field( wp_unslash( $_POST['event_title'] ) ) : '' );
 		update_option( 'ubac_booking_show_meta_step1', isset( $_POST['show_meta_step1'] ) ? '1' : '0' );
+		update_option( 'ubac_booking_delete_data_on_uninstall', isset( $_POST['delete_data_on_uninstall'] ) ? '1' : '0' );
 
 		wp_safe_redirect( admin_url( 'admin.php?page=ubac-booking-settings&saved=1' ) );
 		exit;

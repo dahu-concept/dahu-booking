@@ -107,5 +107,11 @@ class Ubac_Booking_Activator {
 		if ( false === get_option( 'ubac_booking_show_meta_step1' ) ) {
 			update_option( 'ubac_booking_show_meta_step1', '0' );
 		}
+
+		// Explicitly off on a fresh install, so the uninstall guard reads a
+		// value it wrote rather than a default it inferred.
+		if ( false === get_option( 'ubac_booking_delete_data_on_uninstall' ) ) {
+			update_option( 'ubac_booking_delete_data_on_uninstall', '0' );
+		}
 	}
 }

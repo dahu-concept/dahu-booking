@@ -111,6 +111,17 @@ $ubac_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( 
                 </td>
             </tr>
 
+            <tr>
+                <th scope="row"><?php esc_html_e( 'Uninstalling', 'ubac-booking' ); ?></th>
+                <td>
+                    <label>
+                        <input type="checkbox" name="delete_data_on_uninstall" value="1" <?php checked( '1', $settings['delete_data_on_uninstall'] ); ?> />
+                        <?php esc_html_e( 'Delete the appointments and the availability when the plugin is deleted', 'ubac-booking' ); ?>
+                    </label>
+                    <p class="description"><?php esc_html_e( 'Off, and worth leaving off. What goes is every appointment ever booked, with the name, email address and message each customer gave — and the availability behind them. Nothing rebuilds it, and deleting the plugin is usually a step in reinstalling it.', 'ubac-booking' ); ?></p>
+                </td>
+            </tr>
+
         </table>
 
         <?php submit_button( __( 'Save settings', 'ubac-booking' ) ); ?>
