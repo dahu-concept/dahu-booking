@@ -52,7 +52,7 @@ register_activation_hook( __FILE__, array( 'Ubac_Booking_Activator', 'activate' 
 register_activation_hook(
 	__FILE__,
 	static function () {
-		Ubac_Welcome::mark_activated( 'ubac-booking' );
+		Ubac_Welcome::mark_activated( 'dahuconcept-booking' );
 	}
 );
 
@@ -61,12 +61,12 @@ add_action(
 	static function () {
 		Ubac_Welcome::register(
 			array(
-				'slug'       => 'ubac-booking',
+				'slug'       => 'dahuconcept-booking',
 				'name'       => __( 'Appointment booking', 'dahuconcept-booking' ),
 				'tagline'    => __( 'Appointments booked on your own site, with no third-party service.', 'dahuconcept-booking' ),
 				'file'       => UBAC_BOOKING_FILE,
 				'version'    => UBAC_BOOKING_VERSION,
-				'textdomain' => 'ubac-booking',
+				'textdomain' => 'dahuconcept-booking',
 				'mark'       => array(
 					'view'  => '0 0 112 112',
 					'paths' => array(
