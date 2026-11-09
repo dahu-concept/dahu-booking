@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: Ubac Booking
+ * Plugin Name: DahuConcept Booking
  * Description: Lightweight self-hosted appointment booking plugin: two-step calendar widget, availability management, automatic confirmation emails, and secure reschedule/cancel links — no third-party service required.
  * Version: 1.0.3
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: Hugo Vial-Jaime
  * Author URI: https://dahu-concept.fr
- * Text Domain: ubac-booking
+ * Text Domain: dahuconcept-booking
  * Domain Path: /languages
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
@@ -62,8 +62,8 @@ add_action(
 		Ubac_Welcome::register(
 			array(
 				'slug'       => 'ubac-booking',
-				'name'       => __( 'Appointment booking', 'ubac-booking' ),
-				'tagline'    => __( 'Appointments booked on your own site, with no third-party service.', 'ubac-booking' ),
+				'name'       => __( 'Appointment booking', 'dahuconcept-booking' ),
+				'tagline'    => __( 'Appointments booked on your own site, with no third-party service.', 'dahuconcept-booking' ),
 				'file'       => UBAC_BOOKING_FILE,
 				'version'    => UBAC_BOOKING_VERSION,
 				'textdomain' => 'ubac-booking',
@@ -83,24 +83,24 @@ add_action(
 				 * no text domain of its own.
 				 */
 				'strings'    => array(
-					'next'   => __( 'Next', 'ubac-booking' ),
-					'done'   => __( 'Done', 'ubac-booking' ),
-					'skip'   => __( 'Skip', 'ubac-booking' ),
-					'of'     => __( 'of', 'ubac-booking' ),
-					'denied' => __( 'You are not allowed to view this page.', 'ubac-booking' ),
+					'next'   => __( 'Next', 'dahuconcept-booking' ),
+					'done'   => __( 'Done', 'dahuconcept-booking' ),
+					'skip'   => __( 'Skip', 'dahuconcept-booking' ),
+					'of'     => __( 'of', 'dahuconcept-booking' ),
+					'denied' => __( 'You are not allowed to view this page.', 'dahuconcept-booking' ),
 				),
 				'points'     => array(
 					array(
-						'title' => __( 'Open the hours you keep', 'ubac-booking' ),
-						'text'  => __( 'Availability is set once and reused.', 'ubac-booking' ),
+						'title' => __( 'Open the hours you keep', 'dahuconcept-booking' ),
+						'text'  => __( 'Availability is set once and reused.', 'dahuconcept-booking' ),
 					),
 					array(
-						'title' => __( 'A two-step calendar', 'ubac-booking' ),
-						'text'  => __( 'The visitor picks a day, then a time.', 'ubac-booking' ),
+						'title' => __( 'A two-step calendar', 'dahuconcept-booking' ),
+						'text'  => __( 'The visitor picks a day, then a time.', 'dahuconcept-booking' ),
 					),
 					array(
-						'title' => __( 'Confirmed by email', 'ubac-booking' ),
-						'text'  => __( 'With links to reschedule or cancel.', 'ubac-booking' ),
+						'title' => __( 'Confirmed by email', 'dahuconcept-booking' ),
+						'text'  => __( 'With links to reschedule or cancel.', 'dahuconcept-booking' ),
 					),
 				),
 			)
@@ -131,7 +131,7 @@ add_action( 'plugins_loaded', 'ubac_booking_init' );
 add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),
 	function( $links ) {
 		$settings = '<a href="' . admin_url( 'admin.php?page=ubac-booking-settings' ) . '">'
-			. __( 'Settings', 'ubac-booking' ) . '</a>';
+			. __( 'Settings', 'dahuconcept-booking' ) . '</a>';
 		array_unshift( $links, $settings );
 		return $links;
 	}
@@ -142,9 +142,9 @@ add_filter( 'plugin_row_meta', function( $links, $file ) {
 		$header = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
 		$links  = array(
 			/* translators: %s: plugin version number */
-			sprintf( __( 'Version %s', 'ubac-booking' ), $header['Version'] ),
+			sprintf( __( 'Version %s', 'dahuconcept-booking' ), $header['Version'] ),
 			'<a href="https://dahu-concept.fr" target="_blank">By Hugo Vial-Jaime — Dahu-Concept</a>',
-			'<a href="https://dahu-concept.fr" target="_blank">' . __( 'Visit plugin site', 'ubac-booking' ) . '</a>',
+			'<a href="https://dahu-concept.fr" target="_blank">' . __( 'Visit plugin site', 'dahuconcept-booking' ) . '</a>',
 		);
 	}
 	return $links;

@@ -1,4 +1,4 @@
-=== Ubac Booking ===
+=== DahuConcept Booking ===
 Contributors: dahuconcept
 Tags: time slots, self hosted, appointments, booking, calendar
 Requires at least: 6.2
@@ -12,12 +12,12 @@ A lightweight, self-hosted appointment booking widget with a two-step calendar f
 
 == Description ==
 
-Ubac Booking is a simple, self-contained appointment scheduling plugin for WordPress. It lets visitors pick a date and time from a clean two-step calendar widget, then confirm their booking with their name and email — all without sending any data to an external service.
+DahuConcept Booking is a simple, self-contained appointment scheduling plugin for WordPress. It lets visitors pick a date and time from a clean two-step calendar widget, then confirm their booking with their name and email — all without sending any data to an external service.
 
 **Key features:**
 
 * Two-step booking widget (calendar + time slots, then a short contact form), with smooth Calendly-style transitions
-* Insert anywhere via the `[ubac_booking]` shortcode or the native **Ubac Booking** Gutenberg block
+* Insert anywhere via the `[ubac_booking]` shortcode or the native **DahuConcept Booking** Gutenberg block
 * Manage your availability from the WordPress admin: weekly open days, time slots, and one-off blocked slots (holidays, personal appointments…)
 * Automatic confirmation emails to both the visitor and the site admin, sent through `wp_mail()` — fully compatible with any SMTP plugin you already use
 * Visitors can reschedule or cancel their own booking through a secure link sent by email, no account required
@@ -26,15 +26,15 @@ Ubac Booking is a simple, self-contained appointment scheduling plugin for WordP
 
 **Why use this instead of an embedded third-party calendar?**
 
-Many booking solutions require an external account, expose your availability data to a third party, or come with bot-detection CAPTCHAs that can block legitimate visitors. Ubac Booking keeps everything on your own server: your data, your database, your rules.
+Many booking solutions require an external account, expose your availability data to a third party, or come with bot-detection CAPTCHAs that can block legitimate visitors. DahuConcept Booking keeps everything on your own server: your data, your database, your rules.
 
 == Installation ==
 
 1. Upload the plugin files to `/wp-content/plugins/ubac-booking`, or install it directly through the WordPress plugins screen.
 2. Activate the plugin through the "Plugins" screen in WordPress.
-3. Go to **Ubac Booking > Settings** to configure your event title, location, notification email, and time slots.
-4. Go to **Ubac Booking > Availability** to set your weekly open days and block specific one-off slots if needed.
-5. Insert the widget on any page using the `[ubac_booking]` shortcode, or add the **Ubac Booking** block from the block editor.
+3. Go to **DahuConcept Booking > Settings** to configure your event title, location, notification email, and time slots.
+4. Go to **DahuConcept Booking > Availability** to set your weekly open days and block specific one-off slots if needed.
+5. Insert the widget on any page using the `[ubac_booking]` shortcode, or add the **DahuConcept Booking** block from the block editor.
 
 == Frequently Asked Questions ==
 
@@ -56,7 +56,7 @@ Yes. Every confirmation email includes a secure, unique link that lets the visit
 
 = Does it support recurring availability exceptions, like holidays? =
 
-Yes, from **Ubac Booking > Availability** you can block any specific date and time slot without affecting your regular weekly schedule.
+Yes, from **DahuConcept Booking > Availability** you can block any specific date and time slot without affecting your regular weekly schedule.
 
 == Screenshots ==
 

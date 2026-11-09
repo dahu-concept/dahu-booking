@@ -1,11 +1,11 @@
-# Ubac Booking
+# DahuConcept Booking
 
 Une extension de prise de rendez-vous légère et autonome pour WordPress. Développée par [Dahu-Concept](https://dahu-concept.fr).
 
 ## Fonctionnalités
 
 - Widget de réservation en deux temps (calendrier et créneaux, puis formulaire de contact), avec des transitions dans l'esprit de Calendly
-- S'insère n'importe où, par le code court `[ubac_booking]` ou par le bloc Gutenberg natif **Ubac Booking**
+- S'insère n'importe où, par le code court `[ubac_booking]` ou par le bloc Gutenberg natif **DahuConcept Booking**
 - Disponibilités gérées depuis l'administration WordPress : jours ouverts de la semaine, créneaux horaires, et blocages ponctuels
 - Courriels de confirmation automatiques au visiteur et à l'administration du site, par `wp_mail()` — compatible avec n'importe quelle extension SMTP
 - Le visiteur peut déplacer ou annuler son rendez-vous par un lien sécurisé reçu par courriel, sans avoir à créer de compte
@@ -38,7 +38,7 @@ ubac-booking/
 1. Télécharger le zip de l'extension
 2. WordPress > Extensions > Ajouter > Téléverser une extension
 3. Activer l'extension
-4. Régler disponibilités et réglages sous **Ubac Booking** dans wp-admin
+4. Régler disponibilités et réglages sous **DahuConcept Booking** dans wp-admin
 5. Insérer le code court `[ubac_booking]` sur une page, ou utiliser le bloc Gutenberg
 
 ## Socle technique

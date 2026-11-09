@@ -1,37 +1,37 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 $ubac_jours = array(
-	0 => __( 'Sunday', 'ubac-booking' ),
-	1 => __( 'Monday', 'ubac-booking' ),
-	2 => __( 'Tuesday', 'ubac-booking' ),
-	3 => __( 'Wednesday', 'ubac-booking' ),
-	4 => __( 'Thursday', 'ubac-booking' ),
-	5 => __( 'Friday', 'ubac-booking' ),
-	6 => __( 'Saturday', 'ubac-booking' ),
+	0 => __( 'Sunday', 'dahuconcept-booking' ),
+	1 => __( 'Monday', 'dahuconcept-booking' ),
+	2 => __( 'Tuesday', 'dahuconcept-booking' ),
+	3 => __( 'Wednesday', 'dahuconcept-booking' ),
+	4 => __( 'Thursday', 'dahuconcept-booking' ),
+	5 => __( 'Friday', 'dahuconcept-booking' ),
+	6 => __( 'Saturday', 'dahuconcept-booking' ),
 );
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a redirect flag read back to decide whether to print a notice; it writes nothing, and the worst a forged one can do is show the admin a message.
 $ubac_cancelled_notice = isset( $_GET['cancelled'] ) ? sanitize_text_field( wp_unslash( $_GET['cancelled'] ) ) : '';
 ?>
 <div class="wrap ubac-admin">
-    <h1><?php esc_html_e( 'Bookings', 'ubac-booking' ); ?></h1>
+    <h1><?php esc_html_e( 'Bookings', 'dahuconcept-booking' ); ?></h1>
 
     <?php if ( $ubac_cancelled_notice ) : ?>
-        <div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Booking cancelled. The client has been notified by email.', 'ubac-booking' ); ?></p></div>
+        <div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Booking cancelled. The client has been notified by email.', 'dahuconcept-booking' ); ?></p></div>
     <?php endif; ?>
 
     <?php if ( empty( $bookings ) ) : ?>
-        <p><?php esc_html_e( 'No bookings yet.', 'ubac-booking' ); ?></p>
+        <p><?php esc_html_e( 'No bookings yet.', 'dahuconcept-booking' ); ?></p>
     <?php else : ?>
         <table class="wp-list-table widefat fixed striped">
             <thead>
                 <tr>
-                    <th><?php esc_html_e( 'Date', 'ubac-booking' ); ?></th>
-                    <th><?php esc_html_e( 'Time', 'ubac-booking' ); ?></th>
-                    <th><?php esc_html_e( 'Name', 'ubac-booking' ); ?></th>
-                    <th><?php esc_html_e( 'Email', 'ubac-booking' ); ?></th>
-                    <th><?php esc_html_e( 'Message', 'ubac-booking' ); ?></th>
-                    <th><?php esc_html_e( 'Status', 'ubac-booking' ); ?></th>
-                    <th><?php esc_html_e( 'Action', 'ubac-booking' ); ?></th>
+                    <th><?php esc_html_e( 'Date', 'dahuconcept-booking' ); ?></th>
+                    <th><?php esc_html_e( 'Time', 'dahuconcept-booking' ); ?></th>
+                    <th><?php esc_html_e( 'Name', 'dahuconcept-booking' ); ?></th>
+                    <th><?php esc_html_e( 'Email', 'dahuconcept-booking' ); ?></th>
+                    <th><?php esc_html_e( 'Message', 'dahuconcept-booking' ); ?></th>
+                    <th><?php esc_html_e( 'Status', 'dahuconcept-booking' ); ?></th>
+                    <th><?php esc_html_e( 'Action', 'dahuconcept-booking' ); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -50,9 +50,9 @@ $ubac_cancelled_notice = isset( $_GET['cancelled'] ) ? sanitize_text_field( wp_u
                     <td><?php echo esc_html( wp_trim_words( $ubac_booking['client_message'], 12 ) ); ?></td>
                     <td>
                         <?php if ( 'confirmed' === $ubac_booking['status'] ) : ?>
-                            <span class="ubac-badge ubac-badge--confirmed"><?php esc_html_e( 'Confirmed', 'ubac-booking' ); ?></span>
+                            <span class="ubac-badge ubac-badge--confirmed"><?php esc_html_e( 'Confirmed', 'dahuconcept-booking' ); ?></span>
                         <?php else : ?>
-                            <span class="ubac-badge ubac-badge--cancelled"><?php esc_html_e( 'Cancelled', 'ubac-booking' ); ?></span>
+                            <span class="ubac-badge ubac-badge--cancelled"><?php esc_html_e( 'Cancelled', 'dahuconcept-booking' ); ?></span>
                         <?php endif; ?>
                     </td>
                     <td>
@@ -61,7 +61,7 @@ $ubac_cancelled_notice = isset( $_GET['cancelled'] ) ? sanitize_text_field( wp_u
                             <input type="hidden" name="action" value="ubac_cancel_booking_admin">
                             <input type="hidden" name="token" value="<?php echo esc_attr( $ubac_booking['token'] ); ?>">
                             <?php wp_nonce_field( 'ubac_cancel_booking_admin_action' ); ?>
-                            <button type="submit" class="button button-small"><?php esc_html_e( 'Cancel', 'ubac-booking' ); ?></button>
+                            <button type="submit" class="button button-small"><?php esc_html_e( 'Cancel', 'dahuconcept-booking' ); ?></button>
                         </form>
                         <?php endif; ?>
                     </td>

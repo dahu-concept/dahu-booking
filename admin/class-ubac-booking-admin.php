@@ -1,7 +1,7 @@
 <?php
 /**
  * The plugin's whole wp-admin interface:
- * - the "Ubac Booking" menu
+ * - the "DahuConcept Booking" menu
  * - the Bookings page (list, cancellation)
  * - the Availability page (open days and times, blocking slots)
  * - the Settings page (admin email, place, title, notice periods)
@@ -24,8 +24,8 @@ class Ubac_Booking_Admin {
 
 	public function register_menu() {
 		add_menu_page(
-			'Ubac Booking',
-			'Ubac Booking',
+			'DahuConcept Booking',
+			'DahuConcept Booking',
 			'manage_options',
 			'ubac-booking',
 			array( $this, 'render_bookings_page' ),
@@ -33,9 +33,9 @@ class Ubac_Booking_Admin {
 			26
 		);
 
-		add_submenu_page( 'ubac-booking', __( 'Bookings', 'ubac-booking' ), __( 'Bookings', 'ubac-booking' ), 'manage_options', 'ubac-booking', array( $this, 'render_bookings_page' ) );
-		add_submenu_page( 'ubac-booking', __( 'Availability', 'ubac-booking' ), __( 'Availability', 'ubac-booking' ), 'manage_options', 'ubac-booking-availability', array( $this, 'render_availability_page' ) );
-		add_submenu_page( 'ubac-booking', __( 'Settings', 'ubac-booking' ), __( 'Settings', 'ubac-booking' ), 'manage_options', 'ubac-booking-settings', array( $this, 'render_settings_page' ) );
+		add_submenu_page( 'ubac-booking', __( 'Bookings', 'dahuconcept-booking' ), __( 'Bookings', 'dahuconcept-booking' ), 'manage_options', 'ubac-booking', array( $this, 'render_bookings_page' ) );
+		add_submenu_page( 'ubac-booking', __( 'Availability', 'dahuconcept-booking' ), __( 'Availability', 'dahuconcept-booking' ), 'manage_options', 'ubac-booking-availability', array( $this, 'render_availability_page' ) );
+		add_submenu_page( 'ubac-booking', __( 'Settings', 'dahuconcept-booking' ), __( 'Settings', 'dahuconcept-booking' ), 'manage_options', 'ubac-booking-settings', array( $this, 'render_settings_page' ) );
 	}
 
 	public function enqueue_admin_assets( $hook ) {
@@ -53,7 +53,7 @@ class Ubac_Booking_Admin {
 
 	public function handle_cancel_booking() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Access denied.', 'ubac-booking' ) );
+			wp_die( esc_html__( 'Access denied.', 'dahuconcept-booking' ) );
 		}
 		check_admin_referer( 'ubac_cancel_booking_admin_action' );
 
@@ -80,7 +80,7 @@ class Ubac_Booking_Admin {
 
 	public function handle_block_slot() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Access denied.', 'ubac-booking' ) );
+			wp_die( esc_html__( 'Access denied.', 'dahuconcept-booking' ) );
 		}
 		check_admin_referer( 'ubac_block_slot_action' );
 
@@ -101,7 +101,7 @@ class Ubac_Booking_Admin {
 
 	public function handle_unblock_slot() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Access denied.', 'ubac-booking' ) );
+			wp_die( esc_html__( 'Access denied.', 'dahuconcept-booking' ) );
 		}
 		check_admin_referer( 'ubac_unblock_slot_action' );
 
@@ -138,7 +138,7 @@ class Ubac_Booking_Admin {
 
 	public function handle_save_settings() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Access denied.', 'ubac-booking' ) );
+			wp_die( esc_html__( 'Access denied.', 'dahuconcept-booking' ) );
 		}
 		check_admin_referer( 'ubac_save_settings_action' );
 

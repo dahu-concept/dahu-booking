@@ -67,65 +67,65 @@ class Ubac_Booking_Public {
 		wp_localize_script( 'ubac-booking-script', 'ubacBookingData', array(
 			'ajaxUrl'       => admin_url( 'admin-ajax.php' ),
 			'nonce'         => wp_create_nonce( 'ubac_booking_nonce' ),
-			'eventTitle'    => get_option( 'ubac_booking_event_title', __( 'Appointment', 'ubac-booking' ) ),
+			'eventTitle'    => get_option( 'ubac_booking_event_title', __( 'Appointment', 'dahuconcept-booking' ) ),
 			'duration'      => get_option( 'ubac_booking_duration', 60 ),
 			'location'      => get_option( 'ubac_booking_location', '' ),
 			'showMetaStep1' => get_option( 'ubac_booking_show_meta_step1', '0' ) === '1',
 			'maxDaysAhead'  => (int) get_option( 'ubac_booking_max_days_ahead', 60 ),
 			'openDays'      => get_option( 'ubac_booking_open_days', array( 1, 2, 3, 4, 5, 6 ) ),
 			'i18n'          => array(
-				'selectDateTime' => __( 'Select a date and time', 'ubac-booking' ),
-				'yourInfo'       => __( 'Your details', 'ubac-booking' ),
-				'name'           => __( 'Name', 'ubac-booking' ),
-				'email'          => __( 'Email', 'ubac-booking' ),
-				'message'        => __( 'Please share anything that will help prepare for our meeting.', 'ubac-booking' ),
-				'confirm'        => __( 'Confirm appointment', 'ubac-booking' ),
-				'next'           => __( 'Next', 'ubac-booking' ),
-				'back'           => __( 'Back', 'ubac-booking' ),
-				'noSlots'        => __( 'No available slots on this day.', 'ubac-booking' ),
-				'pickDate'       => __( 'Please choose a date from the calendar.', 'ubac-booking' ),
-				'loading'        => __( 'Loading…', 'ubac-booking' ),
-				'sending'        => __( 'Sending…', 'ubac-booking' ),
-				'success'        => __( 'Your appointment is confirmed! A confirmation email has been sent to you.', 'ubac-booking' ),
-				'error'          => __( 'An error occurred. Please try again.', 'ubac-booking' ),
-				'slotTaken'         => __( 'This slot was just booked by someone else. Please choose another one.', 'ubac-booking' ),
-				'cancelSuccess'     => __( 'Your appointment has been cancelled. A confirmation email will be sent to you.', 'ubac-booking' ),
-				'rescheduleSuccess' => __( 'Your appointment has been rescheduled. A confirmation email will be sent to you.', 'ubac-booking' ),
-				'confirmReschedule' => __( 'Confirm new time slot', 'ubac-booking' ),
+				'selectDateTime' => __( 'Select a date and time', 'dahuconcept-booking' ),
+				'yourInfo'       => __( 'Your details', 'dahuconcept-booking' ),
+				'name'           => __( 'Name', 'dahuconcept-booking' ),
+				'email'          => __( 'Email', 'dahuconcept-booking' ),
+				'message'        => __( 'Please share anything that will help prepare for our meeting.', 'dahuconcept-booking' ),
+				'confirm'        => __( 'Confirm appointment', 'dahuconcept-booking' ),
+				'next'           => __( 'Next', 'dahuconcept-booking' ),
+				'back'           => __( 'Back', 'dahuconcept-booking' ),
+				'noSlots'        => __( 'No available slots on this day.', 'dahuconcept-booking' ),
+				'pickDate'       => __( 'Please choose a date from the calendar.', 'dahuconcept-booking' ),
+				'loading'        => __( 'Loading…', 'dahuconcept-booking' ),
+				'sending'        => __( 'Sending…', 'dahuconcept-booking' ),
+				'success'        => __( 'Your appointment is confirmed! A confirmation email has been sent to you.', 'dahuconcept-booking' ),
+				'error'          => __( 'An error occurred. Please try again.', 'dahuconcept-booking' ),
+				'slotTaken'         => __( 'This slot was just booked by someone else. Please choose another one.', 'dahuconcept-booking' ),
+				'cancelSuccess'     => __( 'Your appointment has been cancelled. A confirmation email will be sent to you.', 'dahuconcept-booking' ),
+				'rescheduleSuccess' => __( 'Your appointment has been rescheduled. A confirmation email will be sent to you.', 'dahuconcept-booking' ),
+				'confirmReschedule' => __( 'Confirm new time slot', 'dahuconcept-booking' ),
 				/* Weekday abbreviations for the calendar header (Mon–Sun, starting Monday) */
 				'weekdays'       => array(
-					__( 'Mon', 'ubac-booking' ),
-					__( 'Tue', 'ubac-booking' ),
-					__( 'Wed', 'ubac-booking' ),
-					__( 'Thu', 'ubac-booking' ),
-					__( 'Fri', 'ubac-booking' ),
-					__( 'Sat', 'ubac-booking' ),
-					__( 'Sun', 'ubac-booking' ),
+					__( 'Mon', 'dahuconcept-booking' ),
+					__( 'Tue', 'dahuconcept-booking' ),
+					__( 'Wed', 'dahuconcept-booking' ),
+					__( 'Thu', 'dahuconcept-booking' ),
+					__( 'Fri', 'dahuconcept-booking' ),
+					__( 'Sat', 'dahuconcept-booking' ),
+					__( 'Sun', 'dahuconcept-booking' ),
 				),
 				/* Full month names for the calendar label (January–December) */
 				'months'         => array(
-					__( 'January', 'ubac-booking' ),
-					__( 'February', 'ubac-booking' ),
-					__( 'March', 'ubac-booking' ),
-					__( 'April', 'ubac-booking' ),
-					__( 'May', 'ubac-booking' ),
-					__( 'June', 'ubac-booking' ),
-					__( 'July', 'ubac-booking' ),
-					__( 'August', 'ubac-booking' ),
-					__( 'September', 'ubac-booking' ),
-					__( 'October', 'ubac-booking' ),
-					__( 'November', 'ubac-booking' ),
-					__( 'December', 'ubac-booking' ),
+					__( 'January', 'dahuconcept-booking' ),
+					__( 'February', 'dahuconcept-booking' ),
+					__( 'March', 'dahuconcept-booking' ),
+					__( 'April', 'dahuconcept-booking' ),
+					__( 'May', 'dahuconcept-booking' ),
+					__( 'June', 'dahuconcept-booking' ),
+					__( 'July', 'dahuconcept-booking' ),
+					__( 'August', 'dahuconcept-booking' ),
+					__( 'September', 'dahuconcept-booking' ),
+					__( 'October', 'dahuconcept-booking' ),
+					__( 'November', 'dahuconcept-booking' ),
+					__( 'December', 'dahuconcept-booking' ),
 				),
 				/* Full day names (Sunday–Saturday, JS getDay() order) for the date label */
 				'days'           => array(
-					__( 'Sunday', 'ubac-booking' ),
-					__( 'Monday', 'ubac-booking' ),
-					__( 'Tuesday', 'ubac-booking' ),
-					__( 'Wednesday', 'ubac-booking' ),
-					__( 'Thursday', 'ubac-booking' ),
-					__( 'Friday', 'ubac-booking' ),
-					__( 'Saturday', 'ubac-booking' ),
+					__( 'Sunday', 'dahuconcept-booking' ),
+					__( 'Monday', 'dahuconcept-booking' ),
+					__( 'Tuesday', 'dahuconcept-booking' ),
+					__( 'Wednesday', 'dahuconcept-booking' ),
+					__( 'Thursday', 'dahuconcept-booking' ),
+					__( 'Friday', 'dahuconcept-booking' ),
+					__( 'Saturday', 'dahuconcept-booking' ),
 				),
 			),
 		) );
@@ -147,7 +147,7 @@ class Ubac_Booking_Public {
 		$date = isset( $_POST['date'] ) ? sanitize_text_field( wp_unslash( $_POST['date'] ) ) : '';
 
 		if ( ! $this->is_valid_date( $date ) ) {
-			wp_send_json_error( array( 'message' => __( 'Invalid date.', 'ubac-booking' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid date.', 'dahuconcept-booking' ) ) );
 		}
 
 		$available = Ubac_Booking_DB::get_available_times_for_date( $date );
@@ -176,7 +176,7 @@ class Ubac_Booking_Public {
 
 		// Honeypot anti-spam: hidden field filled only by bots.
 		if ( ! empty( $_POST['ubac_hp'] ) ) {
-			wp_send_json_error( array( 'message' => __( 'Invalid request.', 'ubac-booking' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid request.', 'dahuconcept-booking' ) ) );
 		}
 
 		// Simple rate limit by IP (max 1 booking every 20 seconds).
@@ -184,7 +184,7 @@ class Ubac_Booking_Public {
 		if ( $ip ) {
 			$rate_key = 'ubac_booking_rate_' . md5( $ip );
 			if ( get_transient( $rate_key ) ) {
-				wp_send_json_error( array( 'message' => __( 'Please wait a few seconds before trying again.', 'ubac-booking' ) ) );
+				wp_send_json_error( array( 'message' => __( 'Please wait a few seconds before trying again.', 'dahuconcept-booking' ) ) );
 			}
 			set_transient( $rate_key, 1, 20 );
 		}
@@ -197,11 +197,11 @@ class Ubac_Booking_Public {
 
 		// Server-side validation (never trust the front-end alone).
 		if ( ! $this->is_valid_date( $date ) || ! preg_match( '/^\d{2}:\d{2}$/', $time ) ) {
-			wp_send_json_error( array( 'message' => __( 'Invalid time slot.', 'ubac-booking' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid time slot.', 'dahuconcept-booking' ) ) );
 		}
 
 		if ( empty( $name ) || empty( $email ) || ! is_email( $email ) ) {
-			wp_send_json_error( array( 'message' => __( 'Please provide a valid name and email address.', 'ubac-booking' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Please provide a valid name and email address.', 'dahuconcept-booking' ) ) );
 		}
 
 		$result = Ubac_Booking_DB::create_booking( $date, $time, $name, $email, $message );
@@ -213,7 +213,7 @@ class Ubac_Booking_Public {
 		$booking = Ubac_Booking_DB::get_booking_by_id( $result['id'] );
 		Ubac_Booking_Mailer::send_booking_emails( $booking );
 
-		wp_send_json_success( array( 'message' => __( 'Booking confirmed.', 'ubac-booking' ) ) );
+		wp_send_json_success( array( 'message' => __( 'Booking confirmed.', 'dahuconcept-booking' ) ) );
 	}
 
 	// ============================================
@@ -228,11 +228,11 @@ class Ubac_Booking_Public {
 
 		$booking = Ubac_Booking_DB::get_booking_by_token( $token );
 		if ( ! $booking ) {
-			wp_send_json_error( array( 'message' => __( 'Booking not found.', 'ubac-booking' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Booking not found.', 'dahuconcept-booking' ) ) );
 		}
 
 		if ( ! $this->is_valid_date( $new_date ) || ! preg_match( '/^\d{2}:\d{2}$/', $new_time ) ) {
-			wp_send_json_error( array( 'message' => __( 'Invalid time slot.', 'ubac-booking' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid time slot.', 'dahuconcept-booking' ) ) );
 		}
 
 		$success = Ubac_Booking_DB::reschedule_booking( $token, $new_date, $new_time );
@@ -244,7 +244,7 @@ class Ubac_Booking_Public {
 		$updated_booking = Ubac_Booking_DB::get_booking_by_token( $token );
 		Ubac_Booking_Mailer::send_reschedule_confirmation( $updated_booking );
 
-		wp_send_json_success( array( 'message' => __( 'Appointment rescheduled.', 'ubac-booking' ) ) );
+		wp_send_json_success( array( 'message' => __( 'Appointment rescheduled.', 'dahuconcept-booking' ) ) );
 	}
 
 	// ============================================

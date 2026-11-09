@@ -1,5 +1,5 @@
 /**
- * Ubac Booking -- the booking widget's logic.
+ * DahuConcept Booking -- the booking widget's logic.
  * Interactive calendar, two panels (dates and times), and the transition
  * between them.
  */

@@ -1,5 +1,5 @@
 /**
- * Ubac Booking -- the Gutenberg block.
+ * DahuConcept Booking -- the Gutenberg block.
  * Plain JS using WordPress's global APIs (wp.blocks, wp.element,
  * wp.blockEditor): no JSX and no build step, so it runs exactly as
  * WordPress loads it.
@@ -46,7 +46,7 @@
                     el(
                         'strong',
                         { style: { display: 'block', marginBottom: '4px' } },
-                        __( 'Widget de réservation Ubac Booking', 'ubac-booking' )
+                        __( 'Widget de réservation DahuConcept Booking', 'ubac-booking' )
                     ),
                     el(
                         'span',

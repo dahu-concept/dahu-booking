@@ -1,35 +1,35 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 $ubac_jours_label = array(
-	1 => __( 'Monday', 'ubac-booking' ),
-	2 => __( 'Tuesday', 'ubac-booking' ),
-	3 => __( 'Wednesday', 'ubac-booking' ),
-	4 => __( 'Thursday', 'ubac-booking' ),
-	5 => __( 'Friday', 'ubac-booking' ),
-	6 => __( 'Saturday', 'ubac-booking' ),
-	0 => __( 'Sunday', 'ubac-booking' ),
+	1 => __( 'Monday', 'dahuconcept-booking' ),
+	2 => __( 'Tuesday', 'dahuconcept-booking' ),
+	3 => __( 'Wednesday', 'dahuconcept-booking' ),
+	4 => __( 'Thursday', 'dahuconcept-booking' ),
+	5 => __( 'Friday', 'dahuconcept-booking' ),
+	6 => __( 'Saturday', 'dahuconcept-booking' ),
+	0 => __( 'Sunday', 'dahuconcept-booking' ),
 );
 // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- a redirect flag read back to decide whether to print a notice; it writes nothing, and the worst a forged one can do is show the admin a message.
 $ubac_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( $_GET['saved'] ) ) : '';
 ?>
 <div class="wrap ubac-admin">
-    <h1><?php esc_html_e( 'Settings — Ubac Booking', 'ubac-booking' ); ?></h1>
+    <h1><?php esc_html_e( 'Settings — DahuConcept Booking', 'dahuconcept-booking' ); ?></h1>
 
     <?php if ( $ubac_saved_notice ) : ?>
-        <div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Settings saved.', 'ubac-booking' ); ?></p></div>
+        <div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Settings saved.', 'dahuconcept-booking' ); ?></p></div>
     <?php endif; ?>
 
     <div class="ubac-admin-card ubac-admin-card--shortcode">
-        <h2><?php esc_html_e( 'How to display the booking widget', 'ubac-booking' ); ?></h2>
-        <p><?php esc_html_e( 'Two equivalent ways to insert the booking calendar on a page:', 'ubac-booking' ); ?></p>
+        <h2><?php esc_html_e( 'How to display the booking widget', 'dahuconcept-booking' ); ?></h2>
+        <p><?php esc_html_e( 'Two equivalent ways to insert the booking calendar on a page:', 'dahuconcept-booking' ); ?></p>
         <ul class="ubac-list">
             <li>
-                <strong><?php esc_html_e( 'Shortcode:', 'ubac-booking' ); ?></strong>
-                <?php esc_html_e( 'paste', 'ubac-booking' ); ?> <code>[ubac_booking]</code> <?php esc_html_e( 'in any page or text widget.', 'ubac-booking' ); ?>
+                <strong><?php esc_html_e( 'Shortcode:', 'dahuconcept-booking' ); ?></strong>
+                <?php esc_html_e( 'paste', 'dahuconcept-booking' ); ?> <code>[ubac_booking]</code> <?php esc_html_e( 'in any page or text widget.', 'dahuconcept-booking' ); ?>
             </li>
             <li>
-                <strong><?php esc_html_e( 'Gutenberg block:', 'ubac-booking' ); ?></strong>
-                <?php esc_html_e( 'in the page editor, add a block and search for', 'ubac-booking' ); ?> <strong>"Ubac Booking"</strong>.
+                <strong><?php esc_html_e( 'Gutenberg block:', 'dahuconcept-booking' ); ?></strong>
+                <?php esc_html_e( 'in the page editor, add a block and search for', 'dahuconcept-booking' ); ?> <strong>"DahuConcept Booking"</strong>.
             </li>
         </ul>
     </div>
@@ -41,7 +41,7 @@ $ubac_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( 
         <table class="form-table">
 
             <tr>
-                <th scope="row"><?php esc_html_e( 'Open days', 'ubac-booking' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Open days', 'dahuconcept-booking' ); ?></th>
                 <td>
                     <?php foreach ( $ubac_jours_label as $ubac_day_value => $ubac_day_label ) : ?>
                         <label class="ubac-day-label">
@@ -54,87 +54,87 @@ $ubac_saved_notice = isset( $_GET['saved'] ) ? sanitize_text_field( wp_unslash( 
             </tr>
 
             <tr>
-                <th scope="row"><label for="time_slots"><?php esc_html_e( 'Available time slots', 'ubac-booking' ); ?></label></th>
+                <th scope="row"><label for="time_slots"><?php esc_html_e( 'Available time slots', 'dahuconcept-booking' ); ?></label></th>
                 <td>
                     <textarea id="time_slots" name="time_slots" rows="8" class="regular-text code"><?php echo esc_textarea( implode( "\n", $settings['time_slots'] ) ); ?></textarea>
-                    <p class="description"><?php esc_html_e( 'One time per line, format HH:MM (e.g. 09:00). Remove a line to stop offering that slot.', 'ubac-booking' ); ?></p>
+                    <p class="description"><?php esc_html_e( 'One time per line, format HH:MM (e.g. 09:00). Remove a line to stop offering that slot.', 'dahuconcept-booking' ); ?></p>
                 </td>
             </tr>
 
             <tr>
-                <th scope="row"><label for="duration"><?php esc_html_e( 'Appointment duration (minutes)', 'ubac-booking' ); ?></label></th>
+                <th scope="row"><label for="duration"><?php esc_html_e( 'Appointment duration (minutes)', 'dahuconcept-booking' ); ?></label></th>
                 <td><input type="number" id="duration" name="duration" value="<?php echo esc_attr( $settings['duration'] ); ?>" min="15" step="15"></td>
             </tr>
 
             <tr>
-                <th scope="row"><label for="event_title"><?php esc_html_e( 'Event title', 'ubac-booking' ); ?></label></th>
+                <th scope="row"><label for="event_title"><?php esc_html_e( 'Event title', 'dahuconcept-booking' ); ?></label></th>
                 <td><input type="text" id="event_title" name="event_title" value="<?php echo esc_attr( $settings['event_title'] ); ?>" class="regular-text"></td>
             </tr>
 
             <tr>
-                <th scope="row"><label for="location"><?php esc_html_e( 'Meeting location', 'ubac-booking' ); ?></label></th>
+                <th scope="row"><label for="location"><?php esc_html_e( 'Meeting location', 'dahuconcept-booking' ); ?></label></th>
                 <td><input type="text" id="location" name="location" value="<?php echo esc_attr( $settings['location'] ); ?>" class="regular-text"></td>
             </tr>
 
             <tr>
-                <th scope="row"><label for="admin_email"><?php esc_html_e( 'Notification email (you)', 'ubac-booking' ); ?></label></th>
+                <th scope="row"><label for="admin_email"><?php esc_html_e( 'Notification email (you)', 'dahuconcept-booking' ); ?></label></th>
                 <td><input type="email" id="admin_email" name="admin_email" value="<?php echo esc_attr( $settings['admin_email'] ); ?>" class="regular-text"></td>
             </tr>
 
             <tr>
-                <th scope="row"><label for="min_notice_hours"><?php esc_html_e( 'Minimum notice before appointment (hours)', 'ubac-booking' ); ?></label></th>
+                <th scope="row"><label for="min_notice_hours"><?php esc_html_e( 'Minimum notice before appointment (hours)', 'dahuconcept-booking' ); ?></label></th>
                 <td>
                     <input type="number" id="min_notice_hours" name="min_notice_hours" value="<?php echo esc_attr( $settings['min_notice_hours'] ); ?>" min="0">
-                    <p class="description"><?php esc_html_e( 'Prevents last-minute bookings (e.g. 12 = at least 12 hours ahead).', 'ubac-booking' ); ?></p>
+                    <p class="description"><?php esc_html_e( 'Prevents last-minute bookings (e.g. 12 = at least 12 hours ahead).', 'dahuconcept-booking' ); ?></p>
                 </td>
             </tr>
 
             <tr>
-                <th scope="row"><label for="max_days_ahead"><?php esc_html_e( 'Bookable period (days in the future)', 'ubac-booking' ); ?></label></th>
+                <th scope="row"><label for="max_days_ahead"><?php esc_html_e( 'Bookable period (days in the future)', 'dahuconcept-booking' ); ?></label></th>
                 <td><input type="number" id="max_days_ahead" name="max_days_ahead" value="<?php echo esc_attr( $settings['max_days_ahead'] ); ?>" min="1"></td>
             </tr>
 
             <tr>
-                <th scope="row"><?php esc_html_e( 'Show title/duration/location at step 2', 'ubac-booking' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Show title/duration/location at step 2', 'dahuconcept-booking' ); ?></th>
                 <td>
                     <label>
                         <input type="checkbox" name="show_meta_step1" value="1" <?php checked( '1', $settings['show_meta_step1'] ); ?>>
                         <?php
 						printf(
 							/* translators: %s: event title */
-							esc_html__( 'Show "%s", duration and location above the contact form', 'ubac-booking' ),
+							esc_html__( 'Show "%s", duration and location above the contact form', 'dahuconcept-booking' ),
 							esc_html( $settings['event_title'] )
 						);
 						?>
                     </label>
-                    <p class="description"><?php esc_html_e( 'Unchecked by default. When enabled, this recap appears at step 2 (the form), below the chosen date/time.', 'ubac-booking' ); ?></p>
+                    <p class="description"><?php esc_html_e( 'Unchecked by default. When enabled, this recap appears at step 2 (the form), below the chosen date/time.', 'dahuconcept-booking' ); ?></p>
                 </td>
             </tr>
 
             <tr>
-                <th scope="row"><?php esc_html_e( 'Uninstalling', 'ubac-booking' ); ?></th>
+                <th scope="row"><?php esc_html_e( 'Uninstalling', 'dahuconcept-booking' ); ?></th>
                 <td>
                     <label>
                         <input type="checkbox" name="delete_data_on_uninstall" value="1" <?php checked( '1', $settings['delete_data_on_uninstall'] ); ?> />
-                        <?php esc_html_e( 'Delete the appointments and the availability when the plugin is deleted', 'ubac-booking' ); ?>
+                        <?php esc_html_e( 'Delete the appointments and the availability when the plugin is deleted', 'dahuconcept-booking' ); ?>
                     </label>
-                    <p class="description"><?php esc_html_e( 'Off, and worth leaving off. What goes is every appointment ever booked, with the name, email address and message each customer gave — and the availability behind them. Nothing rebuilds it, and deleting the plugin is usually a step in reinstalling it.', 'ubac-booking' ); ?></p>
+                    <p class="description"><?php esc_html_e( 'Off, and worth leaving off. What goes is every appointment ever booked, with the name, email address and message each customer gave — and the availability behind them. Nothing rebuilds it, and deleting the plugin is usually a step in reinstalling it.', 'dahuconcept-booking' ); ?></p>
                 </td>
             </tr>
 
         </table>
 
-        <?php submit_button( __( 'Save settings', 'ubac-booking' ) ); ?>
+        <?php submit_button( __( 'Save settings', 'dahuconcept-booking' ) ); ?>
     </form>
 
     <div class="ubac-admin-card ubac-admin-card--customizer">
-        <h2><?php esc_html_e( 'Customize the widget appearance', 'ubac-booking' ); ?></h2>
-        <p><?php esc_html_e( 'To adjust colors, fonts or spacing of the booking widget, use WordPress\'s built-in Additional CSS editor — it is the recommended, site-wide way to add custom styles safely.', 'ubac-booking' ); ?></p>
+        <h2><?php esc_html_e( 'Customize the widget appearance', 'dahuconcept-booking' ); ?></h2>
+        <p><?php esc_html_e( 'To adjust colors, fonts or spacing of the booking widget, use WordPress\'s built-in Additional CSS editor — it is the recommended, site-wide way to add custom styles safely.', 'dahuconcept-booking' ); ?></p>
         <p>
             <a href="<?php echo esc_url( admin_url( 'customize.php?autofocus[section]=custom_css' ) ); ?>" class="button button-secondary">
-                <?php esc_html_e( 'Open Additional CSS (Customize)', 'ubac-booking' ); ?>
+                <?php esc_html_e( 'Open Additional CSS (Customize)', 'dahuconcept-booking' ); ?>
             </a>
         </p>
-        <p class="description"><?php esc_html_e( 'WordPress Additional CSS applies site-wide and is preserved across plugin updates.', 'ubac-booking' ); ?></p>
+        <p class="description"><?php esc_html_e( 'WordPress Additional CSS applies site-wide and is preserved across plugin updates.', 'dahuconcept-booking' ); ?></p>
     </div>
 </div>

@@ -2,13 +2,13 @@
 # This file is distributed under the MIT licence.
 msgid ""
 msgstr ""
-"Project-Id-Version: Ubac Booking\n"
+"Project-Id-Version: DahuConcept Booking\n"
 "Report-Msgid-Bugs-To: https://dahu-concept.fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-11-06 11:09+0000\n"
-"X-Domain: ubac-booking\n"
+"PO-Revision-Date: 2026-11-09 07:28+0000\n"
+"X-Domain: dahuconcept-booking\n"
 
 #. translators: %1$s: date, %2$s: time */
 #: public/views/manage-booking.php:63
@@ -28,27 +28,27 @@ msgstr ""
 msgid "A confirmation email has been sent to you, with a link to modify or cancel this appointment if needed."
 msgstr ""
 
-#: ubac-booking.php:98
+#: dahuconcept-booking.php:98
 msgid "A two-step calendar"
 msgstr ""
 
-#: admin/class-ubac-booking-admin.php:56 admin/class-ubac-booking-admin.php:83 admin/class-ubac-booking-admin.php:104 admin/class-ubac-booking-admin.php:140
+#: admin/class-ubac-booking-admin.php:56 admin/class-ubac-booking-admin.php:83 admin/class-ubac-booking-admin.php:104 admin/class-ubac-booking-admin.php:141
 msgid "Access denied."
 msgstr ""
 
-#: admin/views/page-availability.php:94 admin/views/page-bookings.php:33
+#: admin/views/page-availability.php:96 admin/views/page-bookings.php:34
 msgid "Action"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:89
+#: public/class-ubac-booking-public.php:90
 msgid "An error occurred. Please try again."
 msgstr ""
 
-#: includes/class-ubac-booking-mailer.php:36 public/class-ubac-booking-public.php:69 public/views/booking-widget.php:10
+#: includes/class-ubac-booking-mailer.php:36 public/class-ubac-booking-public.php:70 public/views/booking-widget.php:10
 msgid "Appointment"
 msgstr ""
 
-#: ubac-booking.php:65
+#: dahuconcept-booking.php:65
 msgid "Appointment booking"
 msgstr ""
 
@@ -60,7 +60,7 @@ msgstr ""
 msgid "Appointment confirmed!"
 msgstr ""
 
-#: admin/views/page-settings.php:64
+#: admin/views/page-settings.php:65
 msgid "Appointment duration (minutes)"
 msgstr ""
 
@@ -68,7 +68,7 @@ msgstr ""
 msgid "Appointment not found"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:246
+#: public/class-ubac-booking-public.php:247
 msgid "Appointment rescheduled."
 msgstr ""
 
@@ -76,67 +76,67 @@ msgstr ""
 msgid "Appointment rescheduled: %s"
 msgstr ""
 
-#: ubac-booking.php:66
+#: dahuconcept-booking.php:66
 msgid "Appointments booked on your own site, with no third-party service."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:109
+#: public/class-ubac-booking-public.php:110
 msgid "April"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:113
+#: public/class-ubac-booking-public.php:114
 msgid "August"
 msgstr ""
 
-#: admin/class-ubac-booking-admin.php:37 admin/class-ubac-booking-admin.php:37 admin/views/page-availability.php:16
+#: admin/class-ubac-booking-admin.php:37 admin/class-ubac-booking-admin.php:37 admin/views/page-availability.php:18
 msgid "Availability"
 msgstr ""
 
-#: ubac-booking.php:95
+#: dahuconcept-booking.php:95
 msgid "Availability is set once and reused."
 msgstr ""
 
-#: admin/views/page-settings.php:56
+#: admin/views/page-settings.php:57
 msgid "Available time slots"
 msgstr ""
 
-#: admin/views/page-availability.php:47
+#: admin/views/page-availability.php:49
 msgid "Available time slots:"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:83 public/views/booking-widget.php:22
+#: public/class-ubac-booking-public.php:84 public/views/booking-widget.php:22
 msgid "Back"
 msgstr ""
 
-#: admin/views/page-availability.php:51
+#: admin/views/page-availability.php:53
 msgid "Block a one-off slot"
 msgstr ""
 
-#: admin/views/page-availability.php:79
+#: admin/views/page-availability.php:81
 msgid "Block this slot"
 msgstr ""
 
-#: admin/views/page-settings.php:92
+#: admin/views/page-settings.php:93
 msgid "Bookable period (days in the future)"
 msgstr ""
 
-#: admin/views/page-bookings.php:18
+#: admin/views/page-bookings.php:19
 msgid "Booking cancelled. The client has been notified by email."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:215
+#: public/class-ubac-booking-public.php:216
 msgid "Booking confirmed."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:230
+#: public/class-ubac-booking-public.php:231
 msgid "Booking not found."
 msgstr ""
 
-#: admin/class-ubac-booking-admin.php:36 admin/class-ubac-booking-admin.php:36 admin/views/page-bookings.php:15
+#: admin/class-ubac-booking-admin.php:36 admin/class-ubac-booking-admin.php:36 admin/views/page-bookings.php:16
 msgid "Bookings"
 msgstr ""
 
-#: admin/views/page-bookings.php:63
+#: admin/views/page-bookings.php:64
 msgid "Cancel"
 msgstr ""
 
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Cancel this appointment"
 msgstr ""
 
-#: admin/views/page-bookings.php:54
+#: admin/views/page-bookings.php:55
 msgid "Cancelled"
 msgstr ""
 
@@ -152,59 +152,63 @@ msgstr ""
 msgid "Choose a new time slot"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:81 public/views/booking-widget.php:127
+#: public/class-ubac-booking-public.php:82 public/views/booking-widget.php:127
 msgid "Confirm appointment"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:93 public/views/manage-booking.php:116
+#: public/class-ubac-booking-public.php:94 public/views/manage-booking.php:116
 msgid "Confirm new time slot"
 msgstr ""
 
-#: admin/views/page-bookings.php:52
+#: admin/views/page-bookings.php:53
 msgid "Confirmed"
 msgstr ""
 
-#: ubac-booking.php:102
+#: dahuconcept-booking.php:102
 msgid "Confirmed by email"
 msgstr ""
 
-#: admin/views/page-availability.php:84
+#: admin/views/page-availability.php:86
 msgid "Currently blocked slots"
 msgstr ""
 
-#: admin/views/page-availability.php:38
+#: admin/views/page-availability.php:40
 msgid "Currently open days:"
 msgstr ""
 
-#: admin/views/page-settings.php:119
+#: admin/views/page-settings.php:131
 msgid "Customize the widget appearance"
 msgstr ""
 
-#: admin/views/page-availability.php:58 admin/views/page-availability.php:91 admin/views/page-bookings.php:27
+#: admin/views/page-availability.php:60 admin/views/page-availability.php:93 admin/views/page-bookings.php:28
 msgid "Date"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:117
+#: public/class-ubac-booking-public.php:118
 msgid "December"
+msgstr ""
+
+#: admin/views/page-settings.php:119
+msgid "Delete the appointments and the availability when the plugin is deleted"
 msgstr ""
 
 #: public/views/booking-widget.php:108
 msgid "Do not fill in this field"
 msgstr ""
 
-#: ubac-booking.php:87
+#: dahuconcept-booking.php:87
 msgid "Done"
 msgstr ""
 
-#: admin/views/page-bookings.php:30 public/class-ubac-booking-public.php:79
+#: admin/views/page-bookings.php:31 public/class-ubac-booking-public.php:80
 msgid "Email"
 msgstr ""
 
-#: admin/views/page-settings.php:69
+#: admin/views/page-settings.php:70
 msgid "Event title"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:107
+#: public/class-ubac-booking-public.php:108
 msgid "February"
 msgstr ""
 
@@ -212,15 +216,15 @@ msgstr ""
 msgid "Feel free to book a new slot whenever you wish."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:100
+#: public/class-ubac-booking-public.php:101
 msgid "Fri"
 msgstr ""
 
-#: admin/views/page-availability.php:8 admin/views/page-bookings.php:9 admin/views/page-settings.php:8 public/class-ubac-booking-public.php:126
+#: admin/views/page-availability.php:8 admin/views/page-bookings.php:9 admin/views/page-settings.php:8 public/class-ubac-booking-public.php:127
 msgid "Friday"
 msgstr ""
 
-#: admin/views/page-settings.php:30
+#: admin/views/page-settings.php:31
 msgid "Gutenberg block:"
 msgstr ""
 
@@ -228,71 +232,71 @@ msgstr ""
 msgid "Hello %s,"
 msgstr ""
 
-#: admin/views/page-settings.php:22
+#: admin/views/page-settings.php:23
 msgid "How to display the booking widget"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:149
+#: public/class-ubac-booking-public.php:150
 msgid "Invalid date."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:178
+#: public/class-ubac-booking-public.php:179
 msgid "Invalid request."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:199 public/class-ubac-booking-public.php:234
+#: public/class-ubac-booking-public.php:200 public/class-ubac-booking-public.php:235
 msgid "Invalid time slot."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:106
+#: public/class-ubac-booking-public.php:107
 msgid "January"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:112
+#: public/class-ubac-booking-public.php:113
 msgid "July"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:111
+#: public/class-ubac-booking-public.php:112
 msgid "June"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:86
+#: public/class-ubac-booking-public.php:87
 msgid "Loading…"
 msgstr ""
 
 #: includes/class-ubac-booking-mailer.php:87
-msgid "Manage this booking from your WordPress admin (Ubac Booking)."
+msgid "Manage this booking from your WordPress admin (DahuConcept Booking)."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:108
+#: public/class-ubac-booking-public.php:109
 msgid "March"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:110
+#: public/class-ubac-booking-public.php:111
 msgid "May"
 msgstr ""
 
-#: admin/views/page-settings.php:74
+#: admin/views/page-settings.php:75
 msgid "Meeting location"
 msgstr ""
 
-#: admin/views/page-bookings.php:31
+#: admin/views/page-bookings.php:32
 msgid "Message"
 msgstr ""
 
-#: admin/views/page-settings.php:84
+#: admin/views/page-settings.php:85
 msgid "Minimum notice before appointment (hours)"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:96
+#: public/class-ubac-booking-public.php:97
 msgid "Mon"
 msgstr ""
 
-#: admin/views/page-availability.php:4 admin/views/page-bookings.php:5 admin/views/page-settings.php:4 public/class-ubac-booking-public.php:122
+#: admin/views/page-availability.php:4 admin/views/page-bookings.php:5 admin/views/page-settings.php:4 public/class-ubac-booking-public.php:123
 msgid "Monday"
 msgstr ""
 
-#: admin/views/page-bookings.php:29 public/class-ubac-booking-public.php:78
+#: admin/views/page-bookings.php:30 public/class-ubac-booking-public.php:79
 msgid "Name"
 msgstr ""
 
@@ -312,7 +316,7 @@ msgstr ""
 msgid "New booking received."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:82 ubac-booking.php:86
+#: dahuconcept-booking.php:86 public/class-ubac-booking-public.php:83
 msgid "Next"
 msgstr ""
 
@@ -320,63 +324,67 @@ msgstr ""
 msgid "Next month"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:84
+#: public/class-ubac-booking-public.php:85
 msgid "No available slots on this day."
 msgstr ""
 
-#: admin/views/page-bookings.php:22
+#: admin/views/page-bookings.php:23
 msgid "No bookings yet."
 msgstr ""
 
-#: admin/views/page-availability.php:86
+#: admin/views/page-availability.php:88
 msgid "No manually blocked slots at the moment."
 msgstr ""
 
-#: admin/views/page-settings.php:79
+#: admin/views/page-settings.php:80
 msgid "Notification email (you)"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:116
+#: public/class-ubac-booking-public.php:117
 msgid "November"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:115
+#: public/class-ubac-booking-public.php:116
 msgid "October"
 msgstr ""
 
-#: admin/views/page-settings.php:59
+#: admin/views/page-settings.php:121
+msgid "Off, and worth leaving off. What goes is every appointment ever booked, with the name, email address and message each customer gave — and the availability behind them. Nothing rebuilds it, and deleting the plugin is usually a step in reinstalling it."
+msgstr ""
+
+#: admin/views/page-settings.php:60
 msgid "One time per line, format HH:MM (e.g. 09:00). Remove a line to stop offering that slot."
 msgstr ""
 
-#: admin/views/page-settings.php:123
+#: admin/views/page-settings.php:135
 msgid "Open Additional CSS (Customize)"
 msgstr ""
 
-#: admin/views/page-settings.php:43
+#: admin/views/page-settings.php:44
 msgid "Open days"
 msgstr ""
 
-#: ubac-booking.php:94
+#: dahuconcept-booking.php:94
 msgid "Open the hours you keep"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:85
+#: public/class-ubac-booking-public.php:86
 msgid "Please choose a date from the calendar."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:203
+#: public/class-ubac-booking-public.php:204
 msgid "Please provide a valid name and email address."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:80 public/views/booking-widget.php:121
+#: public/class-ubac-booking-public.php:81 public/views/booking-widget.php:121
 msgid "Please share anything that will help prepare for our meeting."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:186
+#: public/class-ubac-booking-public.php:187
 msgid "Please wait a few seconds before trying again."
 msgstr ""
 
-#: admin/views/page-settings.php:87
+#: admin/views/page-settings.php:88
 msgid "Prevents last-minute bookings (e.g. 12 = at least 12 hours ahead)."
 msgstr ""
 
@@ -384,11 +392,11 @@ msgstr ""
 msgid "Previous month"
 msgstr ""
 
-#: admin/views/page-availability.php:93
+#: admin/views/page-availability.php:95
 msgid "Reason"
 msgstr ""
 
-#: admin/views/page-availability.php:72
+#: admin/views/page-availability.php:74
 msgid "Reason (optional)"
 msgstr ""
 
@@ -396,15 +404,15 @@ msgstr ""
 msgid "Reschedule this appointment"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:101
+#: public/class-ubac-booking-public.php:102
 msgid "Sat"
 msgstr ""
 
-#: admin/views/page-availability.php:9 admin/views/page-bookings.php:10 admin/views/page-settings.php:9 public/class-ubac-booking-public.php:127
+#: admin/views/page-availability.php:9 admin/views/page-bookings.php:10 admin/views/page-settings.php:9 public/class-ubac-booking-public.php:128
 msgid "Saturday"
 msgstr ""
 
-#: admin/views/page-settings.php:115
+#: admin/views/page-settings.php:127
 msgid "Save settings"
 msgstr ""
 
@@ -412,68 +420,68 @@ msgstr ""
 msgid "See you soon,"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:76 public/views/booking-widget.php:63
+#: public/class-ubac-booking-public.php:77 public/views/booking-widget.php:63
 msgid "Select a date and time"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:87
+#: public/class-ubac-booking-public.php:88
 msgid "Sending…"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:114
+#: public/class-ubac-booking-public.php:115
 msgid "September"
 msgstr ""
 
-#: admin/class-ubac-booking-admin.php:38 admin/class-ubac-booking-admin.php:38 admin/views/page-availability.php:34 ubac-booking.php:134
+#: admin/class-ubac-booking-admin.php:38 admin/class-ubac-booking-admin.php:38 admin/views/page-availability.php:36 dahuconcept-booking.php:134
 msgid "Settings"
 msgstr ""
 
-#: admin/views/page-settings.php:18
+#: admin/views/page-settings.php:19
 msgid "Settings saved."
 msgstr ""
 
-#: admin/views/page-settings.php:15
-msgid "Settings — Ubac Booking"
+#: admin/views/page-settings.php:16
+msgid "Settings — DahuConcept Booking"
 msgstr ""
 
-#: admin/views/page-settings.php:26
+#: admin/views/page-settings.php:27
 msgid "Shortcode:"
 msgstr ""
 
 #. translators: %s: event title */
-#: admin/views/page-settings.php:104
+#: admin/views/page-settings.php:105
 msgid "Show \"%s\", duration and location above the contact form"
 msgstr ""
 
-#: admin/views/page-settings.php:97
+#: admin/views/page-settings.php:98
 msgid "Show title/duration/location at step 2"
 msgstr ""
 
-#: ubac-booking.php:88
+#: dahuconcept-booking.php:88
 msgid "Skip"
 msgstr ""
 
-#: admin/views/page-availability.php:19
+#: admin/views/page-availability.php:21
 msgid "Slot blocked."
 msgstr ""
 
-#: admin/views/page-availability.php:22
+#: admin/views/page-availability.php:24
 msgid "Slot unblocked — available again."
 msgstr ""
 
-#: admin/views/page-bookings.php:32
+#: admin/views/page-bookings.php:33
 msgid "Status"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:102
+#: public/class-ubac-booking-public.php:103
 msgid "Sun"
 msgstr ""
 
-#: admin/views/page-availability.php:10 admin/views/page-bookings.php:4 admin/views/page-settings.php:10 public/class-ubac-booking-public.php:121
+#: admin/views/page-availability.php:10 admin/views/page-bookings.php:4 admin/views/page-settings.php:10 public/class-ubac-booking-public.php:122
 msgid "Sunday"
 msgstr ""
 
-#: ubac-booking.php:99
+#: dahuconcept-booking.php:99
 msgid "The visitor picks a day, then a time."
 msgstr ""
 
@@ -486,75 +494,79 @@ msgstr ""
 msgid "This link is no longer valid. If you think this is an error, please contact us at %1$s."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:90
+#: public/class-ubac-booking-public.php:91
 msgid "This slot was just booked by someone else. Please choose another one."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:99
+#: public/class-ubac-booking-public.php:100
 msgid "Thu"
 msgstr ""
 
-#: admin/views/page-availability.php:7 admin/views/page-bookings.php:8 admin/views/page-settings.php:7 public/class-ubac-booking-public.php:125
+#: admin/views/page-availability.php:7 admin/views/page-bookings.php:8 admin/views/page-settings.php:7 public/class-ubac-booking-public.php:126
 msgid "Thursday"
 msgstr ""
 
-#: admin/views/page-availability.php:62 admin/views/page-availability.php:92 admin/views/page-bookings.php:28
+#: admin/views/page-availability.php:64 admin/views/page-availability.php:94 admin/views/page-bookings.php:29
 msgid "Time"
 msgstr ""
 
-#: admin/views/page-settings.php:120
+#: admin/views/page-settings.php:132
 msgid "To adjust colors, fonts or spacing of the booking widget, use WordPress's built-in Additional CSS editor — it is the recommended, site-wide way to add custom styles safely."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:97
+#: public/class-ubac-booking-public.php:98
 msgid "Tue"
 msgstr ""
 
-#: admin/views/page-availability.php:5 admin/views/page-bookings.php:6 admin/views/page-settings.php:5 public/class-ubac-booking-public.php:123
+#: admin/views/page-availability.php:5 admin/views/page-bookings.php:6 admin/views/page-settings.php:5 public/class-ubac-booking-public.php:124
 msgid "Tuesday"
 msgstr ""
 
-#: admin/views/page-settings.php:23
+#: admin/views/page-settings.php:24
 msgid "Two equivalent ways to insert the booking calendar on a page:"
 msgstr ""
 
-#: admin/views/page-availability.php:111
+#: admin/views/page-availability.php:113
 msgid "Unblock"
 msgstr ""
 
-#: admin/views/page-settings.php:109
+#: admin/views/page-settings.php:110
 msgid "Unchecked by default. When enabled, this recap appears at step 2 (the form), below the chosen date/time."
 msgstr ""
 
-#: admin/views/page-availability.php:52
+#: admin/views/page-settings.php:115
+msgid "Uninstalling"
+msgstr ""
+
+#: admin/views/page-availability.php:54
 msgid "Useful for a personal appointment, holiday, or exceptional unavailability — without touching your regular schedule."
 msgstr ""
 
-#: ubac-booking.php:145
+#: dahuconcept-booking.php:145
 msgid "Version %s"
 msgstr ""
 
-#: ubac-booking.php:147
+#: dahuconcept-booking.php:147
 msgid "Visit plugin site"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:98
+#: public/class-ubac-booking-public.php:99
 msgid "Wed"
 msgstr ""
 
-#: admin/views/page-availability.php:6 admin/views/page-bookings.php:7 admin/views/page-settings.php:6 public/class-ubac-booking-public.php:124
+#: admin/views/page-availability.php:6 admin/views/page-bookings.php:7 admin/views/page-settings.php:6 public/class-ubac-booking-public.php:125
 msgid "Wednesday"
 msgstr ""
 
-#: ubac-booking.php:103
+#: dahuconcept-booking.php:103
 msgid "With links to reschedule or cancel."
 msgstr ""
 
-#: admin/views/page-settings.php:126
+#: admin/views/page-settings.php:138
 msgid "WordPress Additional CSS applies site-wide and is preserved across plugin updates."
 msgstr ""
 
-#: ubac-booking.php:90
+#: dahuconcept-booking.php:90
 msgid "You are not allowed to view this page."
 msgstr ""
 
@@ -571,7 +583,7 @@ msgstr ""
 msgid "Your appointment has been cancelled"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:91
+#: public/class-ubac-booking-public.php:92
 msgid "Your appointment has been cancelled. A confirmation email will be sent to you."
 msgstr ""
 
@@ -579,7 +591,7 @@ msgstr ""
 msgid "Your appointment has been rescheduled"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:92
+#: public/class-ubac-booking-public.php:93
 msgid "Your appointment has been rescheduled. A confirmation email will be sent to you."
 msgstr ""
 
@@ -591,7 +603,7 @@ msgstr ""
 msgid "Your appointment is confirmed ✅"
 msgstr ""
 
-#: public/class-ubac-booking-public.php:88
+#: public/class-ubac-booking-public.php:89
 msgid "Your appointment is confirmed! A confirmation email has been sent to you."
 msgstr ""
 
@@ -604,11 +616,11 @@ msgid "Your current appointment"
 msgstr ""
 
 #. translators: %s: link to Settings page */
-#: admin/views/page-availability.php:33
+#: admin/views/page-availability.php:35
 msgid "Your default open days and times are configured on the %s page."
 msgstr ""
 
-#: public/class-ubac-booking-public.php:77 public/views/booking-widget.php:103
+#: public/class-ubac-booking-public.php:78 public/views/booking-widget.php:103
 msgid "Your details"
 msgstr ""
 
@@ -620,7 +632,7 @@ msgstr ""
 msgid "Your name*"
 msgstr ""
 
-#: admin/views/page-availability.php:28
+#: admin/views/page-availability.php:30
 msgid "Your regular schedule"
 msgstr ""
 
@@ -628,23 +640,23 @@ msgstr ""
 msgid "contact page"
 msgstr ""
 
-#: admin/views/page-availability.php:75
+#: admin/views/page-availability.php:77
 msgid "e.g. Personal appointment"
 msgstr ""
 
-#: admin/views/page-settings.php:27
+#: admin/views/page-settings.php:28
 msgid "in any page or text widget."
 msgstr ""
 
-#: admin/views/page-settings.php:31
+#: admin/views/page-settings.php:32
 msgid "in the page editor, add a block and search for"
 msgstr ""
 
-#: ubac-booking.php:89
+#: dahuconcept-booking.php:89
 msgid "of"
 msgstr ""
 
-#: admin/views/page-settings.php:27
+#: admin/views/page-settings.php:28
 msgid "paste"
 msgstr ""
 

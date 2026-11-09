@@ -61,6 +61,13 @@ function ubac_booking_uninstall_site() {
 		'ubac_welcome_seen_ubac-booking',
 		'ubac_welcome_pending_ubac-booking',
 		'ubac_welcome_tour_ubac-booking',
+		// Les memes clefs sous l ancien slug : la clef est construite au
+		// runtime a partir du slug, donc elle a change avec lui. Une mise a
+		// jour depuis la version Ubac laisserait sinon trois lignes
+		// orphelines que plus rien ne nomme.
+		'ubac_welcome_seen_dahuconcept-booking',
+		'ubac_welcome_pending_dahuconcept-booking',
+		'ubac_welcome_tour_dahuconcept-booking',
 	);
 
 	// Read before the loop below deletes it along with the rest of the options.

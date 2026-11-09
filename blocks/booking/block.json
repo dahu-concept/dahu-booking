@@ -1,7 +1,7 @@
 {
     "apiVersion": 3,
     "name": "ubac-booking/widget",
-    "title": "Ubac Booking",
+    "title": "DahuConcept Booking",
     "category": "widgets",
     "icon": "calendar-alt",
     "description": "Affiche le widget de réservation de créneaux (calendrier + heures + formulaire). Équivalent au shortcode [ubac_booking].",
